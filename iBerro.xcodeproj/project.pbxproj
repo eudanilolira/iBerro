@@ -8,12 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		0CCF1225268DE426001175DB /* iBerroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1224268DE426001175DB /* iBerroApp.swift */; };
-		0CCF1227268DE426001175DB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1226268DE426001175DB /* ContentView.swift */; };
 		0CCF1229268DE428001175DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF1228268DE428001175DB /* Assets.xcassets */; };
 		0CCF122C268DE428001175DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF122B268DE428001175DB /* Preview Assets.xcassets */; };
 		0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1236268DE429001175DB /* iBerroTests.swift */; };
 		0CCF1242268DE429001175DB /* iBerroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1241268DE429001175DB /* iBerroUITests.swift */; };
 		0CCF1253268DE510001175DB /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1252268DE510001175DB /* Menu.swift */; };
+		0CCF1256268DE7AA001175DB /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCF1255268DE7AA001175DB /* GameKit.framework */; };
+		0CCF1258268DEB8D001175DB /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1257268DEB8D001175DB /* GameCenterHelper.swift */; };
+		0CCF1259268DEB8D001175DB /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1257268DEB8D001175DB /* GameCenterHelper.swift */; };
+		0CCF125B268DEED5001175DB /* GameCenterLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF125A268DEED5001175DB /* GameCenterLoginView.swift */; };
+		0CCF125C268DEED5001175DB /* GameCenterLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF125A268DEED5001175DB /* GameCenterLoginView.swift */; };
+		0CCF125D268DEED5001175DB /* GameCenterLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF125A268DEED5001175DB /* GameCenterLoginView.swift */; };
+		0CCF1260268DF45E001175DB /* GameCenterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF125F268DF45E001175DB /* GameCenterLoginViewController.swift */; };
+		0CCF1261268DF45E001175DB /* GameCenterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF125F268DF45E001175DB /* GameCenterLoginViewController.swift */; };
+		0CCF1262268DF45E001175DB /* GameCenterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF125F268DF45E001175DB /* GameCenterLoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +44,6 @@
 /* Begin PBXFileReference section */
 		0CCF1221268DE426001175DB /* iBerro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBerro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CCF1224268DE426001175DB /* iBerroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBerroApp.swift; sourceTree = "<group>"; };
-		0CCF1226268DE426001175DB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0CCF1228268DE428001175DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CCF122B268DE428001175DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0CCF122D268DE428001175DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +54,10 @@
 		0CCF1241268DE429001175DB /* iBerroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBerroUITests.swift; sourceTree = "<group>"; };
 		0CCF1243268DE429001175DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CCF1252268DE510001175DB /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		0CCF1255268DE7AA001175DB /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		0CCF1257268DEB8D001175DB /* GameCenterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
+		0CCF125A268DEED5001175DB /* GameCenterLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterLoginView.swift; sourceTree = "<group>"; };
+		0CCF125F268DF45E001175DB /* GameCenterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterLoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CCF1256268DE7AA001175DB /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +93,7 @@
 				0CCF1235268DE429001175DB /* iBerroTests */,
 				0CCF1240268DE429001175DB /* iBerroUITests */,
 				0CCF1222268DE426001175DB /* Products */,
+				0CCF1254268DE7AA001175DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,11 +110,11 @@
 		0CCF1223268DE426001175DB /* iBerro */ = {
 			isa = PBXGroup;
 			children = (
+				0CCF125E268DF2D0001175DB /* Helpers */,
 				0CCF124F268DE497001175DB /* Models */,
 				0CCF1250268DE4A3001175DB /* Views */,
 				0CCF1251268DE4B1001175DB /* ViewModels */,
 				0CCF1224268DE426001175DB /* iBerroApp.swift */,
-				0CCF1226268DE426001175DB /* ContentView.swift */,
 				0CCF1228268DE428001175DB /* Assets.xcassets */,
 				0CCF122D268DE428001175DB /* Info.plist */,
 				0CCF122A268DE428001175DB /* Preview Content */,
@@ -146,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				0CCF1252268DE510001175DB /* Menu.swift */,
+				0CCF125A268DEED5001175DB /* GameCenterLoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -155,6 +169,23 @@
 			children = (
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0CCF1254268DE7AA001175DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CCF1255268DE7AA001175DB /* GameKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0CCF125E268DF2D0001175DB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0CCF1257268DEB8D001175DB /* GameCenterHelper.swift */,
+				0CCF125F268DF45E001175DB /* GameCenterLoginViewController.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,9 +317,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CCF1258268DEB8D001175DB /* GameCenterHelper.swift in Sources */,
+				0CCF125B268DEED5001175DB /* GameCenterLoginView.swift in Sources */,
 				0CCF1253268DE510001175DB /* Menu.swift in Sources */,
-				0CCF1227268DE426001175DB /* ContentView.swift in Sources */,
 				0CCF1225268DE426001175DB /* iBerroApp.swift in Sources */,
+				0CCF1260268DF45E001175DB /* GameCenterLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +329,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CCF125C268DEED5001175DB /* GameCenterLoginView.swift in Sources */,
+				0CCF1261268DF45E001175DB /* GameCenterLoginViewController.swift in Sources */,
+				0CCF1259268DEB8D001175DB /* GameCenterHelper.swift in Sources */,
 				0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,7 +340,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CCF1262268DF45E001175DB /* GameCenterLoginViewController.swift in Sources */,
 				0CCF1242268DE429001175DB /* iBerroUITests.swift in Sources */,
+				0CCF125D268DEED5001175DB /* GameCenterLoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

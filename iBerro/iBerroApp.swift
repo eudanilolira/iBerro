@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import GameKit
 
 @main
 struct iBerroApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GameCenterLogin()
         }
     }
 }

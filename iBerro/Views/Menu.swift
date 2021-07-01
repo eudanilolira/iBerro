@@ -6,10 +6,21 @@
 //
 
 import SwiftUI
+import GameKit
 
 struct Menu: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hello, world!")
+            .padding()
+        
+        Button(action: {
+            print(GKLocalPlayer.local.displayName)
+        }, label: {
+            Text("Estou autenticado?")
+            
+        })
+        
+        
     }
 }
 

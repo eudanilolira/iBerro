@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C6BDF1E26932C6C00FEE1F8 /* GameCenterMatchmakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BDF1D26932C6C00FEE1F8 /* GameCenterMatchmakerViewController.swift */; };
+		0C6BDF1F26932C6C00FEE1F8 /* GameCenterMatchmakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BDF1D26932C6C00FEE1F8 /* GameCenterMatchmakerViewController.swift */; };
+		0C6BDF2126932D5900FEE1F8 /* GameCenterMatchmakerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BDF2026932D5900FEE1F8 /* GameCenterMatchmakerHelper.swift */; };
+		0C6BDF2226932D5900FEE1F8 /* GameCenterMatchmakerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BDF2026932D5900FEE1F8 /* GameCenterMatchmakerHelper.swift */; };
+		0C6BDF24269332CD00FEE1F8 /* GameCenterMatchmakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BDF23269332CD00FEE1F8 /* GameCenterMatchmakerView.swift */; };
+		0C6BDF25269332CD00FEE1F8 /* GameCenterMatchmakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BDF23269332CD00FEE1F8 /* GameCenterMatchmakerView.swift */; };
 		0CCF1225268DE426001175DB /* iBerroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1224268DE426001175DB /* iBerroApp.swift */; };
 		0CCF1229268DE428001175DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF1228268DE428001175DB /* Assets.xcassets */; };
 		0CCF122C268DE428001175DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF122B268DE428001175DB /* Preview Assets.xcassets */; };
@@ -42,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C6BDF1D26932C6C00FEE1F8 /* GameCenterMatchmakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterMatchmakerViewController.swift; sourceTree = "<group>"; };
+		0C6BDF2026932D5900FEE1F8 /* GameCenterMatchmakerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterMatchmakerHelper.swift; sourceTree = "<group>"; };
+		0C6BDF23269332CD00FEE1F8 /* GameCenterMatchmakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterMatchmakerView.swift; sourceTree = "<group>"; };
 		0CCF1221268DE426001175DB /* iBerro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBerro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CCF1224268DE426001175DB /* iBerroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBerroApp.swift; sourceTree = "<group>"; };
 		0CCF1228268DE428001175DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,6 +169,7 @@
 			children = (
 				0CCF1252268DE510001175DB /* Menu.swift */,
 				0CCF125A268DEED5001175DB /* GameCenterLoginView.swift */,
+				0C6BDF23269332CD00FEE1F8 /* GameCenterMatchmakerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,6 +194,8 @@
 			children = (
 				0CCF1257268DEB8D001175DB /* GameCenterHelper.swift */,
 				0CCF125F268DF45E001175DB /* GameCenterLoginViewController.swift */,
+				0C6BDF1D26932C6C00FEE1F8 /* GameCenterMatchmakerViewController.swift */,
+				0C6BDF2026932D5900FEE1F8 /* GameCenterMatchmakerHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -319,6 +331,9 @@
 			files = (
 				0CCF1258268DEB8D001175DB /* GameCenterHelper.swift in Sources */,
 				0CCF125B268DEED5001175DB /* GameCenterLoginView.swift in Sources */,
+				0C6BDF1E26932C6C00FEE1F8 /* GameCenterMatchmakerViewController.swift in Sources */,
+				0C6BDF2126932D5900FEE1F8 /* GameCenterMatchmakerHelper.swift in Sources */,
+				0C6BDF24269332CD00FEE1F8 /* GameCenterMatchmakerView.swift in Sources */,
 				0CCF1253268DE510001175DB /* Menu.swift in Sources */,
 				0CCF1225268DE426001175DB /* iBerroApp.swift in Sources */,
 				0CCF1260268DF45E001175DB /* GameCenterLoginViewController.swift in Sources */,
@@ -329,7 +344,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C6BDF25269332CD00FEE1F8 /* GameCenterMatchmakerView.swift in Sources */,
 				0CCF125C268DEED5001175DB /* GameCenterLoginView.swift in Sources */,
+				0C6BDF1F26932C6C00FEE1F8 /* GameCenterMatchmakerViewController.swift in Sources */,
+				0C6BDF2226932D5900FEE1F8 /* GameCenterMatchmakerHelper.swift in Sources */,
 				0CCF1261268DF45E001175DB /* GameCenterLoginViewController.swift in Sources */,
 				0CCF1259268DEB8D001175DB /* GameCenterHelper.swift in Sources */,
 				0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */,

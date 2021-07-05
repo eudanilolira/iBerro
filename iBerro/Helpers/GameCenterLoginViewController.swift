@@ -9,7 +9,7 @@ import GameKit
 import UIKit
 import SwiftUI
 
-class GameCenterLoginViewController: UIViewController, GameCenterHelperDelegate  {
+class GameCenterLoginViewController: UIViewController, GameCenterHelperDelegate {
     private var gameCenterHelper = GameCenterHelper.shared
     private var menu = UIHostingController(rootView: Menu())
     

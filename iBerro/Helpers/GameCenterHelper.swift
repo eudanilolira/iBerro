@@ -17,6 +17,7 @@ final class GameCenterHelper: NSObject, GKLocalPlayerListener {
     
     static let shared = GameCenterHelper()
     weak var delegate: GameCenterHelperDelegate?
+    private var currentVC: GKMatchmakerViewController?
     
     var isAuthenticated: Bool {
         return GKLocalPlayer.local.isAuthenticated

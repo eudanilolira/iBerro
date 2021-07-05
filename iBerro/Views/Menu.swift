@@ -9,17 +9,17 @@ import SwiftUI
 import GameKit
 
 struct Menu: View {
+    
+    @State var showRoom: Bool = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-        
-        Button(action: {
-            print(GKLocalPlayer.local.displayName)
-        }, label: {
-            Text("Estou autenticado?")
+        ZStack {
+            Button(action: {self.showRoom.toggle()}, label: { Text("Create Room")})
             
-        })
-        
+            if (showRoom) {
+                GameCenterMatchmakerView(showRoom: self.$showRoom)
+            }
+        }
         
     }
 }

@@ -15,7 +15,6 @@ struct GameCenterLogin: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: GameCenterLoginViewController, context: UIViewControllerRepresentableContext<GameCenterLogin>) {
-        print("Update")
     }
 }
 

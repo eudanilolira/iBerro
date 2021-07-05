@@ -14,7 +14,7 @@ struct Menu: View {
     
     var body: some View {
         ZStack {
-            Button(action: {self.showRoom.toggle()}, label: { Text("Create Room")})
+            Button(action: {self.showRoom.toggle()}, label: { Text("Create Room".localized())})
             
             if (showRoom) {
                 GameCenterMatchmakerView(showRoom: self.$showRoom)

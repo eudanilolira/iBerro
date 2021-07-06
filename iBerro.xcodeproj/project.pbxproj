@@ -28,7 +28,7 @@
 		0CCF1260268DF45E001175DB /* GameCenterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF125F268DF45E001175DB /* GameCenterLoginViewController.swift */; };
 		0CCF1261268DF45E001175DB /* GameCenterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF125F268DF45E001175DB /* GameCenterLoginViewController.swift */; };
 		0CCF1262268DF45E001175DB /* GameCenterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF125F268DF45E001175DB /* GameCenterLoginViewController.swift */; };
-		AC8B5ED0269345EB0067CD6C /* LocalizedFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8B5ECF269345EB0067CD6C /* LocalizedFunc.swift */; };
+		AC8B5ED0269345EB0067CD6C /* String + localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8B5ECF269345EB0067CD6C /* String + localized.swift */; };
 		AC8B5ED5269347100067CD6C /* LanguageStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC8B5ED7269347100067CD6C /* LanguageStrings.strings */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +69,7 @@
 		0CCF1257268DEB8D001175DB /* GameCenterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
 		0CCF125A268DEED5001175DB /* GameCenterLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterLoginView.swift; sourceTree = "<group>"; };
 		0CCF125F268DF45E001175DB /* GameCenterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterLoginViewController.swift; sourceTree = "<group>"; };
-		AC8B5ECF269345EB0067CD6C /* LocalizedFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedFunc.swift; sourceTree = "<group>"; };
+		AC8B5ECF269345EB0067CD6C /* String + localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + localized.swift"; sourceTree = "<group>"; };
 		AC8B5ED6269347100067CD6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LanguageStrings.strings; sourceTree = "<group>"; };
 		AC8B5ED8269347150067CD6C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LanguageStrings.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -200,7 +200,7 @@
 			children = (
 				0CCF1257268DEB8D001175DB /* GameCenterHelper.swift */,
 				0CCF125F268DF45E001175DB /* GameCenterLoginViewController.swift */,
-				AC8B5ECF269345EB0067CD6C /* LocalizedFunc.swift */,
+				AC8B5ECF269345EB0067CD6C /* String + localized.swift */,
 				0C6BDF1D26932C6C00FEE1F8 /* GameCenterMatchmakerViewController.swift */,
 				0C6BDF2026932D5900FEE1F8 /* GameCenterMatchmakerHelper.swift */,
 			);
@@ -347,7 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CCF1258268DEB8D001175DB /* GameCenterHelper.swift in Sources */,
-				AC8B5ED0269345EB0067CD6C /* LocalizedFunc.swift in Sources */,
+				AC8B5ED0269345EB0067CD6C /* String + localized.swift in Sources */,
 				0CCF125B268DEED5001175DB /* GameCenterLoginView.swift in Sources */,
 				0C6BDF1E26932C6C00FEE1F8 /* GameCenterMatchmakerViewController.swift in Sources */,
 				0C6BDF2126932D5900FEE1F8 /* GameCenterMatchmakerHelper.swift in Sources */,

@@ -1,17 +1,24 @@
 //
 //  ContentView.swift
-//  iBerro
+//  iBerroApp
 //
-//  Created by Danilo Araújo on 01/07/21.
+//  Created by Danilo Araújo on 08/07/21.
 //
 
 import SwiftUI
+import GameKit
 
 struct ContentView: View {
+    var gameCenterDelegate: SceneDelegate?
+    
     var body: some View {
         Text("Hello, world!")
             .padding()
+        
+        Button(action: { gameCenterDelegate!.criarPartida()} , label: {Text("Teste")})
+
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

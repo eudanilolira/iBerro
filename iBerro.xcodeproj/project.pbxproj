@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C25B0B6269864EF0003F768 /* SoundVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C25B0B5269864EF0003F768 /* SoundVisualizer.swift */; };
+		0C25B0B7269864EF0003F768 /* SoundVisualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C25B0B5269864EF0003F768 /* SoundVisualizer.swift */; };
+		0C25B0B9269864F60003F768 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C25B0B8269864F60003F768 /* BarView.swift */; };
+		0C25B0BA269864F60003F768 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C25B0B8269864F60003F768 /* BarView.swift */; };
+		0C25B0BC269865070003F768 /* MicrophoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C25B0BB269865070003F768 /* MicrophoneMonitor.swift */; };
+		0C25B0BD269865070003F768 /* MicrophoneMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C25B0BB269865070003F768 /* MicrophoneMonitor.swift */; };
+		0C25B0BF269867720003F768 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C25B0BE269867720003F768 /* Player.swift */; };
+		0C25B0C0269867720003F768 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C25B0BE269867720003F768 /* Player.swift */; };
+		0C25B0C6269871560003F768 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C25B0C5269871560003F768 /* Room.swift */; };
+		0C25B0C7269871560003F768 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C25B0C5269871560003F768 /* Room.swift */; };
 		0C6668632697B7F600254BC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6668612697B7F600254BC5 /* SceneDelegate.swift */; };
 		0C6668642697B7F600254BC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6668612697B7F600254BC5 /* SceneDelegate.swift */; };
 		0C6668652697B7F600254BC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6668622697B7F600254BC5 /* AppDelegate.swift */; };
@@ -26,7 +36,6 @@
 		0C66687C2697B8E100254BC5 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66687B2697B8E100254BC5 /* GameViewController.swift */; };
 		0C66687D2697B8E100254BC5 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66687B2697B8E100254BC5 /* GameViewController.swift */; };
 		0C6668802697B95800254BC5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C66687E2697B95800254BC5 /* Info.plist */; };
-		0CCF1225268DE426001175DB /* iBerroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1224268DE426001175DB /* iBerroApp.swift */; };
 		0CCF1229268DE428001175DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF1228268DE428001175DB /* Assets.xcassets */; };
 		0CCF122C268DE428001175DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF122B268DE428001175DB /* Preview Assets.xcassets */; };
 		0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1236268DE429001175DB /* iBerroTests.swift */; };
@@ -51,6 +60,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C25B0B5269864EF0003F768 /* SoundVisualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundVisualizer.swift; sourceTree = "<group>"; };
+		0C25B0B8269864F60003F768 /* BarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		0C25B0BB269865070003F768 /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
+		0C25B0BE269867720003F768 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		0C25B0C5269871560003F768 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		0C6668612697B7F600254BC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0C6668622697B7F600254BC5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C6668672697B81A00254BC5 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -62,7 +76,6 @@
 		0C66687B2697B8E100254BC5 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		0C66687E2697B95800254BC5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CCF1221268DE426001175DB /* iBerro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBerro.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CCF1224268DE426001175DB /* iBerroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBerroApp.swift; sourceTree = "<group>"; };
 		0CCF1228268DE428001175DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CCF122B268DE428001175DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0CCF1232268DE429001175DB /* iBerroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iBerroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +114,10 @@
 		0C66686D2697B82000254BC5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0C25B0BB269865070003F768 /* MicrophoneMonitor.swift */,
 				0C66686E2697B82700254BC5 /* GameModel.swift */,
+				0C25B0BE269867720003F768 /* Player.swift */,
+				0C25B0C5269871560003F768 /* Room.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,7 +156,6 @@
 				0C6668712697B82C00254BC5 /* ViewModels */,
 				0C66686D2697B82000254BC5 /* Models */,
 				0CCF1250268DE4A3001175DB /* Views */,
-				0CCF1224268DE426001175DB /* iBerroApp.swift */,
 				0C6668752697B84000254BC5 /* LaunchScreen.storyboard */,
 				0CCF1228268DE428001175DB /* Assets.xcassets */,
 				0C6668622697B7F600254BC5 /* AppDelegate.swift */,
@@ -183,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				0C6668682697B81A00254BC5 /* ContentView.swift */,
+				0C25B0B8269864F60003F768 /* BarView.swift */,
+				0C25B0B5269864EF0003F768 /* SoundVisualizer.swift */,
 				0C6668672697B81A00254BC5 /* GameView.swift */,
 			);
 			path = Views;
@@ -320,11 +337,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CCF1225268DE426001175DB /* iBerroApp.swift in Sources */,
+				0C25B0B9269864F60003F768 /* BarView.swift in Sources */,
+				0C25B0BC269865070003F768 /* MicrophoneMonitor.swift in Sources */,
 				0C66686B2697B81A00254BC5 /* ContentView.swift in Sources */,
 				0C6668652697B7F600254BC5 /* AppDelegate.swift in Sources */,
+				0C25B0BF269867720003F768 /* Player.swift in Sources */,
 				0C6668732697B82C00254BC5 /* GameViewModel.swift in Sources */,
+				0C25B0C6269871560003F768 /* Room.swift in Sources */,
 				0C66687C2697B8E100254BC5 /* GameViewController.swift in Sources */,
+				0C25B0B6269864EF0003F768 /* SoundVisualizer.swift in Sources */,
 				0C6668792697B8DD00254BC5 /* GameCenterHelper.swift in Sources */,
 				0C6668632697B7F600254BC5 /* SceneDelegate.swift in Sources */,
 				0C66686F2697B82700254BC5 /* GameModel.swift in Sources */,
@@ -337,10 +358,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C6668662697B7F600254BC5 /* AppDelegate.swift in Sources */,
+				0C25B0BA269864F60003F768 /* BarView.swift in Sources */,
+				0C25B0C7269871560003F768 /* Room.swift in Sources */,
+				0C25B0BD269865070003F768 /* MicrophoneMonitor.swift in Sources */,
 				0C66686C2697B81A00254BC5 /* ContentView.swift in Sources */,
 				0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */,
+				0C25B0C0269867720003F768 /* Player.swift in Sources */,
 				0C66686A2697B81A00254BC5 /* GameView.swift in Sources */,
 				0C66687D2697B8E100254BC5 /* GameViewController.swift in Sources */,
+				0C25B0B7269864EF0003F768 /* SoundVisualizer.swift in Sources */,
 				0C66687A2697B8DD00254BC5 /* GameCenterHelper.swift in Sources */,
 				0C6668642697B7F600254BC5 /* SceneDelegate.swift in Sources */,
 				0C6668702697B82700254BC5 /* GameModel.swift in Sources */,
@@ -494,6 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iBerro/Preview Content\"";
 				DEVELOPMENT_TEAM = KBDYNQ5FQB;
 				ENABLE_PREVIEWS = YES;
@@ -503,6 +530,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.academy.iBerro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -516,6 +544,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iBerro/Preview Content\"";
 				DEVELOPMENT_TEAM = KBDYNQ5FQB;
 				ENABLE_PREVIEWS = YES;
@@ -525,6 +554,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.academy.iBerro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

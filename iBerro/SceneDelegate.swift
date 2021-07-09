@@ -11,7 +11,7 @@ import GameKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate, GameCenterHelperDelegate {
     func didChangeAuthStatus(isAuthenticated: Bool) {
-        print("f")
+        print("Estou logado!")
     }
     
     func presentGameCenterAuth(viewController: UIViewController?) {
@@ -25,7 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, GameCenterHelperDelegat
     }
     
     func presentGame(match: GKMatch) {
-        print("CHEGUEI NO PRESENT GAME")
         let viewController = GameViewController()
         viewController.modalPresentationStyle = .fullScreen
         viewController.match = match

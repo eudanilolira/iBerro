@@ -10,7 +10,16 @@ import UIKit
 import GameKit
 
 struct GameModel: Codable {
-    var time: Int = 0
+    var players: [Player] = []
+    var room: Room
+    
+    func highScore() -> Int {
+        players.max()?.score ?? 0
+    }
+    
+    func ranking() -> [Player] {
+        players.sorted(by: >)
+    }
 }
 
 extension GameModel {

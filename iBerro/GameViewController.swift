@@ -14,22 +14,43 @@ class GameViewController: UIViewController, GKMatchDelegate {
     var match: GKMatch?
     var gameView: UIHostingController<GameView>?
     var button = UIButton()
-    var model = GameViewModel()
+    var model: GameViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.match?.delegate = self
         self.view.addSubview(button)
+        self.setupGameView()
         
-        let gameUIView = GameView(matchDelegate: self, game: model)
+        guard let players = setupPlayers() else { return } //LIDAR COM ERRO DE PARTIDA
+        let room = Room(maxScore: 120) //PERMITIR ESCOLHA DE MAXSCORE
+        model = GameViewModel(players: players, room: room)
+    
+        
+        self.setupGameView()
+    }
+    
+    private func setupPlayers() -> [Player]?{
+        guard let gCPlayers = self.match?.players else { return nil }
+        var players: [Player] = []
+        
+        for gCPlayer in gCPlayers {
+            let player = Player(displayName: gCPlayer.displayName, isHost: false)
+            players.append(player)
+        }
+        
+        return players
+    }
+    
+    private func setupGameView() {
+        guard let gameModel = model else {return }
+        
+        let gameUIView = GameView(matchDelegate: self, game: gameModel)
         gameView = UIHostingController(rootView: gameUIView)
         
         self.addChild(gameView!)
         self.view.addSubview(gameView!.view)
-        self.setupConstraints()
-    }
-    
-    func setupConstraints() {
+        
         if let gameUIHosting = gameView {
             gameUIHosting.view.translatesAutoresizingMaskIntoConstraints = false
             gameUIHosting.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -41,11 +62,10 @@ class GameViewController: UIViewController, GKMatchDelegate {
     }
     
     @objc func sendData() {
-        self.model.model.time += 1
         guard let match = match else { return }
-        
+
         do {
-            guard let data = self.model.model.encode() else { return }
+            guard let data = self.model!.model.encode() else { return }
             try match.sendData(toAllPlayers: data, with: .reliable)
         } catch {
             print("Send data failed")
@@ -54,6 +74,6 @@ class GameViewController: UIViewController, GKMatchDelegate {
     
     func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
         guard let model = GameModel.decode(data: data) else { return }
-        self.model.model = model
+        self.model!.model = model
     }
 }

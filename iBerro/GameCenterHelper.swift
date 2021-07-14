@@ -18,8 +18,8 @@ final class GameCenterHelper: NSObject, GKLocalPlayerListener {
     weak var delegate: GameCenterHelperDelegate?
     
     private let minPlayers: Int = 2
-    private let maxPlayers: Int = 2
-    private let inviteMessage = "Write your default invite message!"
+    private let maxPlayers: Int = 5
+    private let inviteMessage = "Vamo dale!"
     
     private var currentVC: GKMatchmakerViewController?
     
@@ -52,7 +52,6 @@ final class GameCenterHelper: NSObject, GKLocalPlayerListener {
     }
     
     private func createMatchmaker(withInvite invite: GKInvite? = nil) -> GKMatchmakerViewController? {
-        
         if let invite = invite {
             return GKMatchmakerViewController(invite: invite)
         }
@@ -65,7 +64,6 @@ final class GameCenterHelper: NSObject, GKLocalPlayerListener {
         request.minPlayers = minPlayers
         request.maxPlayers = maxPlayers
         request.inviteMessage = inviteMessage
-        
         return request
     }
 }
@@ -74,7 +72,9 @@ final class GameCenterHelper: NSObject, GKLocalPlayerListener {
 extension GameCenterHelper: GKMatchmakerViewControllerDelegate {
     func matchmakerViewController(_ viewController: GKMatchmakerViewController, didFind match: GKMatch) {
         viewController.dismiss(animated: true)
-        print(match.players)
+        
+        
+        
         delegate?.presentGame(match: match)
     }
     

@@ -67,7 +67,7 @@ struct MenuView: View {
                             .resizable()
                         
                         
-                        Text("Create Room")
+                        Text("Create Room".localized())
                             .font(.title)
                             .foregroundColor(.white)
                             .padding(.bottom, 25)

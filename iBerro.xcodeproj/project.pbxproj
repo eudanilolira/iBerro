@@ -45,6 +45,8 @@
 		0C96EC0F269F21400030269C /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C96EC0E269F21400030269C /* LobbyViewController.swift */; };
 		0C96EC10269F21400030269C /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C96EC0E269F21400030269C /* LobbyViewController.swift */; };
 		0C96EC11269F21400030269C /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C96EC0E269F21400030269C /* LobbyViewController.swift */; };
+		0C96EC14269F32530030269C /* String + localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C96EC13269F32530030269C /* String + localized.swift */; };
+		0C96EC19269F32C80030269C /* LanguageStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C96EC16269F32C80030269C /* LanguageStrings.strings */; };
 		0CCF1229268DE428001175DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF1228268DE428001175DB /* Assets.xcassets */; };
 		0CCF122C268DE428001175DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF122B268DE428001175DB /* Preview Assets.xcassets */; };
 		0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1236268DE429001175DB /* iBerroTests.swift */; };
@@ -87,6 +89,9 @@
 		0C96EC06269F09E20030269C /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		0C96EC0A269F16D00030269C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		0C96EC0E269F21400030269C /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
+		0C96EC13269F32530030269C /* String + localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + localized.swift"; sourceTree = "<group>"; };
+		0C96EC17269F32C80030269C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LanguageStrings.strings; sourceTree = "<group>"; };
+		0C96EC18269F32C80030269C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LanguageStrings.strings"; sourceTree = "<group>"; };
 		0CCF1221268DE426001175DB /* iBerro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBerro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CCF1228268DE428001175DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CCF122B268DE428001175DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -142,6 +147,22 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		0C96EC12269F324C0030269C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0C96EC13269F32530030269C /* String + localized.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0C96EC15269F32C80030269C /* LanguageStrings */ = {
+			isa = PBXGroup;
+			children = (
+				0C96EC16269F32C80030269C /* LanguageStrings.strings */,
+			);
+			path = LanguageStrings;
+			sourceTree = "<group>";
+		};
 		0CCF1218268DE426001175DB = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +186,7 @@
 		0CCF1223268DE426001175DB /* iBerro */ = {
 			isa = PBXGroup;
 			children = (
+				0C96EC12269F324C0030269C /* Extensions */,
 				0C6668712697B82C00254BC5 /* ViewModels */,
 				0C66686D2697B82000254BC5 /* Models */,
 				0CCF1250268DE4A3001175DB /* Views */,
@@ -174,6 +196,7 @@
 				0C6668782697B8DD00254BC5 /* GameCenterHelper.swift */,
 				0C66687B2697B8E100254BC5 /* GameViewController.swift */,
 				0C6668612697B7F600254BC5 /* SceneDelegate.swift */,
+				0C96EC15269F32C80030269C /* LanguageStrings */,
 				0C66687E2697B95800254BC5 /* Info.plist */,
 				0CCF122A268DE428001175DB /* Preview Content */,
 				0C96EC0E269F21400030269C /* LobbyViewController.swift */,
@@ -305,6 +328,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 0CCF1218268DE426001175DB;
 			productRefGroup = 0CCF1222268DE426001175DB /* Products */;
@@ -324,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C6668762697B84000254BC5 /* LaunchScreen.storyboard in Resources */,
+				0C96EC19269F32C80030269C /* LanguageStrings.strings in Resources */,
 				0CCF122C268DE428001175DB /* Preview Assets.xcassets in Resources */,
 				0CCF1229268DE428001175DB /* Assets.xcassets in Resources */,
 			);
@@ -357,6 +382,7 @@
 				0C66686B2697B81A00254BC5 /* ContentView.swift in Sources */,
 				0C6668652697B7F600254BC5 /* AppDelegate.swift in Sources */,
 				0C25B0BF269867720003F768 /* Player.swift in Sources */,
+				0C96EC14269F32530030269C /* String + localized.swift in Sources */,
 				0C6668732697B82C00254BC5 /* GameViewModel.swift in Sources */,
 				0C25B0C6269871560003F768 /* Room.swift in Sources */,
 				0C96EC07269F09E20030269C /* MenuView.swift in Sources */,
@@ -420,6 +446,18 @@
 			targetProxy = 0CCF123E268DE429001175DB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0C96EC16269F32C80030269C /* LanguageStrings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0C96EC17269F32C80030269C /* en */,
+				0C96EC18269F32C80030269C /* pt-BR */,
+			);
+			name = LanguageStrings.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0CCF1244268DE429001175DB /* Debug */ = {

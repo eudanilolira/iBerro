@@ -56,8 +56,12 @@ class GameViewController: UIViewController, GKMatchDelegate {
         var players: [Player] = []
         
         for gCPlayer in gCPlayers {
-            let player = Player(displayName: gCPlayer.displayName, isHost: false)
-            players.append(player)
+            gCPlayer.loadPhoto(for: .normal, withCompletionHandler: { (image, erro) in
+                if let photo = image {
+                    let player = Player(displayName: gCPlayer.displayName, isHost: false, photo: ImageWrapper(photo: photo))
+                    players.append(player)
+                }
+            })
         }
         
         return players

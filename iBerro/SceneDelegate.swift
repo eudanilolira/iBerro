@@ -12,6 +12,21 @@ import GameKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate, GameCenterHelperDelegate {
     func didChangeAuthStatus(isAuthenticated: Bool) {
         print("Estou logado!")
+        let localPlayer = GKLocalPlayer.local
+        
+        localPlayer.loadPhoto(for: .normal, withCompletionHandler: { (image, error) in
+            if let photo = image {
+                let player = Player(
+                    displayName: localPlayer.displayName,
+                    isHost: false,
+                    photo: ImageWrapper(photo: photo)
+                )
+                var contentView = MenuView(player: player)
+                contentView.gameCenterDelegate = self
+                self.window!.rootViewController = UIHostingController(rootView: contentView)
+            }
+        })
+
     }
     
     func presentGameCenterAuth(viewController: UIViewController?) {
@@ -45,8 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, GameCenterHelperDelegat
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        var contentView = ContentView()
-        contentView.gameCenterDelegate = self
+        let contentView = LoadingView()
         
         gameCenterHelper = GameCenterHelper()
         gameCenterHelper.delegate = self

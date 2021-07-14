@@ -36,6 +36,15 @@
 		0C66687C2697B8E100254BC5 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66687B2697B8E100254BC5 /* GameViewController.swift */; };
 		0C66687D2697B8E100254BC5 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66687B2697B8E100254BC5 /* GameViewController.swift */; };
 		0C6668802697B95800254BC5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C66687E2697B95800254BC5 /* Info.plist */; };
+		0C96EC07269F09E20030269C /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C96EC06269F09E20030269C /* MenuView.swift */; };
+		0C96EC08269F09E20030269C /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C96EC06269F09E20030269C /* MenuView.swift */; };
+		0C96EC09269F09E20030269C /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C96EC06269F09E20030269C /* MenuView.swift */; };
+		0C96EC0B269F16D00030269C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C96EC0A269F16D00030269C /* LoadingView.swift */; };
+		0C96EC0C269F16D00030269C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C96EC0A269F16D00030269C /* LoadingView.swift */; };
+		0C96EC0D269F16D00030269C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C96EC0A269F16D00030269C /* LoadingView.swift */; };
+		0C96EC0F269F21400030269C /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C96EC0E269F21400030269C /* LobbyViewController.swift */; };
+		0C96EC10269F21400030269C /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C96EC0E269F21400030269C /* LobbyViewController.swift */; };
+		0C96EC11269F21400030269C /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C96EC0E269F21400030269C /* LobbyViewController.swift */; };
 		0CCF1229268DE428001175DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF1228268DE428001175DB /* Assets.xcassets */; };
 		0CCF122C268DE428001175DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF122B268DE428001175DB /* Preview Assets.xcassets */; };
 		0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1236268DE429001175DB /* iBerroTests.swift */; };
@@ -75,6 +84,9 @@
 		0C6668782697B8DD00254BC5 /* GameCenterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
 		0C66687B2697B8E100254BC5 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		0C66687E2697B95800254BC5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C96EC06269F09E20030269C /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		0C96EC0A269F16D00030269C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		0C96EC0E269F21400030269C /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
 		0CCF1221268DE426001175DB /* iBerro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBerro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CCF1228268DE428001175DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CCF122B268DE428001175DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -164,6 +176,7 @@
 				0C6668612697B7F600254BC5 /* SceneDelegate.swift */,
 				0C66687E2697B95800254BC5 /* Info.plist */,
 				0CCF122A268DE428001175DB /* Preview Content */,
+				0C96EC0E269F21400030269C /* LobbyViewController.swift */,
 			);
 			path = iBerro;
 			sourceTree = "<group>";
@@ -201,6 +214,8 @@
 				0C25B0B8269864F60003F768 /* BarView.swift */,
 				0C25B0B5269864EF0003F768 /* SoundVisualizer.swift */,
 				0C6668672697B81A00254BC5 /* GameView.swift */,
+				0C96EC06269F09E20030269C /* MenuView.swift */,
+				0C96EC0A269F16D00030269C /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -344,8 +359,11 @@
 				0C25B0BF269867720003F768 /* Player.swift in Sources */,
 				0C6668732697B82C00254BC5 /* GameViewModel.swift in Sources */,
 				0C25B0C6269871560003F768 /* Room.swift in Sources */,
+				0C96EC07269F09E20030269C /* MenuView.swift in Sources */,
+				0C96EC0B269F16D00030269C /* LoadingView.swift in Sources */,
 				0C66687C2697B8E100254BC5 /* GameViewController.swift in Sources */,
 				0C25B0B6269864EF0003F768 /* SoundVisualizer.swift in Sources */,
+				0C96EC0F269F21400030269C /* LobbyViewController.swift in Sources */,
 				0C6668792697B8DD00254BC5 /* GameCenterHelper.swift in Sources */,
 				0C6668632697B7F600254BC5 /* SceneDelegate.swift in Sources */,
 				0C66686F2697B82700254BC5 /* GameModel.swift in Sources */,
@@ -360,13 +378,16 @@
 				0C6668662697B7F600254BC5 /* AppDelegate.swift in Sources */,
 				0C25B0BA269864F60003F768 /* BarView.swift in Sources */,
 				0C25B0C7269871560003F768 /* Room.swift in Sources */,
+				0C96EC10269F21400030269C /* LobbyViewController.swift in Sources */,
 				0C25B0BD269865070003F768 /* MicrophoneMonitor.swift in Sources */,
 				0C66686C2697B81A00254BC5 /* ContentView.swift in Sources */,
+				0C96EC0C269F16D00030269C /* LoadingView.swift in Sources */,
 				0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */,
 				0C25B0C0269867720003F768 /* Player.swift in Sources */,
 				0C66686A2697B81A00254BC5 /* GameView.swift in Sources */,
 				0C66687D2697B8E100254BC5 /* GameViewController.swift in Sources */,
 				0C25B0B7269864EF0003F768 /* SoundVisualizer.swift in Sources */,
+				0C96EC08269F09E20030269C /* MenuView.swift in Sources */,
 				0C66687A2697B8DD00254BC5 /* GameCenterHelper.swift in Sources */,
 				0C6668642697B7F600254BC5 /* SceneDelegate.swift in Sources */,
 				0C6668702697B82700254BC5 /* GameModel.swift in Sources */,
@@ -379,6 +400,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CCF1242268DE429001175DB /* iBerroUITests.swift in Sources */,
+				0C96EC09269F09E20030269C /* MenuView.swift in Sources */,
+				0C96EC0D269F16D00030269C /* LoadingView.swift in Sources */,
+				0C96EC11269F21400030269C /* LobbyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

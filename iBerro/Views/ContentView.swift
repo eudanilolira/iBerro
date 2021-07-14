@@ -10,13 +10,29 @@ import GameKit
 
 struct ContentView: View {
     var gameCenterDelegate: SceneDelegate?
+    @State var nextScreen: Bool = false
     
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-        
-        Button(action: { gameCenterDelegate!.criarPartida()} , label: {Text("Teste")})
-
+        VStack {
+            Text("Hello, world!")
+                .padding()
+            
+            Button(action: {
+                    gameCenterDelegate!.criarPartida()
+            } ,
+            label: {
+                Text("Teste")
+            })
+            
+            Button(action: {
+                nextScreen.toggle()
+            }, label: {
+                Text("Play Music Now")
+            })
+        }
+        .popover(isPresented: $nextScreen) {
+            MusicPlayer()
+        }
     }
     
 }

@@ -52,7 +52,6 @@ final class GameCenterHelper: NSObject, GKLocalPlayerListener {
     }
     
     private func createMatchmaker(withInvite invite: GKInvite? = nil) -> GKMatchmakerViewController? {
-        
         if let invite = invite {
             return GKMatchmakerViewController(invite: invite)
         }

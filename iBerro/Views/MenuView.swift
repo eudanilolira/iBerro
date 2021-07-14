@@ -15,6 +15,7 @@ struct MenuView: View {
         
         ZStack {
             Image("BgMenu")
+                .resizable()
             
             
             VStack {
@@ -36,7 +37,6 @@ struct MenuView: View {
                 Spacer().frame(minWidth: 50, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: 150, minHeight: 20, idealHeight: 40, maxHeight: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
                 ZStack {
-                    Image("BgNameMenu")
                     
                     Text(player.displayName)
                         .font(.title)
@@ -52,18 +52,25 @@ struct MenuView: View {
                 Button(action: {gameCenterDelegate!.criarPartida()}, label: {
                     ZStack{
                         Image("BgButtonSignIn")
+                            .resizable()
+                        
                         Text("Sign in Room")
                             .font(.title)
                             .foregroundColor(.white)
+                            .padding(.bottom, 25)
                     }
                 })
                 
                 Button(action: {gameCenterDelegate!.criarPartida()}, label: {
-                    ZStack{
+                    ZStack(alignment: .center){
                         Image("BgButtonCreateRoom")
+                            .resizable()
+                        
+                        
                         Text("Create Room")
                             .font(.title)
                             .foregroundColor(.white)
+                            .padding(.bottom, 25)
                     }
                 })
                 

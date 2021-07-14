@@ -83,7 +83,6 @@ class GameViewController: UIViewController, GKMatchDelegate {
             gameUIHosting.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             gameUIHosting.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         }
-
     }
     
     @objc func sendData() {

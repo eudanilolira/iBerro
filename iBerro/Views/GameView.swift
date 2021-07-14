@@ -10,63 +10,47 @@ import GameKit
 
 struct GameView: View {
     var matchDelegate: GameViewController
-    var voiceChat: GKVoiceChat?
     @ObservedObject var game: GameViewModel
-    @State var voiceState: String = ""
+    @State var speaking: GKPlayer?
+    @State var chatState: String?
+    @State var lastConnectedPlayer: GKPlayer?
     
     init(matchDelegate: GameViewController, game: GameViewModel) {
         self.matchDelegate = matchDelegate
         self.game = game
         
-        do {
-            let audioSession = AVAudioSession.sharedInstance()
-            try audioSession.setActive(true, options: [])
-            
-            voiceChat = matchDelegate.match?.voiceChat(withName: "Teste")
-            voiceChat?.volume = 1
-            voiceChat?.start()
-            voiceChat?.isActive = true
-            enterVoiceChat()
-            print("Entrei no Chat")
-        }
-        catch {
-            return
-        }
-    }
-    
-    func enterVoiceChat() {
-        voiceChat?.playerVoiceChatStateDidChangeHandler = { player, state in
+        self.matchDelegate.voiceChat?.playerVoiceChatStateDidChangeHandler = { player, state in
             switch state {
             case GKVoiceChat.PlayerState.connected:
-                voiceState = "Connected"
+                print("TO ENTRANDO")
             case GKVoiceChat.PlayerState.disconnected:
-                voiceState = "DisConnected"
+                print("Desconectei")
             case GKVoiceChat.PlayerState.speaking:
-                voiceState = "Speaking"
+                print("TO ENTRANDO")
             case GKVoiceChat.PlayerState.silent:
-                voiceState = "Silent"
+                print("TO ENTRANDO")
             case GKVoiceChat.PlayerState.connecting:
-                voiceState = "Connecting"
+                print("TO ENTRANDO")
             @unknown default:
-                voiceState = "Default"
+                print("Nadinha")
             }
             return
         }
     }
     
     var body: some View {
-        Text(GKLocalPlayer.local.displayName)
-        Text("Estado do VoiceChat: \(voiceState)")
-        Button(action: {enterVoiceChat()}, label: {Text("Enviar Dados")})
+        Text("Último jogador logado: \(lastConnectedPlayer?.displayName ?? "Nenhum")")
+        Text("Quem está falando: \(speaking?.displayName ?? "Ninguém")")
+        Text("Seu estado atual: \(chatState ?? "Não definido")")
         
-        VStack {
-            ForEach(0..<game.model.players.count, id: \.self) { index in
-                Text("\(game.model.players[index].displayName): \(game.model.players[index].score)")
-                    .bold()
-            }
+        ForEach(self.matchDelegate.match!.players, id: \.self) { player in
+            Button(
+            action: {
+                self.matchDelegate.voiceChat?.setPlayer(player, muted: true)
+            }, label: {
+                Text(player.displayName)
+            })
         }
-        
-//        SoundVisualizer()
     }
 }
 

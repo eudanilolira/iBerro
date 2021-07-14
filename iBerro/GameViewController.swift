@@ -15,6 +15,7 @@ class GameViewController: UIViewController, GKMatchDelegate {
     var gameView: UIHostingController<GameView>?
     var button = UIButton()
     var model: GameViewModel?
+    var voiceChat: GKVoiceChat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +26,29 @@ class GameViewController: UIViewController, GKMatchDelegate {
         guard let players = setupPlayers() else { return } //LIDAR COM ERRO DE PARTIDA
         let room = Room(maxScore: 120) //PERMITIR ESCOLHA DE MAXSCORE
         model = GameViewModel(players: players, room: room)
-    
         
+        
+        do {
+            let audioSession = AVAudioSession.sharedInstance() //I can init it anywhere
+            try audioSession.setActive(true, options: [])
+            self.voiceChat = match?.voiceChat(withName: "Teste")
+            
+            voiceChat?.volume = 1
+            voiceChat?.start()
+            voiceChat?.isActive = true
+            
+            
+            print("Esta ativo: \(voiceChat?.isActive)")
+            
+        } catch {
+            return
+        }
         self.setupGameView()
+    }
+    
+    func match(_ match: GKMatch, shouldReinviteDisconnectedPlayer player: GKPlayer) -> Bool {
+        print("Tentou convidar player desconectado")
+        return true
     }
     
     private func setupPlayers() -> [Player]?{
@@ -73,6 +94,7 @@ class GameViewController: UIViewController, GKMatchDelegate {
     }
     
     func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
+        self.match = match
         guard let model = GameModel.decode(data: data) else { return }
         self.model!.model = model
     }

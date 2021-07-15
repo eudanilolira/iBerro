@@ -13,9 +13,12 @@ struct PlayingView: View {
     //    var matchDelegate: GameViewController
     //    @ObservedObject var game: GameViewModel
     
+    @State private var timeRemaining = 5
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ZStack {
+            
             Image("BgMenu")
                 .resizable()
             VStack{
@@ -58,8 +61,19 @@ struct PlayingView: View {
                 
                 Spacer()
                 
-                SoundVisualizer().frame(width: 250, height: 350, alignment: .center)
+                if timeRemaining > 0{
                 
+                Text("\(timeRemaining)")
+                    .font(.system(size: 70))
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.leading)
+                    .padding()
+                    .frame(width: 250, height: 350, alignment: .center)
+                    
+                } else{
+                    SoundVisualizer().frame(width: 250, height: 350, alignment: .center)
+                }
                 Spacer()
                 
                 Button(action: {print("ligou mic")}, label: {
@@ -105,6 +119,11 @@ struct PlayingView: View {
                 }
             }
         }.ignoresSafeArea()
+        .onReceive(timer) { time in
+            if self.timeRemaining > 0 {
+                self.timeRemaining -= 1
+            }
+        }
     }
 }
 

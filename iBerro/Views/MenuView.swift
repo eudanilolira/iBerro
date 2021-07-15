@@ -17,7 +17,6 @@ struct MenuView: View {
             Image("BgMenu")
                 .resizable()
             
-            
             VStack {
                 
                 Image(uiImage: UIImage(data: player.photo.image) ?? UIImage(named: "Group3")!)
@@ -54,7 +53,7 @@ struct MenuView: View {
                         Image("BgButtonSignIn")
                             .resizable()
                         
-                        Text("Sign in Room")
+                        Text("Enter Room".localized())
                             .font(.title)
                             .foregroundColor(.white)
                             .padding(.bottom, 25)

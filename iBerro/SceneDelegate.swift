@@ -42,7 +42,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, GameCenterHelperDelegat
     func presentGame(match: GKMatch) {
         let viewController = GameViewController()
         viewController.modalPresentationStyle = .fullScreen
-        viewController.match = match
         window!.rootViewController!.present(viewController, animated: true)
     }
     
@@ -62,7 +61,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, GameCenterHelperDelegat
         // Create the SwiftUI view that provides the window contents.
         let contentView = LoadingView()
         
-        gameCenterHelper = GameCenterHelper()
+        gameCenterHelper = GameCenterHelper.helper
         gameCenterHelper.delegate = self
         
         // Use a UIHostingController as window root view controller.

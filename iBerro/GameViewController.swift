@@ -11,7 +11,12 @@ import GameKit
 import SwiftUI
 
 class GameViewController: UIViewController, GKMatchDelegate {
-    var match: GKMatch?
+    var match: GKMatch? {
+        get {
+            GameCenterHelper.helper.match
+        }
+    }
+    
     var gameView: UIHostingController<GameView>?
     var button = UIButton()
     var model: GameViewModel?
@@ -36,9 +41,6 @@ class GameViewController: UIViewController, GKMatchDelegate {
             voiceChat?.volume = 1
             voiceChat?.start()
             voiceChat?.isActive = true
-            
-            
-            print("Esta ativo: \(voiceChat?.isActive)")
             
         } catch {
             return
@@ -85,6 +87,10 @@ class GameViewController: UIViewController, GKMatchDelegate {
         }
     }
     
+    func leaveGame() {
+        self.dismiss(animated: true)
+    }
+    
     @objc func sendData() {
         guard let match = match else { return }
 
@@ -97,7 +103,6 @@ class GameViewController: UIViewController, GKMatchDelegate {
     }
     
     func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
-        self.match = match
         guard let model = GameModel.decode(data: data) else { return }
         self.model!.model = model
     }

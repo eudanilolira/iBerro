@@ -17,6 +17,9 @@
 		0C25B0C0269867720003F768 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C25B0BE269867720003F768 /* Player.swift */; };
 		0C25B0C6269871560003F768 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C25B0C5269871560003F768 /* Room.swift */; };
 		0C25B0C7269871560003F768 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C25B0C5269871560003F768 /* Room.swift */; };
+		0C46040726A06831002F246F /* LobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C46040626A06831002F246F /* LobbyView.swift */; };
+		0C46040826A06831002F246F /* LobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C46040626A06831002F246F /* LobbyView.swift */; };
+		0C46040926A06831002F246F /* LobbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C46040626A06831002F246F /* LobbyView.swift */; };
 		0C6668632697B7F600254BC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6668612697B7F600254BC5 /* SceneDelegate.swift */; };
 		0C6668642697B7F600254BC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6668612697B7F600254BC5 /* SceneDelegate.swift */; };
 		0C6668652697B7F600254BC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6668622697B7F600254BC5 /* AppDelegate.swift */; };
@@ -76,6 +79,7 @@
 		0C25B0BB269865070003F768 /* MicrophoneMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophoneMonitor.swift; sourceTree = "<group>"; };
 		0C25B0BE269867720003F768 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0C25B0C5269871560003F768 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		0C46040626A06831002F246F /* LobbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyView.swift; sourceTree = "<group>"; };
 		0C6668612697B7F600254BC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0C6668622697B7F600254BC5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C6668672697B81A00254BC5 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 				0C6668672697B81A00254BC5 /* GameView.swift */,
 				0C96EC06269F09E20030269C /* MenuView.swift */,
 				0C96EC0A269F16D00030269C /* LoadingView.swift */,
+				0C46040626A06831002F246F /* LobbyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -388,6 +393,7 @@
 				0C96EC07269F09E20030269C /* MenuView.swift in Sources */,
 				0C96EC0B269F16D00030269C /* LoadingView.swift in Sources */,
 				0C66687C2697B8E100254BC5 /* GameViewController.swift in Sources */,
+				0C46040726A06831002F246F /* LobbyView.swift in Sources */,
 				0C25B0B6269864EF0003F768 /* SoundVisualizer.swift in Sources */,
 				0C96EC0F269F21400030269C /* LobbyViewController.swift in Sources */,
 				0C6668792697B8DD00254BC5 /* GameCenterHelper.swift in Sources */,
@@ -412,6 +418,7 @@
 				0C25B0C0269867720003F768 /* Player.swift in Sources */,
 				0C66686A2697B81A00254BC5 /* GameView.swift in Sources */,
 				0C66687D2697B8E100254BC5 /* GameViewController.swift in Sources */,
+				0C46040826A06831002F246F /* LobbyView.swift in Sources */,
 				0C25B0B7269864EF0003F768 /* SoundVisualizer.swift in Sources */,
 				0C96EC08269F09E20030269C /* MenuView.swift in Sources */,
 				0C66687A2697B8DD00254BC5 /* GameCenterHelper.swift in Sources */,
@@ -425,6 +432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C46040926A06831002F246F /* LobbyView.swift in Sources */,
 				0CCF1242268DE429001175DB /* iBerroUITests.swift in Sources */,
 				0C96EC09269F09E20030269C /* MenuView.swift in Sources */,
 				0C96EC0D269F16D00030269C /* LoadingView.swift in Sources */,

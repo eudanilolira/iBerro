@@ -10,10 +10,11 @@ import GameKit
 import SwiftUI
 
 class LobbyViewController: GKMatchmakerViewController {
-    var gameView: UIHostingController<LoadingView>?
+    var gameView: UIHostingController<LobbyView>?
     
     override init?(invite: GKInvite) {
         super.init(invite: invite)
+        self.setupGameView()
     }
 
     override init?(matchRequest request: GKMatchRequest) {
@@ -21,17 +22,27 @@ class LobbyViewController: GKMatchmakerViewController {
         self.setupGameView()
         
     }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
         
-        required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func createMatch() {
+        GKLocalPlayer.local.loadChallengableFriends(completionHandler: { (players, error) in
+            self.matchRequest.recipients = players
+        })
     }
     
     private func setupGameView() {
-        gameView = UIHostingController(rootView: LoadingView())
-        
+        gameView = UIHostingController(rootView: LobbyView(delegate: self))
+
         self.addChild(gameView!)
         self.view.addSubview(gameView!.view)
-        
+
         if let gameUIHosting = gameView {
             gameUIHosting.view.translatesAutoresizingMaskIntoConstraints = false
             gameUIHosting.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true

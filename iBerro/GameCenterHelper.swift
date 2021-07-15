@@ -16,12 +16,14 @@ protocol GameCenterHelperDelegate: AnyObject {
 
 final class GameCenterHelper: NSObject, GKLocalPlayerListener {
     weak var delegate: GameCenterHelperDelegate?
+    static let helper = GameCenterHelper()
+    var match: GKMatch?
     
     private let minPlayers: Int = 2
     private let maxPlayers: Int = 5
-    private let inviteMessage = "Vamo dale!"
+    private let inviteMessage = "Vamo dale!".localized()
     
-    private var currentVC: GKMatchmakerViewController?
+    private var currentVC: LobbyViewController?
     
     var isAuthenticated: Bool {
         return GKLocalPlayer.local.isAuthenticated
@@ -51,12 +53,12 @@ final class GameCenterHelper: NSObject, GKLocalPlayerListener {
         delegate?.presentMatchmaking(viewController: vc)
     }
     
-    private func createMatchmaker(withInvite invite: GKInvite? = nil) -> GKMatchmakerViewController? {
+    private func createMatchmaker(withInvite invite: GKInvite? = nil) -> LobbyViewController? {
         if let invite = invite {
-            return GKMatchmakerViewController(invite: invite)
+            return LobbyViewController(invite: invite)
         }
         
-        return GKMatchmakerViewController(matchRequest: createRequest())
+        return LobbyViewController(matchRequest: createRequest())
     }
     
     private func createRequest() -> GKMatchRequest {
@@ -71,17 +73,17 @@ final class GameCenterHelper: NSObject, GKLocalPlayerListener {
 
 extension GameCenterHelper: GKMatchmakerViewControllerDelegate {
     func matchmakerViewController(_ viewController: GKMatchmakerViewController, didFind match: GKMatch) {
-        viewController.dismiss(animated: true)
-        
-        
-        
+        GameCenterHelper.helper.match = match
+        viewController.dismiss(animated: false)
         delegate?.presentGame(match: match)
     }
     
     func player(_ player: GKPlayer, didAccept invite: GKInvite) {
-        currentVC?.dismiss(animated: true, completion: {
-            self.presentMatchmaker(withInvite: invite)
-        })
+        GameCenterHelper.helper.match = match
+        let viewController = LobbyViewController(invite: invite)
+        viewController?.matchmakerDelegate = self
+        let rootViewController = UIApplication.shared.windows.first!.rootViewController
+        rootViewController?.present(viewController!, animated: true, completion: nil)
     }
     
     func matchmakerViewControllerWasCancelled(_ viewController: GKMatchmakerViewController) {

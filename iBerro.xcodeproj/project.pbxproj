@@ -57,6 +57,7 @@
 		0CCF122C268DE428001175DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF122B268DE428001175DB /* Preview Assets.xcassets */; };
 		0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1236268DE429001175DB /* iBerroTests.swift */; };
 		0CCF1242268DE429001175DB /* iBerroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1241268DE429001175DB /* iBerroUITests.swift */; };
+		AC43964D26A055EA00A36C7B /* PlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC43964C26A055EA00A36C7B /* PlayingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		0CCF123D268DE429001175DB /* iBerroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iBerroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CCF1241268DE429001175DB /* iBerroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBerroUITests.swift; sourceTree = "<group>"; };
 		0CCF1243268DE429001175DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC43964C26A055EA00A36C7B /* PlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 				0C25B0B8269864F60003F768 /* BarView.swift */,
 				0C25B0B5269864EF0003F768 /* SoundVisualizer.swift */,
 				0C6668672697B81A00254BC5 /* GameView.swift */,
+				AC43964C26A055EA00A36C7B /* PlayingView.swift */,
 				0C96EC06269F09E20030269C /* MenuView.swift */,
 				0C96EC0A269F16D00030269C /* LoadingView.swift */,
 				0C46040626A06831002F246F /* LobbyView.swift */,
@@ -404,6 +407,7 @@
 				0C96EC0F269F21400030269C /* LobbyViewController.swift in Sources */,
 				0C6668792697B8DD00254BC5 /* GameCenterHelper.swift in Sources */,
 				0C6668632697B7F600254BC5 /* SceneDelegate.swift in Sources */,
+				AC43964D26A055EA00A36C7B /* PlayingView.swift in Sources */,
 				0C66686F2697B82700254BC5 /* GameModel.swift in Sources */,
 				0C6668692697B81A00254BC5 /* GameView.swift in Sources */,
 			);

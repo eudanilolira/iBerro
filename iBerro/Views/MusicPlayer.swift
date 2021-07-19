@@ -15,35 +15,28 @@ struct MusicPlayer: View {
     @State private var filter: String = ""
     @State private var songs = [Song]()
     @State private var player = AVPlayer()
+    @State private var soundLevels = [CGFloat](repeating: 5, count: numberOfSamples)
     
     @State private var url: String = ""
     
     var body: some View {
         VStack {
+            HStack(spacing: 4) {
+                ForEach(soundLevels, id: \.self) { level in
+                    BarView(value: level)
+                }
+            }
+            
             Button(action: {
-                let songs = MusicAPI().searchMusic("rock")
+                let songs = MusicAPI().searchMusic(filter)
                 print(songs[0])
                 
                 playAudio(songs[0].previewURL)
                 
-            
-//                self.musicPlayer.setQueue(with: [songs[0].id])
-//                self.musicPlayer.prepareToPlay()
-//                self.musicPlayer.play()
             }, label: {
                 Text("Search")
             })
         }
-//        .onAppear() {
-//            SKCloudServiceController.requestAuthorization { (status) in
-//                if status == .authorized {
-////                    print(MusicAPI().getUserToken())
-//
-//                    print(status.rawValue)
-//                }
-//
-//            }
-//        }
     }
     
     func playAudio(_ url: String) {
@@ -53,20 +46,30 @@ struct MusicPlayer: View {
         
         let asset = AVAsset(url: sampleUrl)
         let playerItem = AVPlayerItem(asset: asset)
-         player = AVPlayer(playerItem: playerItem)
-        player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 2), queue: DispatchQueue.global(), using: { (progressTime) in
-            if progressTime.seconds >= 15 {
+        player = AVPlayer(playerItem: playerItem)
+        player.seek(to: CMTime(seconds: 15, preferredTimescale: 2))
+        player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.2, preferredTimescale: 50), queue: DispatchQueue.global(), using: { (progressTime) in
+            if progressTime.seconds >= 29 {
                 player.pause()
+                soundLevels = [CGFloat](repeating: 5, count: numberOfSamples)
+            } else {
+                DispatchQueue.main.async {
+                    for i in 0..<10{
+                        let level = Float(Int.random(in: -40 ..< -30))
+                        soundLevels[i] = self.normalizeSoundLevel(level: level)
+                    }
+                }
             }
-            DispatchQueue.main.async {
-                print(player.currentTime().seconds)
-            }
-
         })
-//        player.volume = 100
         player.actionAtItemEnd = .pause
         
         player.play()
+    }
+    
+    private func normalizeSoundLevel(level: Float) -> CGFloat {
+        let level = max(0.2, CGFloat(level) + 50) / 2 // between 0.1 and 25
+        
+        return CGFloat(level * (300 / 25)) // scaled to max at 300 (our height of our bar)
     }
 }
 

@@ -21,8 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, GameCenterHelperDelegat
                     isHost: false,
                     photo: ImageWrapper(photo: photo)
                 )
-                var contentView = MenuView(player: player)
-                contentView.gameCenterDelegate = self
+//                var contentView = MenuView(player: player)
+                var contentView = MusicPlayer()
+//                contentView.gameCenterDelegate = self
                 self.window!.rootViewController = UIHostingController(rootView: contentView)
             }
         })
@@ -59,6 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, GameCenterHelperDelegat
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
+//        let contentView = LoadingView()
         let contentView = LoadingView()
         
         gameCenterHelper = GameCenterHelper.helper

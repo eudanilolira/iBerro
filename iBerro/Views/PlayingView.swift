@@ -13,6 +13,9 @@ struct PlayingView: View {
     //    var matchDelegate: GameViewController
     //    @ObservedObject var game: GameViewModel
     
+    // Variavel que vai checar se acabou o preview (mudar quando integrar)
+    @State private var readyToSing: Bool = true
+    
     @State private var timeRemaining = 5
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -62,17 +65,25 @@ struct PlayingView: View {
                 Spacer()
                 
                 if timeRemaining > 0{
-                
-                Text("\(timeRemaining)")
-                    .font(.system(size: 70))
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.leading)
-                    .padding()
-                    .frame(width: 250, height: 350, alignment: .center)
+                    
+                    Text("\(timeRemaining)")
+                        .font(.system(size: 70))
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.leading)
+                        .padding()
+                        .frame(width: 250, height: 350, alignment: .center)
                     
                 } else{
-                    SoundVisualizer().frame(width: 250, height: 350, alignment: .center)
+                    if readyToSing{
+                        
+                        SoundVisualizer().frame(width: 250, height: 350, alignment: .center)
+                        
+                    } else{
+                        
+                        //Entrar o SoundVisualizer de Jéssica
+                        
+                    }
                 }
                 Spacer()
                 
@@ -88,7 +99,7 @@ struct PlayingView: View {
                         
                     }
                     
-                }).disabled(true).saturation(/*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/).frame(minWidth: 130, idealWidth: 210, maxWidth: 260, minHeight: 130, idealHeight: 180, maxHeight: 210, alignment: .center)
+                }).disabled(readyToSing).saturation(/*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/).frame(minWidth: 130, idealWidth: 210, maxWidth: 260, minHeight: 130, idealHeight: 180, maxHeight: 210, alignment: .center)
                 
                 Spacer()
                 

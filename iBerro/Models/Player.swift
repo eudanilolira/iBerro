@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 import GameKit
 
-struct Player: Codable, Comparable {
+struct Player: Codable, Comparable, Identifiable {
+    
+    var id: Int = 0
     var status: PlayerStatus = .waiting
     var score: Int = 0
     var displayName: String

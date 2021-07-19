@@ -54,6 +54,10 @@
 		0CCF122C268DE428001175DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF122B268DE428001175DB /* Preview Assets.xcassets */; };
 		0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1236268DE429001175DB /* iBerroTests.swift */; };
 		0CCF1242268DE429001175DB /* iBerroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1241268DE429001175DB /* iBerroUITests.swift */; };
+		8B1BCA1326A5ACE2004A3C38 /* UIGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BCA1226A5ACE2004A3C38 /* UIGrid.swift */; };
+		8B1BCA1526A5BE1B004A3C38 /* EvaluatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BCA1426A5BE1B004A3C38 /* EvaluatingView.swift */; };
+		8B1BCA1726A5C3CD004A3C38 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BCA1626A5C3CD004A3C38 /* PlayersView.swift */; };
+		8BD3560A26A081010019EEC3 /* VotingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD3560926A081010019EEC3 /* VotingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +109,10 @@
 		0CCF123D268DE429001175DB /* iBerroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iBerroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CCF1241268DE429001175DB /* iBerroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBerroUITests.swift; sourceTree = "<group>"; };
 		0CCF1243268DE429001175DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B1BCA1226A5ACE2004A3C38 /* UIGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGrid.swift; sourceTree = "<group>"; };
+		8B1BCA1426A5BE1B004A3C38 /* EvaluatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluatingView.swift; sourceTree = "<group>"; };
+		8B1BCA1626A5C3CD004A3C38 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
+		8BD3560926A081010019EEC3 /* VotingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +245,7 @@
 		0CCF1250268DE4A3001175DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8B1BCA1226A5ACE2004A3C38 /* UIGrid.swift */,
 				0C6668682697B81A00254BC5 /* ContentView.swift */,
 				0C25B0B8269864F60003F768 /* BarView.swift */,
 				0C25B0B5269864EF0003F768 /* SoundVisualizer.swift */,
@@ -244,6 +253,9 @@
 				0C96EC06269F09E20030269C /* MenuView.swift */,
 				0C96EC0A269F16D00030269C /* LoadingView.swift */,
 				0C46040626A06831002F246F /* LobbyView.swift */,
+				8B1BCA1626A5C3CD004A3C38 /* PlayersView.swift */,
+				8BD3560926A081010019EEC3 /* VotingView.swift */,
+				8B1BCA1426A5BE1B004A3C38 /* EvaluatingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -391,9 +403,13 @@
 				0C6668732697B82C00254BC5 /* GameViewModel.swift in Sources */,
 				0C25B0C6269871560003F768 /* Room.swift in Sources */,
 				0C96EC07269F09E20030269C /* MenuView.swift in Sources */,
+				8B1BCA1726A5C3CD004A3C38 /* PlayersView.swift in Sources */,
 				0C96EC0B269F16D00030269C /* LoadingView.swift in Sources */,
 				0C66687C2697B8E100254BC5 /* GameViewController.swift in Sources */,
+				8B1BCA1326A5ACE2004A3C38 /* UIGrid.swift in Sources */,
+				8B1BCA1526A5BE1B004A3C38 /* EvaluatingView.swift in Sources */,
 				0C46040726A06831002F246F /* LobbyView.swift in Sources */,
+				8BD3560A26A081010019EEC3 /* VotingView.swift in Sources */,
 				0C25B0B6269864EF0003F768 /* SoundVisualizer.swift in Sources */,
 				0C96EC0F269F21400030269C /* LobbyViewController.swift in Sources */,
 				0C6668792697B8DD00254BC5 /* GameCenterHelper.swift in Sources */,

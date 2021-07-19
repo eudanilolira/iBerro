@@ -53,7 +53,7 @@ class MusicAPI {
             
             if let json = try? JSON(data: data!) {
                 print (json)
-                let songList = (json["results"]["songs"]["data"]).array!
+                let songList = (json["results"]["songs"]["data"]).array ?? []
                 
                 for song in songList {
                     let songInfos = song["attributes"]

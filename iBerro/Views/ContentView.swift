@@ -10,8 +10,6 @@ import GameKit
 
 struct ContentView: View {
     var gameCenterDelegate: SceneDelegate?
-    @State var nextScreen: Bool = false
-    
     var body: some View {
         VStack {
             Text("Hello, world!")
@@ -23,15 +21,6 @@ struct ContentView: View {
             label: {
                 Text("Teste")
             })
-            
-            Button(action: {
-                nextScreen.toggle()
-            }, label: {
-                Text("Play Music Now")
-            })
-        }
-        .popover(isPresented: $nextScreen) {
-            MusicPlayer()
         }
     }
     

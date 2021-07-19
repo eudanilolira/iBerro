@@ -12,12 +12,14 @@ import AVFoundation
 
 struct MusicPlayer: View {
     @State private var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
-    @State private var filter: String = ""
+    @State private var filter: String = "mpb"
     @State private var songs = [Song]()
     @State private var player = AVPlayer()
     @State private var soundLevels = [CGFloat](repeating: 5, count: numberOfSamples)
-    
     @State private var url: String = ""
+
+    
+    @Binding var previewIsOver: Bool
     
     var body: some View {
         VStack {
@@ -26,16 +28,13 @@ struct MusicPlayer: View {
                     BarView(value: level)
                 }
             }
-            
-            Button(action: {
-                let songs = MusicAPI().searchMusic(filter)
-                print(songs[0])
-                
-                playAudio(songs[0].previewURL)
-                
-            }, label: {
-                Text("Search")
-            })
+        }
+        .onAppear() {
+            var songs = MusicAPI().searchMusic(filter)
+            if songs == [] {
+                songs = MusicAPI().searchMusic(filter)
+            }
+            playAudio(songs[0].previewURL)
         }
     }
     
@@ -47,11 +46,15 @@ struct MusicPlayer: View {
         let asset = AVAsset(url: sampleUrl)
         let playerItem = AVPlayerItem(asset: asset)
         player = AVPlayer(playerItem: playerItem)
-        player.seek(to: CMTime(seconds: 15, preferredTimescale: 2))
+        player.seek(to: CMTime(seconds: 14, preferredTimescale: 2))
         player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.2, preferredTimescale: 50), queue: DispatchQueue.global(), using: { (progressTime) in
             if progressTime.seconds >= 29 {
                 player.pause()
                 soundLevels = [CGFloat](repeating: 5, count: numberOfSamples)
+                if previewIsOver == false {
+                    self.previewIsOver.toggle()
+                }
+                print(previewIsOver)
             } else {
                 DispatchQueue.main.async {
                     for i in 0..<10{
@@ -73,8 +76,3 @@ struct MusicPlayer: View {
     }
 }
 
-struct MusicPlayer_Previews: PreviewProvider {
-    static var previews: some View {
-        MusicPlayer()
-    }
-}

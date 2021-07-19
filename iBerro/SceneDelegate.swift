@@ -22,8 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, GameCenterHelperDelegat
                     photo: ImageWrapper(photo: photo)
                 )
 //                var contentView = MenuView(player: player)
-                var contentView = MusicPlayer()
-//                contentView.gameCenterDelegate = self
+                var contentView = PlayingView(player: player)
+                contentView.gameCenterDelegate = self
                 self.window!.rootViewController = UIHostingController(rootView: contentView)
             }
         })

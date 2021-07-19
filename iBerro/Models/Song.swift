@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Song {
+struct Song: Equatable {
     var id: String
     var hasLyrics: Bool
     var previewURL: String

@@ -57,6 +57,7 @@
 		0CCF122C268DE428001175DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF122B268DE428001175DB /* Preview Assets.xcassets */; };
 		0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1236268DE429001175DB /* iBerroTests.swift */; };
 		0CCF1242268DE429001175DB /* iBerroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1241268DE429001175DB /* iBerroUITests.swift */; };
+		AC1D64E526A5ABA900E49658 /* RankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D64E426A5ABA900E49658 /* RankView.swift */; };
 		AC43964D26A055EA00A36C7B /* PlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC43964C26A055EA00A36C7B /* PlayingView.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		0CCF123D268DE429001175DB /* iBerroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iBerroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CCF1241268DE429001175DB /* iBerroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBerroUITests.swift; sourceTree = "<group>"; };
 		0CCF1243268DE429001175DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC1D64E426A5ABA900E49658 /* RankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankView.swift; sourceTree = "<group>"; };
 		AC43964C26A055EA00A36C7B /* PlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,6 +250,7 @@
 				0C25B0B8269864F60003F768 /* BarView.swift */,
 				0C25B0B5269864EF0003F768 /* SoundVisualizer.swift */,
 				0C6668672697B81A00254BC5 /* GameView.swift */,
+				AC1D64E426A5ABA900E49658 /* RankView.swift */,
 				AC43964C26A055EA00A36C7B /* PlayingView.swift */,
 				0C96EC06269F09E20030269C /* MenuView.swift */,
 				0C96EC0A269F16D00030269C /* LoadingView.swift */,
@@ -397,6 +400,7 @@
 				0C25B0BF269867720003F768 /* Player.swift in Sources */,
 				0C96EC14269F32530030269C /* String + localized.swift in Sources */,
 				0C6668732697B82C00254BC5 /* GameViewModel.swift in Sources */,
+				AC1D64E526A5ABA900E49658 /* RankView.swift in Sources */,
 				0C25B0C6269871560003F768 /* Room.swift in Sources */,
 				0C96EC07269F09E20030269C /* MenuView.swift in Sources */,
 				0C46040B26A077CF002F246F /* LobbyViewModel.swift in Sources */,

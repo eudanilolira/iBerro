@@ -20,6 +20,10 @@ struct PlayingView: View {
     @State private var timeRemaining = 5
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
+    @State private var timeRemainingToSing: Int = 15
+    let timerToSing = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    
     var body: some View {
         ZStack {
             
@@ -61,9 +65,9 @@ struct PlayingView: View {
                         }
                     }).frame(minWidth: 75, idealWidth: 155, maxWidth: 225, minHeight: 75, idealHeight: 125, maxHeight: 155, alignment: .center)
                     
-                }.padding(20)
+                }.padding([.top, .leading, .trailing], 20)
                 
-                Spacer()
+                //Spacer()
                 
                 if timeRemaining > 0 {
                     
@@ -76,12 +80,41 @@ struct PlayingView: View {
                         .frame(width: 250, height: 350, alignment: .center)
                     
                 } else {
-                    if readyToSing {
-                        SoundVisualizer().frame(width: 250, height: 350, alignment: .center)
-                    } else {
+                    if previewIsOver == true && timeRemainingToSing > 0{
+                        VStack{
+                            HStack{
+                                Text("00:\(timeRemainingToSing)")
+                                    .font(.system(size: 40))
+                                    .foregroundColor(.white)
+                                    .fontWeight(.bold)
+                                    .multilineTextAlignment(.leading)
+                                    .padding([.top, .leading], 20)
+                                
+                                Spacer()
+                                
+                            }.onReceive(timerToSing) { time in
+                                if self.timeRemainingToSing > 0 {
+                                    self.timeRemainingToSing -= 1
+                                } }
+                            if readyToSing {
+                                
+                                SoundVisualizer().frame(width: 250, height: 320, alignment: .center)
+                            } else{
+                                Spacer().frame(width: 250, height: 320, alignment: .center)
+                            }
+                        }
+                        
+                    } else{
+                        if !previewIsOver{
                         MusicPlayer(previewIsOver: $previewIsOver).frame(width: 250, height: 350, alignment: .center)
+                        }else{
+                            //ir para próxima tela, pois acabou o tempo
+                            Text("Acabou o tempo").foregroundColor(.white)
+                        }
+
                     }
                 }
+                
                 Spacer()
                 if readyToSing {
                     Button(action: {
@@ -160,6 +193,7 @@ struct PlayingView: View {
                 self.timeRemaining -= 1
             }
         }
+        
     }
 }
 

@@ -14,31 +14,30 @@ struct PlayersView: View {
     @Binding var players: [Player]
     
    var body: some View {
-        HStack{
-            Image(uiImage: UIImage(data: player.photo.image) ?? UIImage(named: "Group 3")!)
+    //ForEach(self.matchDelegate.match!.players, id: \.self) { player in
+    UIGrid(columns: 3, list: players) { player in
+        VStack{
+            Image("Group 3")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .clipShape(Circle())
                 .frame(
                     minWidth: 50,
                     idealWidth: 100,
-                    maxWidth: 200,
+                    maxWidth: 150,
                     minHeight: 50,
                     idealHeight: 100,
-                    maxHeight: 200,
-                    alignment: .top)
-                .padding([.top,.leading])
+                    maxHeight: 150,
+                    alignment: .bottom)
             
             Text("\(player.displayName.uppercased())'s TURN".localized())
-                .font(.system(size: 40))
+                .font(.system(size: 24))
                 .foregroundColor(.white)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.leading)
-                .padding()
-            
-            Spacer()
+                .fontWeight(.regular)
+                .multilineTextAlignment(.center)
+                .padding([.leading,.trailing])
         }
-        .padding([.top,.leading])
-        Spacer()
+    }
+        
     }
 }

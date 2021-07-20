@@ -30,34 +30,37 @@ struct VotingView: View {
             
             VStack{
                 
+                HStack{
+                    Image(uiImage: UIImage(data: player.photo.image) ?? UIImage(named: "Group 3")!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(Circle())
+                        .frame(
+                            minWidth: 80,
+                            idealWidth: 100,
+                            maxWidth: 150,
+                            minHeight: 80,
+                            idealHeight: 100,
+                            maxHeight: 150,
+                            alignment: .top)
+                        .padding([.top,.leading])
+                    
+                    Text("\(player.displayName.uppercased())'s TURN".localized())
+                        .font(.system(size: 40))
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.leading)
+                        .padding()
+                    
+                    Spacer()
+                }
+                .padding([.top,.leading])
+                Spacer()
+                
                 PlayersView(player: $player, players: $players)
+                .padding(.bottom, 200)
                 
-                //ForEach(self.matchDelegate.match!.players, id: \.self) { player in
-                UIGrid(columns: 3, list: players) { player in
-                    VStack{
-                        Image("Group 3")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .clipShape(Circle())
-                            .frame(
-                                minWidth: 50,
-                                idealWidth: 100,
-                                maxWidth: 150,
-                                minHeight: 50,
-                                idealHeight: 100,
-                                maxHeight: 150,
-                                alignment: .bottom)
-                        
-                        Text("\(player.displayName.uppercased())'s TURN".localized())
-                            .font(.system(size: 24))
-                            .foregroundColor(.white)
-                            .fontWeight(.regular)
-                            .multilineTextAlignment(.center)
-                            .padding([.leading,.trailing])
-                    }
-                } .padding(.bottom, 100)
-                
-                Text("\(player.displayName) já votaram!")
+                Text("\("4") pessoas já votaram!")
                     .font(.system(size: 40))
                     .foregroundColor(.white)
                     .fontWeight(.bold)
@@ -65,7 +68,7 @@ struct VotingView: View {
                     .padding()
                 Spacer()
             }
-        }
+        } .ignoresSafeArea()
     }
     
 }

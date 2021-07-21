@@ -11,8 +11,7 @@ import StoreKit
 import AVFoundation
 
 struct MusicPlayer: View {
-    @State private var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
-    @State private var filter: String = "mpb"
+    @Binding var filter: String
     @State private var songs = [Song]()
     @State private var player = AVPlayer()
     @State private var soundLevels = [CGFloat](repeating: 5, count: numberOfSamples)

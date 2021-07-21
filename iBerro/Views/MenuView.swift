@@ -75,7 +75,7 @@ struct MenuView: View {
                 
                 
             }.padding()
-        }
+        }.ignoresSafeArea()
     }
 }
 

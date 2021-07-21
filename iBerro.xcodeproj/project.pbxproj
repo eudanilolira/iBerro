@@ -54,6 +54,7 @@
 		0CCF122C268DE428001175DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF122B268DE428001175DB /* Preview Assets.xcassets */; };
 		0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1236268DE429001175DB /* iBerroTests.swift */; };
 		0CCF1242268DE429001175DB /* iBerroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1241268DE429001175DB /* iBerroUITests.swift */; };
+		A3A8DA3E26A6FC25005F20C0 /* UIGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A8DA3D26A6FC25005F20C0 /* UIGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		0CCF123D268DE429001175DB /* iBerroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iBerroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CCF1241268DE429001175DB /* iBerroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBerroUITests.swift; sourceTree = "<group>"; };
 		0CCF1243268DE429001175DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3A8DA3D26A6FC25005F20C0 /* UIGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 		0CCF1250268DE4A3001175DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A3A8DA3D26A6FC25005F20C0 /* UIGrid.swift */,
 				0C6668682697B81A00254BC5 /* ContentView.swift */,
 				0C25B0B8269864F60003F768 /* BarView.swift */,
 				0C25B0B5269864EF0003F768 /* SoundVisualizer.swift */,
@@ -384,6 +387,7 @@
 			files = (
 				0C25B0B9269864F60003F768 /* BarView.swift in Sources */,
 				0C25B0BC269865070003F768 /* MicrophoneMonitor.swift in Sources */,
+				A3A8DA3E26A6FC25005F20C0 /* UIGrid.swift in Sources */,
 				0C66686B2697B81A00254BC5 /* ContentView.swift in Sources */,
 				0C6668652697B7F600254BC5 /* AppDelegate.swift in Sources */,
 				0C25B0BF269867720003F768 /* Player.swift in Sources */,

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ResultView: View {
+    var gameCenterDelegate: SceneDelegate?
+    @State var player: Player
     var body: some View {
         ZStack {
             Image("BgResultado")
@@ -31,25 +33,49 @@ struct ResultView: View {
                     
                     Spacer()
                     
-                    VStack{
-                    Text("11:47 PM")
+                    VStack(alignment: .trailing, spacing: 5) {
+                        
+                    Text(Date(), style: .time)
                         .font(.system(size: 20))
                         .foregroundColor(.green)
                         .fontWeight(.bold)
-                        .multilineTextAlignment(.leading)
+                        .multilineTextAlignment(.trailing)
                         
-                        Text("JUN 9 2021")
+                        Text(Date(), style: .date)
                             .font(.system(size: 20))
                             .foregroundColor(.green)
                             .fontWeight(.bold)
-                            .multilineTextAlignment(.leading)
+                            .multilineTextAlignment(.trailing)
+                            
                     }
                     
                 }.padding(20)
-                
+                ZStack{
                 Image("BgPrimeiroLugar")
                     .scaledToFit()
-                
+                    VStack{
+                        Image(uiImage: UIImage(data: player.photo.image) ?? UIImage(named: "Group 3")!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .clipShape(Circle())
+                            .frame(
+                                minWidth: 50,
+                                idealWidth: 100,
+                                maxWidth: 200,
+                                minHeight: 50,
+                                idealHeight: 100,
+                                maxHeight: 200,
+                                alignment: .center)
+                            .padding()
+                        
+                        Text(player.displayName.uppercased())
+                            .font(.system(size: 40))
+                            .foregroundColor(.white)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
+                            .padding()
+                    }
+                }
                 HStack{
                     
                     //ForEach(self.matchDelegate.match!.players, id: \.self) { player in
@@ -98,15 +124,15 @@ struct ResultView: View {
                             .padding(.bottom, 25)
                     }
                 })
-                .frame(minWidth: 130, idealWidth: 210, maxWidth: 260, minHeight: 130, idealHeight: 180, maxHeight: 210, alignment: .center).padding(.bottom)
+                .frame(minWidth: 150, idealWidth: 250, maxWidth: 300, minHeight: 130, idealHeight: 180, maxHeight: 210, alignment: .center).padding(.bottom)
                 
             }
         }.ignoresSafeArea()
     }
 }
 
-struct ResultView_Previews: PreviewProvider {
-    static var previews: some View {
-        ResultView()
-    }
-}
+//struct ResultView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ResultView()
+//    }
+//}

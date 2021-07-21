@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoadingView: View {
     @State private var soundLevels = [CGFloat](repeating: 5, count: 5)
-    
+    let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ZStack {
@@ -17,22 +17,34 @@ struct LoadingView: View {
                 .resizable()
             
             VStack {
-                HStack{
+                HStack {
                     ForEach(soundLevels, id: \.self) { level in
                         BarView(value: level)
                     }
-                }.frame(width: 200, height: 130, alignment: .center).padding()
+                }
+                .frame(width: 200, height: 130, alignment: .center).padding()
                 
-                Text("Carregando.....").font(.title).foregroundColor(.white)
-                    
+                Text("Loading.....".localized())
+                    .font(.title)
+                    .foregroundColor(.white)
                 
-            }.onAppear(){
+                
+            }
+            .onReceive(timer) { time in
                 for i in 0..<5{
                     let level = Float(Int.random(in: -40 ..< -30))
                     soundLevels[i] = self.normalizeSoundLevel(level: level)
                 }
             }
-        }.ignoresSafeArea()
+            //            .onAppear(){
+            //                for i in 0..<5{
+            //                    let level = Float(Int.random(in: -40 ..< -30))
+            //                    soundLevels[i] = self.normalizeSoundLevel(level: level)
+            //                }
+            //            }
+            
+        }
+        .ignoresSafeArea()
     }
     
     private func normalizeSoundLevel(level: Float) -> CGFloat {

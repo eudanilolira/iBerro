@@ -39,12 +39,9 @@ class MusicAPI {
         
         let musicURL = URL(string: "https://api.music.apple.com/v1/catalog/br/search?term=\(filter.replacingOccurrences(of: " ", with: "+"))&types=songs&limit=1")!
         
-//        let userToken = self.getUserToken()
-//        print(userToken)
         var request = URLRequest(url: musicURL)
         request.httpMethod = "GET"
         request.addValue("Bearer \(devToken)", forHTTPHeaderField: "Authorization")
-//        request.addValue(userToken, forHTTPHeaderField: "Music-User-Token")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {

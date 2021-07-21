@@ -11,7 +11,7 @@ import SwiftUI
 
 class LobbyViewController: GKMatchmakerViewController {
     var gameView: UIHostingController<LobbyView>?
-    var players: [Player] = []
+    
     
     override init?(invite: GKInvite) {
         super.init(invite: invite)
@@ -36,16 +36,9 @@ class LobbyViewController: GKMatchmakerViewController {
     }
     
     private func setupGameView() {
-        GKLocalPlayer.local.loadChallengableFriends(completionHandler: { (players, error) in
-            self.matchRequest.recipients = players
-            for player in players! {
-                player.loadPhoto(for: .normal, withCompletionHandler: { image, error in
-                    self.players.append(Player(displayName: player.displayName, isHost: false, photo: ImageWrapper (photo: image!)))
-                })
-            }
-        })
+        let lobbyViewModel = LobbyViewModel(matchRequest: self.matchRequest)
         
-        gameView = UIHostingController(rootView: LobbyView(delegate: self, players: self.players))
+        gameView = UIHostingController(rootView: LobbyView(delegate: self, lobbyViewModel: lobbyViewModel))
 
         self.addChild(gameView!)
         self.view.addSubview(gameView!.view)

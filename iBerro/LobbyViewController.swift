@@ -33,6 +33,18 @@ class LobbyViewController: GKMatchmakerViewController {
     }
     
     func createMatch() {
+        GKMatchmaker.shared().findMatch(for: self.matchRequest, withCompletionHandler: { (match, error) in
+            GameCenterHelper.helper.match = match
+            //TRATAR ERROS DE CRIAÁCÃO DE PARTIDA
+        })
+    }
+    
+    func startMatch() {
+        GKMatchmaker.shared().finishMatchmaking(for: GameCenterHelper.helper.match!)
+        
+        self.dismiss(animated: false, completion: {
+            GameCenterHelper.helper.delegate?.presentGame(match:  GameCenterHelper.helper.match!)
+        })
     }
     
     private func setupGameView() {

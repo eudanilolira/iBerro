@@ -23,7 +23,7 @@ struct LobbyView: View {
             
             VStack{
                 HStack{
-                    Button(action: {delegate?.createMatch()}, label: {
+                    Button(action: {}, label: {
                         ZStack(alignment: .center){
                             Image("BgButtonSignOut")
                                 .resizable()
@@ -49,26 +49,27 @@ struct LobbyView: View {
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                         
-                        CheckboxView(type: .musicGender, list: ["Rosk", "Pop", "Imagine Dragons"])
+                        CheckboxView(type: .musicGender, list: ["Rock", "Pop", "Samba"])
                         
                         Text("High Score".localized())
                             .font(.largeTitle)
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                         
-                        CheckboxView(type: .maxScore, list: ["100", "200", "300"])
+                        CheckboxView(type: .maxScore, list: ["100", "200", "300", "400"])
                     }
                 }
                 
-                UIGrid(columns: 3, list: self.lobbyViewModel.players) { player in
-                    VStack{
+                UIGrid(showInviteModal: self.$showInviteModal, columns: 3, list: self.lobbyViewModel.invitedPlayers) { player in
+                    VStack {
                         RoundProfileView(profile: player.photo, name: player.displayName)
                     }
+                    
                 }
                 
                 Spacer()
                 
-                Button(action: {}, label: {
+                Button(action: {self.delegate!.createMatch()}, label: {
                     ZStack{
                         Image("BgButtonSignIn")
                             .resizable()
@@ -79,12 +80,19 @@ struct LobbyView: View {
                             .padding(.bottom, 25)
                     }
                 })
-                .disabled(true)
+//                .disabled(true)
                 .frame(width: 290, height: 145.5, alignment: .center)
             }
             
             if (showInviteModal) {
-                InvitePlayersModalView(players: self.lobbyViewModel.players)
+                Button(action: {self.showInviteModal = false}, label: {
+                    Rectangle()
+                        .fill(Color.black)
+                        .opacity(0.4)
+                })
+
+                InvitePlayersModalView(viewModel: self.lobbyViewModel)
+                    .frame(width: 600, height: 740, alignment: .center)
             }
             
         }

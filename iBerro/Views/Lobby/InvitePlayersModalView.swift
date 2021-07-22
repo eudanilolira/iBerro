@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct InvitePlayersModalView: View {
-    @State var players: [Player]
+    @State var viewModel: LobbyViewModel
     
     var body: some View {
         ZStack {
@@ -16,22 +16,36 @@ struct InvitePlayersModalView: View {
             
             VStack {
                 Text("Select your friends".localized())
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                    .padding()
                 
                 ScrollView(.vertical, showsIndicators: true){
-                    ForEach(self.players) { player in
+                    ForEach(self.viewModel.players) { player in
                         HStack {
                             RoundProfileView(profile: player.photo, name: player.displayName)
                             
-                            Image("BgCheckbox")
-                                .resizable()
-                                .frame(width: 184, height: 184, alignment: .trailing)
-                        }
+                            Spacer()
+                            
+                            Button(action: {
+                                self.viewModel.checkPlayer(player: player)
+                            }, label: {
+                                Image(player.invited ? "BgCheckboxSelected" : "BgCheckbox")
+                                    .resizable()
+                                    .frame(width: 60, height: 60, alignment: .trailing)     
+                            })
+                            
+                        }.padding(.horizontal)
                     }
                     
                 }
                 
                 
-                Button(action: {}, label: {
+                Button(action: {
+                        self.viewModel.invitePlayers()
+                    
+                }, label: {
                     ZStack{
                         Image("BgButtonSignIn")
                             .resizable()

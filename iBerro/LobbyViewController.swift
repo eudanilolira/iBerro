@@ -10,18 +10,21 @@ import GameKit
 import SwiftUI
 
 class LobbyViewController: GKMatchmakerViewController {
-    var gameView: UIHostingController<LobbyView>?
-    
-    
+    var lobbyView: UIHostingController<LobbyView>?
+    var lobbyVM: LobbyViewModel = LobbyViewModel()
+
     override init?(invite: GKInvite) {
         super.init(invite: invite)
-        self.setupGameView()
+        self.setupLobbyView()
     }
 
     override init?(matchRequest request: GKMatchRequest) {
         super.init(matchRequest: request)
-        self.setupGameView()
-        
+        self.setupLobbyView()
+        self.matchRequest.recipientResponseHandler = { (player, response) in
+            print(player.displayName)
+            print("Response")
+        }
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -30,6 +33,11 @@ class LobbyViewController: GKMatchmakerViewController {
         
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func invitePlayer(player: GKPlayer) {
+        self.lobbyVM.invitedPlayers.append(player)
+        self.matchRequest.recipients = lobbyVM.invitedPlayers
     }
     
     func createMatch() {
@@ -49,13 +57,16 @@ class LobbyViewController: GKMatchmakerViewController {
     
     private func setupGameView() {
         let lobbyViewModel = LobbyViewModel(matchRequest: self.matchRequest)
-        
         gameView = UIHostingController(rootView: LobbyView(delegate: self, lobbyViewModel: lobbyViewModel))
+        })
+    }
+    
+    private func setupLobbyView() {
+        lobbyView = UIHostingController(rootView: LobbyView(delegate: self))
+        self.addChild(lobbyView!)
+        self.view.addSubview(lobbyView!.view)
 
-        self.addChild(gameView!)
-        self.view.addSubview(gameView!.view)
-
-        if let gameUIHosting = gameView {
+        if let gameUIHosting = lobbyView {
             gameUIHosting.view.translatesAutoresizingMaskIntoConstraints = false
             gameUIHosting.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
             gameUIHosting.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true

@@ -19,7 +19,7 @@ struct MenuView: View {
             
             VStack {
                 
-                Image(uiImage: UIImage(data: player.photo.image) ?? UIImage(named: "Group3")!)
+                Image(uiImage: UIImage(data: player.photo.image) ?? UIImage(named: "Group 3")!)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .clipShape(Circle())
@@ -75,7 +75,7 @@ struct MenuView: View {
                 
                 
             }.padding()
-        }
+        }.ignoresSafeArea()
     }
 }
 

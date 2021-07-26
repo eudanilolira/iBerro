@@ -10,13 +10,18 @@ import GameKit
 
 struct ContentView: View {
     var gameCenterDelegate: SceneDelegate?
-    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-        
-        Button(action: { gameCenterDelegate!.criarPartida()} , label: {Text("Teste")})
-
+        VStack {
+            Text("Hello, world!")
+                .padding()
+            
+            Button(action: {
+                    gameCenterDelegate!.criarPartida()
+            } ,
+            label: {
+                Text("Teste")
+            })
+        }
     }
     
 }

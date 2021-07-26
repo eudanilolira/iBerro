@@ -14,7 +14,8 @@ struct PlayingView: View {
     //    @ObservedObject var game: GameViewModel
     
     // Variavel que vai checar se acabou o preview (mudar quando integrar)
-    @State private var readyToSing: Bool = true
+    @State private var readyToSing: Bool = false
+    @State var previewIsOver: Bool = false
     
     @State private var timeRemaining = 5
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -64,7 +65,7 @@ struct PlayingView: View {
                 
                 Spacer()
                 
-                if timeRemaining > 0{
+                if timeRemaining > 0 {
                     
                     Text("\(timeRemaining)")
                         .font(.system(size: 70))
@@ -74,32 +75,56 @@ struct PlayingView: View {
                         .padding()
                         .frame(width: 250, height: 350, alignment: .center)
                     
-                } else{
-                    if readyToSing{
-                        
+                } else {
+                    if readyToSing {
                         SoundVisualizer().frame(width: 250, height: 350, alignment: .center)
-                        
-                    } else{
-                        
-                        //Entrar o SoundVisualizer de Jéssica
-                        
+                    } else {
+                        MusicPlayer(previewIsOver: $previewIsOver).frame(width: 250, height: 350, alignment: .center)
                     }
                 }
                 Spacer()
-                
-                Button(action: {print("ligou mic")}, label: {
-                    ZStack{
-                        Image("BgButtonSignIn")
-                            .resizable()
+                if readyToSing {
+                    Button(action: {
+                        //Ir pra próxima tela (votação)
+                        print("Terminou de cantar")
+                    }, label: {
+                        ZStack{
+                            Image("BgButtonSignIn")
+                                .resizable()
+                            
+                            Text("FINISHED".localized())
+                                .font(.title)
+                                .foregroundColor(.white)
+                                .padding(.bottom, 25)
+                        }
+                    })
+                    .frame(minWidth: 130, idealWidth: 210, maxWidth: 260, minHeight: 130, idealHeight: 180, maxHeight: 210, alignment: .center)
+                } else {
+                    Button(action: {
+                        readyToSing.toggle()
+                    }, label: {
+                        ZStack{
+                            if !previewIsOver {
+                                Image("BgButtonSignIn")
+                                    .resizable()
+                                    .saturation(0.3)
+                            } else {
+                                Image("BgButtonSignIn")
+                                    .resizable()
+                            }
+                            
+                            
+                            Text("BELT OUT".localized())
+                                .font(.title)
+                                .foregroundColor(.white)
+                                .padding(.bottom, 25)
+                            
+                        }
                         
-                        Text("BELT OUT".localized())
-                            .font(.title)
-                            .foregroundColor(.white)
-                            .padding(.bottom, 25)
-                        
-                    }
-                    
-                }).disabled(readyToSing).saturation(/*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/).frame(minWidth: 130, idealWidth: 210, maxWidth: 260, minHeight: 130, idealHeight: 180, maxHeight: 210, alignment: .center)
+                    })
+                    .disabled(!previewIsOver)
+                    .frame(minWidth: 130, idealWidth: 210, maxWidth: 260, minHeight: 130, idealHeight: 180, maxHeight: 210, alignment: .center)
+                }
                 
                 Spacer()
                 

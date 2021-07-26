@@ -60,6 +60,12 @@
 		0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1236268DE429001175DB /* iBerroTests.swift */; };
 		0CCF1242268DE429001175DB /* iBerroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1241268DE429001175DB /* iBerroUITests.swift */; };
 		A3A8DA3E26A6FC25005F20C0 /* UIGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A8DA3D26A6FC25005F20C0 /* UIGrid.swift */; };
+		B4400CDF269F21F000612998 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4400CDE269F21F000612998 /* MusicPlayer.swift */; };
+		B4400CE1269F37AB00612998 /* MusicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DF5CE0269DCFD8005A88A7 /* MusicAPI.swift */; };
+		B4DF5CDC269DCDD0005A88A7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DF5CDB269DCDD0005A88A7 /* SwiftyJSON.swift */; };
+		B4DF5CDD269DCDED005A88A7 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DF5CDB269DCDD0005A88A7 /* SwiftyJSON.swift */; };
+		B4DF5CDF269DCF70005A88A7 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DF5CDE269DCF70005A88A7 /* Song.swift */; };
+		B4DF5CE1269DCFD8005A88A7 /* MusicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DF5CE0269DCFD8005A88A7 /* MusicAPI.swift */; };
 		AC43964D26A055EA00A36C7B /* PlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC43964C26A055EA00A36C7B /* PlayingView.swift */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +124,10 @@
 		0CCF1241268DE429001175DB /* iBerroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBerroUITests.swift; sourceTree = "<group>"; };
 		0CCF1243268DE429001175DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3A8DA3D26A6FC25005F20C0 /* UIGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGrid.swift; sourceTree = "<group>"; };
+		B4400CDE269F21F000612998 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
+		B4DF5CDB269DCDD0005A88A7 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		B4DF5CDE269DCF70005A88A7 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		B4DF5CE0269DCFD8005A88A7 /* MusicAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicAPI.swift; sourceTree = "<group>"; };
 		AC43964C26A055EA00A36C7B /* PlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +172,7 @@
 			children = (
 				0C25B0BB269865070003F768 /* MicrophoneMonitor.swift */,
 				0C66686E2697B82700254BC5 /* GameModel.swift */,
+				B4DF5CDE269DCF70005A88A7 /* Song.swift */,
 				0C25B0BE269867720003F768 /* Player.swift */,
 				0C25B0C5269871560003F768 /* Room.swift */,
 			);
@@ -217,6 +228,7 @@
 		0CCF1223268DE426001175DB /* iBerro */ = {
 			isa = PBXGroup;
 			children = (
+				B4400CE0269F379E00612998 /* Resources */,
 				0CCF122A268DE428001175DB /* Preview Content */,
 				0C96EC15269F32C80030269C /* LanguageStrings */,
 				0C96EC12269F324C0030269C /* Extensions */,
@@ -270,11 +282,21 @@
 				0C25B0B8269864F60003F768 /* BarView.swift */,
 				0C25B0B5269864EF0003F768 /* SoundVisualizer.swift */,
 				0C6668672697B81A00254BC5 /* GameView.swift */,
+				B4400CDE269F21F000612998 /* MusicPlayer.swift */,
 				AC43964C26A055EA00A36C7B /* PlayingView.swift */,
 				0C96EC06269F09E20030269C /* MenuView.swift */,
 				0C96EC0A269F16D00030269C /* LoadingView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B4400CE0269F379E00612998 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B4DF5CDB269DCDD0005A88A7 /* SwiftyJSON.swift */,
+				B4DF5CE0269DCFD8005A88A7 /* MusicAPI.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,6 +434,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C5813C626A864000009EC7D /* Color+Hex.swift in Sources */,
+				B4400CDF269F21F000612998 /* MusicPlayer.swift in Sources */,
+				B4DF5CE1269DCFD8005A88A7 /* MusicAPI.swift in Sources */,
+				B4DF5CDC269DCDD0005A88A7 /* SwiftyJSON.swift in Sources */,
+				B4DF5CDF269DCF70005A88A7 /* Song.swift in Sources */,
 				0C25B0B9269864F60003F768 /* BarView.swift in Sources */,
 				0C25B0BC269865070003F768 /* MicrophoneMonitor.swift in Sources */,
 				A3A8DA3E26A6FC25005F20C0 /* UIGrid.swift in Sources */,
@@ -451,6 +477,7 @@
 				0C66686C2697B81A00254BC5 /* ContentView.swift in Sources */,
 				0C96EC0C269F16D00030269C /* LoadingView.swift in Sources */,
 				0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */,
+				B4DF5CDD269DCDED005A88A7 /* SwiftyJSON.swift in Sources */,
 				0C25B0C0269867720003F768 /* Player.swift in Sources */,
 				0C66686A2697B81A00254BC5 /* GameView.swift in Sources */,
 				0C66687D2697B8E100254BC5 /* GameViewController.swift in Sources */,
@@ -458,6 +485,7 @@
 				0C25B0B7269864EF0003F768 /* SoundVisualizer.swift in Sources */,
 				0C96EC08269F09E20030269C /* MenuView.swift in Sources */,
 				0C66687A2697B8DD00254BC5 /* GameCenterHelper.swift in Sources */,
+				B4400CE1269F37AB00612998 /* MusicAPI.swift in Sources */,
 				0C6668642697B7F600254BC5 /* SceneDelegate.swift in Sources */,
 				0C6668702697B82700254BC5 /* GameModel.swift in Sources */,
 				0C6668742697B82C00254BC5 /* GameViewModel.swift in Sources */,
@@ -628,7 +656,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"iBerro/Preview Content\"";
-				DEVELOPMENT_TEAM = KBDYNQ5FQB;
+				DEVELOPMENT_TEAM = SZDYT9A2D8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iBerro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -637,7 +665,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.academy.iBerro;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.academy.iBerro2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -652,7 +680,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"iBerro/Preview Content\"";
-				DEVELOPMENT_TEAM = KBDYNQ5FQB;
+				DEVELOPMENT_TEAM = SZDYT9A2D8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iBerro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -661,7 +689,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.3;
-				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.academy.iBerro;
+				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.academy.iBerro2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

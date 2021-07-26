@@ -13,9 +13,12 @@ struct PlayersView: View {
     @Binding var player: Player
     @Binding var players: [Player]
     
+    @State var showInviteModal: Bool = false
+    @State var showInviteButton: Bool = false
+    
    var body: some View {
     //ForEach(self.matchDelegate.match!.players, id: \.self) { player in
-    UIGrid(columns: 3, list: players) { player in
+    UIGrid(showInviteButton: $showInviteButton, showInviteModal: $showInviteModal, columns: 3, list: players) { player in
         VStack{
             Image("Group 3")
                 .resizable()

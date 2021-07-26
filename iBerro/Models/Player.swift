@@ -11,13 +11,7 @@ import GameKit
 
 struct Player: Codable, Comparable, Identifiable {
     var id: Int = 0
-    var status: PlayerStatus = .waiting {
-        willSet {
-            if oldvalue == .evaluating {
-                
-            }
-        }
-    }
+    var status: PlayerStatus = .waiting
     var score: Int = 0
     var displayName: String
     var isHost: Bool

@@ -13,6 +13,7 @@ struct LobbyView: View {
     var delegate: LobbyViewController?
     @ObservedObject var lobbyViewModel: LobbyViewModel
     @State var showInviteModal: Bool = false
+    @State var showInviteButton: Bool = true
     
     var body: some View {
         
@@ -41,13 +42,14 @@ struct LobbyView: View {
                 ZStack{
                     Image("BgSelectionBox")
                         .resizable()
-                        .frame(minWidth: 0, idealWidth: 1048, maxWidth: .infinity, minHeight: 0, idealHeight: 700, maxHeight: .infinity, alignment: .center)
+//                        .frame(minWidth: 0, idealWidth: 1048, maxWidth: .infinity, minHeight: 0, idealHeight: 700, maxHeight: .infinity, alignment: .center)
                     
                     VStack{
                         Text("Music Genre".localized())
                             .font(.largeTitle)
                             .foregroundColor(.white)
                             .fontWeight(.bold)
+                            //.padding(.top)
                         
                         CheckboxView(type: .musicGender, list: ["Rock", "Pop", "Samba"])
                         
@@ -60,7 +62,7 @@ struct LobbyView: View {
                     }
                 }
                 
-                UIGrid(showInviteModal: self.$showInviteModal, columns: 3, list: self.lobbyViewModel.invitedPlayers) { player in
+                UIGrid(showInviteButton: self.$showInviteButton, showInviteModal: self.$showInviteModal, columns: 3, list: self.lobbyViewModel.invitedPlayers) { player in
                     VStack {
                         RoundProfileView(profile: player.photo, name: player.displayName)
                     }
@@ -69,7 +71,7 @@ struct LobbyView: View {
                 
                 Spacer()
                 
-                Button(action: {self.delegate!.createMatch()}, label: {
+                Button(action: {self.delegate!.startMatch()}, label: {
                     ZStack{
                         Image("BgButtonSignIn")
                             .resizable()
@@ -91,7 +93,7 @@ struct LobbyView: View {
                         .opacity(0.4)
                 })
 
-                InvitePlayersModalView(viewModel: self.lobbyViewModel)
+                InvitePlayersModalView(viewModel: self.lobbyViewModel, delegate: self.delegate, showInviteModal: self.$showInviteModal, showInviteButton: self.$showInviteButton)
                     .frame(width: 600, height: 740, alignment: .center)
             }
             

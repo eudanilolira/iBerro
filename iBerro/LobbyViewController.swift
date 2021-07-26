@@ -11,7 +11,7 @@ import SwiftUI
 
 class LobbyViewController: GKMatchmakerViewController {
     var lobbyView: UIHostingController<LobbyView>?
-    var lobbyVM: LobbyViewModel = LobbyViewModel()
+    var lobbyVM: LobbyViewModel?
 
     override init?(invite: GKInvite) {
         super.init(invite: invite)
@@ -35,11 +35,6 @@ class LobbyViewController: GKMatchmakerViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func invitePlayer(player: GKPlayer) {
-        self.lobbyVM.invitedPlayers.append(player)
-        self.matchRequest.recipients = lobbyVM.invitedPlayers
-    }
-    
     func createMatch() {
         GKMatchmaker.shared().findMatch(for: self.matchRequest, withCompletionHandler: { (match, error) in
             GameCenterHelper.helper.match = match
@@ -55,14 +50,13 @@ class LobbyViewController: GKMatchmakerViewController {
         })
     }
     
-    private func setupGameView() {
-        let lobbyViewModel = LobbyViewModel(matchRequest: self.matchRequest)
-        gameView = UIHostingController(rootView: LobbyView(delegate: self, lobbyViewModel: lobbyViewModel))
-        })
-    }
-    
     private func setupLobbyView() {
-        lobbyView = UIHostingController(rootView: LobbyView(delegate: self))
+        self.lobbyVM = LobbyViewModel(matchRequest: self.matchRequest)
+        
+        if let viewModel = lobbyVM {
+            lobbyView = UIHostingController(rootView: LobbyView(delegate: self, lobbyViewModel: viewModel))
+        }
+        
         self.addChild(lobbyView!)
         self.view.addSubview(lobbyView!.view)
 

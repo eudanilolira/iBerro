@@ -9,6 +9,9 @@ import SwiftUI
 
 struct InvitePlayersModalView: View {
     @State var viewModel: LobbyViewModel
+    @State var delegate: LobbyViewController?
+    @Binding var showInviteModal: Bool
+    @Binding var showInviteButton: Bool
     
     var body: some View {
         ZStack {
@@ -30,6 +33,7 @@ struct InvitePlayersModalView: View {
                             
                             Button(action: {
                                 self.viewModel.checkPlayer(player: player)
+                                
                             }, label: {
                                 Image(player.invited ? "BgCheckboxSelected" : "BgCheckbox")
                                     .resizable()
@@ -43,7 +47,10 @@ struct InvitePlayersModalView: View {
                 
                 
                 Button(action: {
-                        self.viewModel.invitePlayers()
+                    self.viewModel.invitePlayers()
+                    self.delegate!.createMatch()
+                    self.showInviteModal = false
+                    self.showInviteButton = false
                     
                 }, label: {
                     ZStack{

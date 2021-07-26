@@ -10,13 +10,14 @@ import SwiftUI
 struct CheckboxView: View {
     @State var type: CheckBoxType
     @State var list: [String]
-    @State var isChecked: Bool = false
+    @State var selected: String = ""
+    
     var body: some View {
         HStack(spacing: 60){
             ForEach(0..<list.count, content: { index in
-                Button(action: {isChecked.toggle()}, label: {
+                Button(action: {self.selected = list[index]}, label: {
                     HStack{
-                        Image(isChecked ? "BgCheckbox" : "BgCheckboxSelected")
+                        Image(selected == list[index] ? "BgCheckboxSelected" : "BgCheckbox")
                             .resizable()
                             .frame(width: 60, height: 60, alignment: .trailing)
                         
@@ -27,7 +28,7 @@ struct CheckboxView: View {
                     }
                 })
             })
-        }.frame(width: 900, height: 184, alignment: .center)
+        }.padding(.bottom)
     }
 }
 

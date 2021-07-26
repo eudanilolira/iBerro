@@ -10,13 +10,15 @@ import SwiftUI
 struct UIGrid<Content: View, A: Identifiable >: View {
     
     @Binding var showInviteModal: Bool
+    @Binding var showInviteButton: Bool
     private let columns: Int
     private var list: [[A]] = []
     private let content: (A) -> Content
     
     
-    init(showInviteModal: Binding<Bool>, columns: Int, list: [A], @ViewBuilder content: @escaping (A) -> Content){
+    init(showInviteButton: Binding<Bool>, showInviteModal: Binding<Bool>, columns: Int, list: [A], @ViewBuilder content: @escaping (A) -> Content){
         self._showInviteModal = showInviteModal
+        self._showInviteButton = showInviteButton
         self.columns = columns
         self.content = content
         self.setup(list: list)
@@ -30,7 +32,7 @@ struct UIGrid<Content: View, A: Identifiable >: View {
                     ForEach(0..<self.list[i].count, id: \.self) { j in
                         self.content(self.list[i][j])
                         
-                        if((i == self.list.count - 1) && (j == self.list[i].count - 1)){
+                        if((i == self.list.count - 1) && (j == self.list[i].count - 1) && showInviteButton){
                             Button(action: {self.showInviteModal = true}, label: {
                                 VStack {
                                     Image("Convidar")

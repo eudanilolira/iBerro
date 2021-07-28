@@ -228,6 +228,7 @@
 		0CCF1223268DE426001175DB /* iBerro */ = {
 			isa = PBXGroup;
 			children = (
+				B40338DA26B1815600FC960C /* ControllersHelpers */,
 				B4400CE0269F379E00612998 /* Resources */,
 				0CCF122A268DE428001175DB /* Preview Content */,
 				0C96EC15269F32C80030269C /* LanguageStrings */,
@@ -238,11 +239,8 @@
 				0C6668752697B84000254BC5 /* LaunchScreen.storyboard */,
 				0CCF1228268DE428001175DB /* Assets.xcassets */,
 				0C6668622697B7F600254BC5 /* AppDelegate.swift */,
-				0C6668782697B8DD00254BC5 /* GameCenterHelper.swift */,
-				0C66687B2697B8E100254BC5 /* GameViewController.swift */,
 				0C6668612697B7F600254BC5 /* SceneDelegate.swift */,
 				0C66687E2697B95800254BC5 /* Info.plist */,
-				0C96EC0E269F21400030269C /* LobbyViewController.swift */,
 			);
 			path = iBerro;
 			sourceTree = "<group>";
@@ -324,6 +322,16 @@
 				A3A8DA3D26A6FC25005F20C0 /* UIGrid.swift */,
 			);
 			path = "Common SubViews";
+			sourceTree = "<group>";
+		};
+		B40338DA26B1815600FC960C /* ControllersHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				0C6668782697B8DD00254BC5 /* GameCenterHelper.swift */,
+				0C66687B2697B8E100254BC5 /* GameViewController.swift */,
+				0C96EC0E269F21400030269C /* LobbyViewController.swift */,
+			);
+			path = ControllersHelpers;
 			sourceTree = "<group>";
 		};
 		B4400CE0269F379E00612998 /* Resources */ = {

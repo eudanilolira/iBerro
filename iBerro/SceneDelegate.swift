@@ -11,7 +11,6 @@ import GameKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate, GameCenterHelperDelegate {
     func didChangeAuthStatus(isAuthenticated: Bool) {
-        print("Estou logado!")
         let localPlayer = GKLocalPlayer.local
         
         localPlayer.loadPhoto(for: .normal, withCompletionHandler: { (image, error) in

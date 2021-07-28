@@ -56,7 +56,7 @@ struct EvaluatingView: View {
                     .padding()
                     .padding(.bottom)
                 
-                PlayersView(player: $player, players: $players)
+                PlayersView(players: $players)
                     .frame(minWidth: 300, idealWidth: 450, maxWidth: 600, minHeight: 300, idealHeight: 400, maxHeight: 450, alignment: .center)
                     .padding()
                 

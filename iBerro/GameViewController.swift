@@ -17,7 +17,8 @@ class GameViewController: UIViewController, GKMatchDelegate {
         }
     }
     
-    var gameView: UIHostingController<GameView>?
+    var players: [Player] = []
+    var gameView: UIHostingController<PlayingView>?
     var button = UIButton()
     var model: GameViewModel?
     var voiceChat: GKVoiceChat?
@@ -26,12 +27,6 @@ class GameViewController: UIViewController, GKMatchDelegate {
         super.viewDidLoad()
         self.match?.delegate = self
         self.view.addSubview(button)
-        self.setupGameView()
-        
-        guard let players = setupPlayers() else { return } //LIDAR COM ERRO DE PARTIDA
-        let room = Room(maxScore: 120) //PERMITIR ESCOLHA DE MAXSCORE
-        model = GameViewModel(players: players, room: room)
-        
         
         do {
             let audioSession = AVAudioSession.sharedInstance() //I can init it anywhere
@@ -45,7 +40,14 @@ class GameViewController: UIViewController, GKMatchDelegate {
         } catch {
             return
         }
-        self.setupGameView()
+        
+        setupPlayers() { players in
+            self.players = players
+            print("VARIAEL PLAYER no setup: \(players)")
+            print("OS players no setup: \(self.players)")
+            self.model = GameViewModel(players: players, room: Room(maxScore: 120))
+            self.setupGameView()
+        }
     }
     
     func match(_ match: GKMatch, shouldReinviteDisconnectedPlayer player: GKPlayer) -> Bool {
@@ -53,26 +55,56 @@ class GameViewController: UIViewController, GKMatchDelegate {
         return true
     }
     
-    private func setupPlayers() -> [Player]?{
-        guard let gCPlayers = self.match?.players else { return nil }
+    private func setupPlayers(completionHandler: @escaping ([Player]) -> Void){
+        guard var gCPlayers = self.match?.players else { return }
+        
+        gCPlayers.append(GKLocalPlayer.local)
+        
+        gCPlayers.sort(by: { firstPlayer, secondPlayer in
+            firstPlayer.displayName < secondPlayer.displayName
+        })
+        
         var players: [Player] = []
+        var loadedPlayers: Int = 0
         
         for gCPlayer in gCPlayers {
+            
             gCPlayer.loadPhoto(for: .normal, withCompletionHandler: { (image, erro) in
                 if let photo = image {
-                    let player = Player(displayName: gCPlayer.displayName, isHost: false, photo: ImageWrapper(photo: photo))
+                    
+                    let player = Player(
+                        displayName: gCPlayer.displayName,
+                        isHost: false,
+                        photo: ImageWrapper(photo: photo)
+                    )
+                    
                     players.append(player)
+                    loadedPlayers += 1
+
+                    if loadedPlayers == gCPlayers.count {
+                        for i in 0..<players.count {
+                            players[i].status = i == 0 ? .singing : .watching
+                        }
+                        
+                        completionHandler(players)
+                    }
+                    
                 }
             })
         }
         
-        return players
+        
     }
     
     private func setupGameView() {
         guard let gameModel = model else {return }
         
-        let gameUIView = GameView(matchDelegate: self, game: gameModel)
+        let gameUIView = PlayingView(
+            matchDelegate: self,
+            game: gameModel,
+            players: self.players
+        )
+        
         gameView = UIHostingController(rootView: gameUIView)
         
         self.addChild(gameView!)

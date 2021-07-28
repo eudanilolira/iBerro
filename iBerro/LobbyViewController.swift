@@ -12,7 +12,7 @@ import SwiftUI
 class LobbyViewController: GKMatchmakerViewController {
     var lobbyView: UIHostingController<LobbyView>?
     var lobbyVM: LobbyViewModel?
-
+    
     override init?(invite: GKInvite) {
         super.init(invite: invite)
         self.setupLobbyView()
@@ -22,8 +22,7 @@ class LobbyViewController: GKMatchmakerViewController {
         super.init(matchRequest: request)
         self.setupLobbyView()
         self.matchRequest.recipientResponseHandler = { (player, response) in
-            print(player.displayName)
-            print("Response")
+            print("\(player.displayName) - \(response)")
         }
     }
     
@@ -42,7 +41,7 @@ class LobbyViewController: GKMatchmakerViewController {
         })
     }
     
-    func startMatch() {
+    func startMatch(musicGenre: String, highScore: String) {
         GKMatchmaker.shared().finishMatchmaking(for: GameCenterHelper.helper.match!)
         
         self.dismiss(animated: false, completion: {

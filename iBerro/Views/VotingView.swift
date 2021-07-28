@@ -57,7 +57,7 @@ struct VotingView: View {
                 .padding([.top,.leading])
                 Spacer()
                 
-                PlayersView(player: $player, players: $players)
+                PlayersView(players: $players)
                 .padding(.bottom, 200)
                 
                 Text("\("4") pessoas já votaram!")

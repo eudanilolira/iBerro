@@ -19,10 +19,16 @@ class LobbyViewModel: ObservableObject {
         self.matchRequest = matchRequest
         let playerLocal = GKLocalPlayer.local
         
+        //Possível bug com esse isHost true, pq caso outro jogador abra o lobby ele seria host tbm
         playerLocal.loadPhoto(for: .normal, withCompletionHandler: { image, error in
-            let player = Player(id: 0, displayName: playerLocal.displayName, isHost: false,
-                                photo: ImageWrapper (photo: image!),
-                                invited: true)
+            
+            let player = Player(
+                id: 0,
+                displayName: playerLocal.displayName,
+                isHost: true,
+                photo: ImageWrapper (photo: image!),
+                invited: false
+            )
             
             self.players.append(player)
             self.invitedPlayers.append(player)
@@ -37,7 +43,6 @@ class LobbyViewModel: ObservableObject {
                 
                 player.loadPhoto(for: .normal, withCompletionHandler: { image, error in
                     self.players.append(Player(id: i, displayName: player.displayName, isHost: false, photo: ImageWrapper (photo: image!)))
-                    print(self.players)
                 })
                 
 

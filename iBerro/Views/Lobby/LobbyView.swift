@@ -14,6 +14,9 @@ struct LobbyView: View {
     @ObservedObject var lobbyViewModel: LobbyViewModel
     @State var showInviteModal: Bool = false
     @State var showInviteButton: Bool = true
+    @State var musicGenre: String = ""
+    @State var highScore: String = ""
+    
     
     var body: some View {
         
@@ -49,16 +52,15 @@ struct LobbyView: View {
                             .font(.largeTitle)
                             .foregroundColor(.white)
                             .fontWeight(.bold)
-                            //.padding(.top)
                         
-                        CheckboxView(type: .musicGender, list: ["Rock", "Pop", "Samba"])
+                        CheckboxView(type: .musicGender, list: ["Rock", "Pop", "Samba"], selected: $musicGenre)
                         
                         Text("High Score".localized())
                             .font(.largeTitle)
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                         
-                        CheckboxView(type: .maxScore, list: ["100", "200", "300", "400"])
+                        CheckboxView(type: .maxScore, list: ["100", "200", "300", "400"], selected: $highScore)
                     }
                 }
                 
@@ -71,7 +73,11 @@ struct LobbyView: View {
                 
                 Spacer()
                 
-                Button(action: {self.delegate!.startMatch()}, label: {
+                Button(action: {
+                        self.delegate!.startMatch(
+                            musicGenre: musicGenre,
+                            highScore: highScore
+                        )}, label: {
                     ZStack{
                         Image("BgButtonSignIn")
                             .resizable()

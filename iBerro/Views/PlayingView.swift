@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct PlayingView: View {
+    var matchDelegate: GameViewController
+    @ObservedObject var game: GameViewModel
     
-    var gameCenterDelegate: SceneDelegate?
-    @State var player: Player
-    @State private var filter: String = "mpb"
-    
+    @State var players: [Player]
+    @State var filter: String = "mpb" //PEGAR DO LOBBY
     @State private var readyToSing: Bool = false
     @State var previewIsOver: Bool = false
     
@@ -22,16 +22,13 @@ struct PlayingView: View {
     @State private var timeRemainingToSing: Int = 15
     let timerToSing = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    @State var players: [Player]
-    
-    
     var body: some View {
         ZStack {
             
             Background()
             
             VStack(alignment: .center, spacing: 10) {
-                Head(player: player)
+                Head(player: players.first(where: {player in player.status == .singing})!)
                     .padding(.top, 20)
                 
                 
@@ -82,7 +79,7 @@ struct PlayingView: View {
                         
                     }
                     
-                PlayersView(player: $player, players: $players)
+                PlayersView(players: $players)
                     
                 }
                 .padding(.top, 20)

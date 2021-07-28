@@ -10,7 +10,7 @@ import SwiftUI
 struct CheckboxView: View {
     @State var type: CheckBoxType
     @State var list: [String]
-    @State var selected: String = ""
+    @Binding var selected: String
     
     var body: some View {
         HStack(spacing: 60){

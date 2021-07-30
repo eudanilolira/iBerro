@@ -45,7 +45,6 @@ struct LobbyView: View {
                 ZStack{
                     Image("BgSelectionBox")
                         .resizable()
-//                        .frame(minWidth: 0, idealWidth: 1048, maxWidth: .infinity, minHeight: 0, idealHeight: 700, maxHeight: .infinity, alignment: .center)
                     
                     VStack{
                         Text("Music Genre".localized())

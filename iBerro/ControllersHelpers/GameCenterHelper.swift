@@ -18,7 +18,10 @@ final class GameCenterHelper: NSObject, GKLocalPlayerListener {
     weak var delegate: GameCenterHelperDelegate?
     static let helper = GameCenterHelper()
     var match: GKMatch?
-    //CRIAR VARIA'VEIS PRA ARMAZENAR AS PARADAS AQUI
+    
+    var isHost: Bool = false
+    var musicGenre: String = ""
+    var highScore: Int = 0
     
     private let minPlayers: Int = 2
     private let maxPlayers: Int = 2

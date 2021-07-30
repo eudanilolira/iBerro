@@ -36,9 +36,3 @@ enum CheckBoxType {
     case musicGender
     case maxScore
 }
-
-//struct CheckboxView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CheckboxView()
-//    }
-//}

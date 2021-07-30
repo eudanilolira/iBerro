@@ -11,12 +11,10 @@ struct PlayingView: View {
     var matchDelegate: GameViewController
     @ObservedObject var game: GameViewModel
     
-    @State var players: [Player]
-    @State var filter: String = "mpb" //PEGAR DO LOBBY
     @State private var readyToSing: Bool = false
     @State var previewIsOver: Bool = false
-    
     @State private var timeRemaining = 5
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State private var timeRemainingToSing: Int = 15
@@ -28,13 +26,12 @@ struct PlayingView: View {
             Background()
             
             VStack(alignment: .center, spacing: 10) {
-                Head(player: players.first(where: {player in player.status == .singing})!)
+                Head(player: game.model.players.first(where: {player in player.status == .singing})!)
                     .padding(.top, 20)
                 
                 
                     if timeRemaining > 0 {
                         Spacer()
-                        
                         InitialTimer(timeRemaining: $timeRemaining)
                         
                     } else {
@@ -57,11 +54,11 @@ struct PlayingView: View {
                                 if !previewIsOver {
                                     Spacer()
                                     
-                                    MusicPlayer(filter: $filter, previewIsOver: $previewIsOver)
+                                    MusicPlayer(filter: $game.model.room.musicGenre, previewIsOver: $previewIsOver)
                                     
                                 } else {
                                     //ir para próxima tela, pois acabou o tempo
-                                    Text("Acabou o tempo").foregroundColor(.white)
+                                    Text(game.model.room.musicGenre).foregroundColor(.white)
                                 }
                             }
                             
@@ -75,11 +72,11 @@ struct PlayingView: View {
                         
                     } else {
                         
-                        SingButton(readyToSing: $readyToSing, previewIsOver: $previewIsOver)
+                        SingButton(readyToSing: $readyToSing, previewIsOver: $previewIsOver, delegate: matchDelegate)
                         
                     }
                     
-                PlayersView(players: $players)
+                PlayersView(players: $game.model.players)
                     
                 }
                 .padding(.top, 20)
@@ -205,10 +202,12 @@ struct PlayingView: View {
     struct SingButton: View {
         @Binding  var readyToSing: Bool
         @Binding var previewIsOver: Bool
+        var delegate: GameViewController
         
         var body: some View {
             Button(action: {
-                readyToSing.toggle()
+                //MODIFICAR ESTADO DO JOGADOR E REALIZAR O BROADCAST
+//                readyToSing.toggle()
             }, label: {
                 ZStack (alignment: Alignment(horizontal: .center, vertical: .center)) {
                     if !previewIsOver {

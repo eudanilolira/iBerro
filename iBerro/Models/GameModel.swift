@@ -20,6 +20,43 @@ struct GameModel: Codable {
     func ranking() -> [Player] {
         players.sorted(by: >)
     }
+    
+    func arePlayersReady() -> Bool {
+        let playersReady = players.filter { player in
+            player.status == .ready
+        }
+        
+        return playersReady.count == players.count ? true : false
+    }
+    
+    func localPlayer() -> Player {
+        let gkLocalPlayer = GKLocalPlayer.local
+        
+        let player = players.first(where: { player in
+            player.displayName == gkLocalPlayer.displayName
+        })
+        
+        return player!
+    }
+    
+    func playerIndex(from name: String) -> Int {
+        for i in 0..<players.count {
+            if players[i].displayName == name {
+                return i
+            }
+        }
+        
+        return -1
+    }
+    
+    mutating func setPlayerStatus(name: String, status: PlayerStatus) {
+        for i in 0..<players.count {
+            if players[i].displayName == name {
+                players[i].status = status
+                break
+            }
+        }
+    }
 }
 
 extension GameModel {

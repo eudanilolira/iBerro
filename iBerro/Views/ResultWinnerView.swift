@@ -25,10 +25,10 @@ struct ResultWinnerView: View {
                 
                 if (horizontalSize == .regular || verticalSize == .regular) {
                     
-                    ZStack{
+                    ZStack() {
                         
                         Image("BgPrimeiroLugar")
-                            .scaledToFit()
+                            .resizable()
                         
                         VStack{
                             Image(uiImage: UIImage(data: player.photo.image) ?? UIImage(named: "Group 3")!)
@@ -48,9 +48,9 @@ struct ResultWinnerView: View {
                                 .font(.system(size: 40))
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
-                                .multilineTextAlignment(.leading)
+                                .multilineTextAlignment(.center)
                         } .padding(.top)
-                    }
+                    } .frame(width: 600, height: 370)
                     
                     
                 } else {
@@ -71,9 +71,9 @@ struct ResultWinnerView: View {
                                 .font(.system(size: 24))
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
-                                .multilineTextAlignment(.leading)
+                                .multilineTextAlignment(.center)
                         } .padding(.top)
-                    }
+                    } .frame(width: 400, height: 240)
                 }
             } .onAppear() {
                 makeView(geometry)
@@ -85,7 +85,7 @@ struct ResultWinnerView: View {
             }
             .onDrag { NSItemProvider(object: generatedImage! as UIImage)}
             
-        }
+        } .frame(width: 600, height: 370, alignment: .center)
     }
     
     func makeView(_ geometry: GeometryProxy){

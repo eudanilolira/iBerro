@@ -12,6 +12,8 @@ struct ResultView: View {
     @State var player: Player
     @State private var orientation = UIDeviceOrientation.unknown
     
+    @Environment(\.horizontalSizeClass) var horizontalSize
+    @Environment(\.verticalSizeClass) var verticalSize
     
     var body: some View {
         ZStack {
@@ -31,9 +33,9 @@ struct ResultView: View {
                             Text("LEAVE".localized())
                                 .font(.title)
                                 .foregroundColor(.white)
-                                .padding(.bottom)
+                                .padding(.bottom, 10)
                         }
-                    }).frame(minWidth: 75, idealWidth: 175, maxWidth: 225, minHeight: 80, idealHeight: 100, maxHeight: 140, alignment: .center)
+                    }).frame(minWidth: 75, idealWidth: 175, maxWidth: 225, minHeight: 120, idealHeight: 130, maxHeight: 140, alignment: .center)
                     
                     Spacer()
                     
@@ -51,14 +53,12 @@ struct ResultView: View {
                             .fontWeight(.bold)
                             .multilineTextAlignment(.trailing)
                     }
-                    
-                }
-                .padding()
+                    .padding()
+                } .padding(.top)
                 Spacer()
                 
                 ResultWinnerView(player: player)
-                
-                Spacer(minLength: 120)
+                    .padding()
                 
                 HStack{
                     //ForEach(self.matchDelegate.match!.players, id: \.self) { player in
@@ -86,11 +86,15 @@ struct ResultView: View {
                             Text("NOME DE FULANO")
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
-                                .multilineTextAlignment(.leading)
+                                .multilineTextAlignment(.center)
+                            
                         }
+                        
                     }.padding(.horizontal)
+                    
                 }
-                Spacer()
+                
+                Spacer(minLength: 50)
 
                 Button(action: {
                     //Ir pra próxima tela (votação)
@@ -106,8 +110,8 @@ struct ResultView: View {
                             .padding(.bottom)
                     }
                 })
-                .frame(minWidth: 150, idealWidth: 220, maxWidth: 300, minHeight: 80, idealHeight: 100, maxHeight: 140, alignment: .center)
-                
+                .frame(minWidth: 150, idealWidth: 220, maxWidth: 300, minHeight: 120, idealHeight: 130, maxHeight: 140, alignment: .center)
+                Spacer()
             }
         }
     }

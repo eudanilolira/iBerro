@@ -12,9 +12,6 @@ struct ResultView: View {
     @State var player: Player
     @State private var orientation = UIDeviceOrientation.unknown
     
-    @Environment(\.horizontalSizeClass) var horizontalSize
-    @Environment(\.verticalSizeClass) var verticalSize
-    
     
     var body: some View {
         ZStack {
@@ -59,59 +56,10 @@ struct ResultView: View {
                 .padding()
                 Spacer()
                 
-                if (horizontalSize == .regular || verticalSize == .regular) {
-                    
-                    ZStack{
-                        Image("BgPrimeiroLugar")
-                            .scaledToFit()
-                        
-                        VStack{
-                            Image(uiImage: UIImage(data: player.photo.image) ?? UIImage(named: "Group 3")!)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .clipShape(Circle())
-                                .frame(
-                                    minWidth: 50,
-                                    idealWidth: 100,
-                                    maxWidth: 150,
-                                    minHeight: 50,
-                                    idealHeight: 100,
-                                    maxHeight: 150,
-                                    alignment: .center)
-                            
-                            Text(player.displayName.uppercased())
-                                .font(.system(size: 40))
-                                .foregroundColor(.white)
-                                .fontWeight(.bold)
-                                .multilineTextAlignment(.leading)
-                        } .padding(.top)
-                    } .frame(
-                        width: 150,
-                        height: 150,
-                        alignment: .center)
-                } else {
-                    
-                    ZStack{
-                        Image("BgPrimeiroLugar")
-                            .resizable()
-                        
-                        VStack{
-                            Image(uiImage: UIImage(data: player.photo.image) ?? UIImage(named: "Group 3")!)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .clipShape(Circle())
-                                .frame(width: 80, height: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            
-                            Text(player.displayName.uppercased())
-                                .font(.system(size: 24))
-                                .foregroundColor(.white)
-                                .fontWeight(.bold)
-                                .multilineTextAlignment(.leading)
-                        } .padding(.top)
-                    } .frame(width: 380, height: 260, alignment: .center)
-                }
+                ResultWinnerView(player: player)
                 
                 Spacer(minLength: 120)
+                
                 HStack{
                     //ForEach(self.matchDelegate.match!.players, id: \.self) { player in
                     ForEach(0...3, id: \.self) { index in

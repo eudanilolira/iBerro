@@ -56,7 +56,8 @@ struct PlayingView: View {
                                     
                                 } else {
                                     //ir para próxima tela, pois acabou o tempo
-                                    Text(game.model.room.musicGenre).foregroundColor(.white)
+                                    LoadingView()
+//                                    Text(game.model.room.musicGenre).foregroundColor(.white)
                                 }
                             }
                             

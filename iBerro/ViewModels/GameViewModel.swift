@@ -8,7 +8,8 @@
 import Foundation
 import GameKit
 
-class GameViewModel: ObservableObject {
+class GameViewModel: ObservableObject{
+    
     @Published var model: GameModel
     @Published var speaking: GKPlayer?
     @Published var myState: String = ""

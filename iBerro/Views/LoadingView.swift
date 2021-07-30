@@ -36,12 +36,6 @@ struct LoadingView: View {
                     soundLevels[i] = self.normalizeSoundLevel(level: level)
                 }
             }
-            //            .onAppear(){
-            //                for i in 0..<5{
-            //                    let level = Float(Int.random(in: -40 ..< -30))
-            //                    soundLevels[i] = self.normalizeSoundLevel(level: level)
-            //                }
-            //            }
             
         }
         .ignoresSafeArea()

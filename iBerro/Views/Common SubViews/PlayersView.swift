@@ -19,7 +19,7 @@ struct PlayersView: View {
         
         if (player.status == .watching) {
             VStack{
-                Image(uiImage: UIImage(data: player.photo.image) ?? UIImage(named: "Group 3")!)
+                Image(uiImage: UIImage(data: player.photo.image) ?? UIImage(systemName: "person.crop.circle")!)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .clipShape(Circle())
@@ -32,7 +32,7 @@ struct PlayersView: View {
                         maxHeight: 150,
                         alignment: .bottom)
                 
-                Text("\(player.displayName.uppercased())'s TURN".localized())
+                Text("\(player.displayName.uppercased())".localized())
                     .font(.system(size: 24))
                     .foregroundColor(.white)
                     .fontWeight(.regular)

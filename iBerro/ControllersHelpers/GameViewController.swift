@@ -67,13 +67,13 @@ class GameViewController: UIViewController, GKMatchDelegate {
         let gameUIView = PlayingView(matchDelegate: self, game: gameModel)
         gameView = UIHostingController(rootView: gameUIView)
         
-        self.addChild(gameView!)
-        self.view.addSubview(gameView!.view)
-        
         //Getting player ready for game
         let player = gameModel.model.localPlayer()
         gameModel.model.setPlayerStatus(name: player.displayName, status: .ready)
         self.sendData()
+        
+        self.addChild(gameView!)
+        self.view.addSubview(gameView!.view)
         
         if let gameUIHosting = gameView {
             gameUIHosting.view.translatesAutoresizingMaskIntoConstraints = false
@@ -137,6 +137,7 @@ extension GameViewController {
                 if let photo = image {
                     
                     let player = Player(
+                        id: players.count,
                         displayName: gCPlayer.displayName,
                         isHost: false,
                         photo: ImageWrapper(photo: photo)

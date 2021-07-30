@@ -26,14 +26,12 @@ struct PlayingView: View {
             Background()
             
             VStack(alignment: .center, spacing: 10) {
-                Head(player: game.model.players.first(where: {player in player.status == .singing})!)
+                Head(player: game.model.players[0])
                     .padding(.top, 20)
                 
-                
-                    if timeRemaining > 0 {
+                    if timeRemaining > 0{
                         Spacer()
                         InitialTimer(timeRemaining: $timeRemaining)
-                        
                     } else {
                         if previewIsOver == true && timeRemainingToSing > 0 {
                             

@@ -12,6 +12,7 @@ import GameKit
 struct GameModel: Codable {
     var players: [Player] = []
     var room: Room
+    var singingPlayerIndex: Int = -1
     
     func highScore() -> Int {
         players.max()?.score ?? 0
@@ -21,12 +22,13 @@ struct GameModel: Codable {
         players.sorted(by: >)
     }
     
-    func arePlayersReady() -> Bool {
+    mutating func arePlayersReady() -> Bool {
         let playersReady = players.filter { player in
             player.status == .ready
         }
         
-        return playersReady.count == players.count ? true : false
+        let ready = playersReady.count == players.count ? true : false
+        return ready
     }
     
     func localPlayer() -> Player {
@@ -47,6 +49,18 @@ struct GameModel: Codable {
         }
         
         return -1
+    }
+    
+    mutating func setSingingPlayer() {
+        self.singingPlayerIndex += 1
+        
+        for i in 0..<players.count {
+            if i == singingPlayerIndex {
+                players[singingPlayerIndex].status = .singing
+            } else {
+                players[i].status = .watching
+            }
+        }
     }
     
     mutating func setPlayerStatus(name: String, status: PlayerStatus) {

@@ -17,12 +17,12 @@ struct LoadingView: View {
                 .resizable()
             
             VStack {
-                HStack {
+                HStack{
                     ForEach(soundLevels, id: \.self) { level in
                         BarView(value: level)
                     }
                 }
-                .frame(width: 200, height: 130, alignment: .center).padding()
+                .frame(minWidth: 40, idealWidth: 80, maxWidth: 100, minHeight: 60, idealHeight: 100, maxHeight: 120, alignment: .center)
                 
                 Text("Loading.....".localized())
                     .font(.title)

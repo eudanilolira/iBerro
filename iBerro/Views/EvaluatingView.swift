@@ -31,6 +31,7 @@ struct EvaluatingView: View {
             
             Image("BgMenu")
                 .resizable()
+                .ignoresSafeArea()
             
             VStack {
                 
@@ -41,7 +42,7 @@ struct EvaluatingView: View {
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
-                        .padding()
+                        .padding(.top, 60)
                         
                     
                 } else {
@@ -101,10 +102,11 @@ struct EvaluatingView: View {
                                 .padding(.bottom, 25)
                         }
                     })
-                } .frame(minWidth: 300, idealWidth: 450, maxWidth: 600, minHeight: 130, idealHeight: 180, maxHeight: 210, alignment: .center)
+                } .frame(minWidth: 300, idealWidth: 450, maxWidth: 600, minHeight: 100, idealHeight: 130, maxHeight: 150, alignment: .center)
+                Spacer(minLength: 20)
                 
             }
             
-        } .ignoresSafeArea()
+        }
     }
 }

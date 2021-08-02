@@ -54,7 +54,10 @@
 		0CCF1242268DE429001175DB /* iBerroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCF1241268DE429001175DB /* iBerroUITests.swift */; };
 		8B1BCA1526A5BE1B004A3C38 /* EvaluatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BCA1426A5BE1B004A3C38 /* EvaluatingView.swift */; };
 		8B1BCA1726A5C3CD004A3C38 /* PlayersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BCA1626A5C3CD004A3C38 /* PlayersView.swift */; };
+		8B38CA7626B41AB80026FC37 /* ResultWinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B38CA7526B41AB80026FC37 /* ResultWinnerView.swift */; };
+		8B38CA7826B41B130026FC37 /* UIView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B38CA7726B41B130026FC37 /* UIView+Image.swift */; };
 		8BD3560A26A081010019EEC3 /* VotingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD3560926A081010019EEC3 /* VotingView.swift */; };
+		8BE6C6AC26B18CA3009D33C6 /* View+Rotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6C6AB26B18CA3009D33C6 /* View+Rotate.swift */; };
 		A3A8DA3E26A6FC25005F20C0 /* UIGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A8DA3D26A6FC25005F20C0 /* UIGrid.swift */; };
 		AC43964D26A055EA00A36C7B /* PlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC43964C26A055EA00A36C7B /* PlayingView.swift */; };
 		ACB63D3526A71083007CC72A /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB63D3426A71083007CC72A /* ResultView.swift */; };
@@ -123,7 +126,10 @@
 		0CCF1243268DE429001175DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B1BCA1426A5BE1B004A3C38 /* EvaluatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluatingView.swift; sourceTree = "<group>"; };
 		8B1BCA1626A5C3CD004A3C38 /* PlayersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersView.swift; sourceTree = "<group>"; };
+		8B38CA7526B41AB80026FC37 /* ResultWinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWinnerView.swift; sourceTree = "<group>"; };
+		8B38CA7726B41B130026FC37 /* UIView+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Image.swift"; sourceTree = "<group>"; };
 		8BD3560926A081010019EEC3 /* VotingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingView.swift; sourceTree = "<group>"; };
+		8BE6C6AB26B18CA3009D33C6 /* View+Rotate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Rotate.swift"; sourceTree = "<group>"; };
 		A3A8DA3D26A6FC25005F20C0 /* UIGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGrid.swift; sourceTree = "<group>"; };
 		AC43964C26A055EA00A36C7B /* PlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingView.swift; sourceTree = "<group>"; };
 		ACB63D3426A71083007CC72A /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
@@ -203,6 +209,8 @@
 			children = (
 				0C96EC13269F32530030269C /* String + localized.swift */,
 				0C5813C526A864000009EC7D /* Color+Hex.swift */,
+				8BE6C6AB26B18CA3009D33C6 /* View+Rotate.swift */,
+				8B38CA7726B41B130026FC37 /* UIView+Image.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -288,6 +296,15 @@
 				0C5813BE26A84C0C0009EC7D /* Lobby */,
 				B40338D626B17FBE00FC960C /* Game View */,
 				B40338D926B1809800FC960C /* Common SubViews */,
+				A3A8DA3D26A6FC25005F20C0 /* UIGrid.swift */,
+				0C6668682697B81A00254BC5 /* ContentView.swift */,
+				0C25B0B8269864F60003F768 /* BarView.swift */,
+				0C25B0B5269864EF0003F768 /* SoundVisualizer.swift */,
+				B4400CDE269F21F000612998 /* MusicPlayer.swift */,
+				AC43964C26A055EA00A36C7B /* PlayingView.swift */,
+				8B38CA7526B41AB80026FC37 /* ResultWinnerView.swift */,
+				ACB63D3426A71083007CC72A /* ResultView.swift */,
+				0C96EC06269F09E20030269C /* MenuView.swift */,
 				0C96EC0A269F16D00030269C /* LoadingView.swift */,
 				0C96EC06269F09E20030269C /* MenuView.swift */,
 				8BD3560926A081010019EEC3 /* VotingView.swift */,
@@ -498,6 +515,7 @@
 				0C25B0BC269865070003F768 /* MicrophoneMonitor.swift in Sources */,
 				A3A8DA3E26A6FC25005F20C0 /* UIGrid.swift in Sources */,
 				0C5813C026A8552A0009EC7D /* CheckboxView.swift in Sources */,
+				8B38CA7626B41AB80026FC37 /* ResultWinnerView.swift in Sources */,
 				0C5813CA26A86AB30009EC7D /* RoundProfileView.swift in Sources */,
 				0C5813C426A862290009EC7D /* InvitePlayersModalView.swift in Sources */,
 				0C66686B2697B81A00254BC5 /* ContentView.swift in Sources */,
@@ -506,6 +524,7 @@
 				0C96EC14269F32530030269C /* String + localized.swift in Sources */,
 				0C6668732697B82C00254BC5 /* GameViewModel.swift in Sources */,
 				0C25B0C6269871560003F768 /* Room.swift in Sources */,
+				8BE6C6AC26B18CA3009D33C6 /* View+Rotate.swift in Sources */,
 				ACB63D3526A71083007CC72A /* ResultView.swift in Sources */,
 				0C96EC07269F09E20030269C /* MenuView.swift in Sources */,
 				8B1BCA1726A5C3CD004A3C38 /* PlayersView.swift in Sources */,
@@ -515,6 +534,7 @@
 				0C46040726A06831002F246F /* LobbyView.swift in Sources */,
 				8BD3560A26A081010019EEC3 /* VotingView.swift in Sources */,
 				0C25B0B6269864EF0003F768 /* SoundVisualizer.swift in Sources */,
+				8B38CA7826B41B130026FC37 /* UIView+Image.swift in Sources */,
 				0C5813C226A857DB0009EC7D /* LobbyViewModel.swift in Sources */,
 				0C96EC0F269F21400030269C /* LobbyViewController.swift in Sources */,
 				0C6668792697B8DD00254BC5 /* GameCenterHelper.swift in Sources */,

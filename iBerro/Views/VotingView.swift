@@ -55,10 +55,10 @@ struct VotingView: View {
                     Spacer()
                 }
                 .padding([.top,.leading])
-                Spacer()
+                Spacer(minLength: 60)
                 
                 PlayersView(player: $player, players: $players)
-                .padding(.bottom, 200)
+                .padding(.bottom, 100)
                 
                 Text("\("4") pessoas já votaram!")
                     .font(.system(size: 40))
@@ -66,7 +66,7 @@ struct VotingView: View {
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                     .padding()
-                Spacer()
+                Spacer(minLength: 60)
             }
         } .ignoresSafeArea()
     }

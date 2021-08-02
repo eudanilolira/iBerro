@@ -12,21 +12,30 @@ struct PreMatchView: View {
     @ObservedObject var game: GameViewModel
     @State var playersAreReady: Bool = false
     @State var currentScreen: String?
+    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         NavigationView {
+            
+            Text("Teste")
+            
             NavigationLink(destination: LoadingView(), tag: "loadView", selection: $currentScreen) { EmptyView() }
             
             NavigationLink(destination: PlayingView(matchDelegate: matchDelegate, game: game), tag: "playingView", selection: $currentScreen) { EmptyView() }
             
         }.navigationBarHidden(true)
         
-        .onChange(of: game.model.arePlayersReady(), perform: { value in
-            print("valor: \(value)")
-            currentScreen = value ? "playingView" : "loadView"
-        })
+        .onReceive(timer) { time in
+            if game.model.arePlayersReady() {
+//                game.model.players[0].status = .singing
+//
+//                for i in 1..<game.model.players.count {
+//                    game.model.players[i].status = .watching
+//                }
+                
+                currentScreen =  "playingView"
+            }
+            
+        }
     }
-    
-
-    
 }

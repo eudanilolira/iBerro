@@ -17,10 +17,13 @@ class GameViewController: UIViewController, GKMatchDelegate {
         }
     }
     
-    var gameView: UIHostingController<PreMatchView>?
+    var gameView: UIHostingController<PlayingView>?
     var button = UIButton()
     var gameViewModel: GameViewModel?
     var voiceChat: GKVoiceChat?
+    var singPersonIndex: Int = 0
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +37,7 @@ class GameViewController: UIViewController, GKMatchDelegate {
             
             voiceChat?.volume = 1
             voiceChat?.start()
-            voiceChat?.isActive = true
+            voiceChat?.isActive = false
             
         } catch {
             return
@@ -64,12 +67,18 @@ class GameViewController: UIViewController, GKMatchDelegate {
     private func setupGameView() {
         guard let gameModel = gameViewModel else {return }
         
-        let gameUIView = PreMatchView(matchDelegate: self, game: gameModel)
+        let gameUIView = PlayingView(matchDelegate: self, game: gameModel)
         gameView = UIHostingController(rootView: gameUIView)
         
         //Getting player ready for game
         let player = gameModel.model.localPlayer()
-        gameModel.model.setPlayerStatus(name: player.displayName, status: .ready)
+        
+        if gameModel.model.players[singPersonIndex] == player {
+            gameModel.model.players[singPersonIndex].status = .singing
+        } else {
+            gameModel.model.setPlayerStatus(name: player.displayName, status: .watching)
+        }
+        
         self.sendData()
         
         self.addChild(gameView!)

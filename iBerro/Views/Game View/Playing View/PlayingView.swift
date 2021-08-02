@@ -55,26 +55,21 @@ struct PlayingView: View {
                                     MusicPlayer(filter: $game.model.room.musicGenre, previewIsOver: $previewIsOver)
                                     
                                 } else {
-                                    //ir para próxima tela, pois acabou o tempo
-                                    LoadingView()
-//                                    Text(game.model.room.musicGenre).foregroundColor(.white)
+                                    Text("Cabou de cantar")
                                 }
                             }
                             
                         }
                     
                     Spacer()
-                    
+                if game.model.localPlayer().status == .singing {
                     if readyToSing {
-                        
                         DoneButton()
-                        
                     } else {
-                        
                         SingButton(readyToSing: $readyToSing, previewIsOver: $previewIsOver, delegate: matchDelegate)
-                        
                     }
-                    
+                }
+
                 PlayersView(players: $game.model.players)
                     
                 }
@@ -125,21 +120,24 @@ struct PlayingView: View {
                     .allowsTightening(true)
                     .lineLimit(3)
                 
-                Button(action: {
-                    print("sair")
-                }, label: {
-                    ZStack(alignment: .center) {
-                        Image("BgButtonCreateRoom")
-                            .resizable()
-                        
-                        
-                        Text("SKIP TURN".localized())
-                            .font(.title)
-                            .foregroundColor(.white)
-                            .padding(.bottom, 10)
-                    }
-                })
-                .frame(minWidth: 75, idealWidth: 155, maxWidth: 225, minHeight: 75, idealHeight: 125, maxHeight: 155, alignment: .center)
+                if player.status == .singing {
+                    Button(action: {
+                        print("sair")
+                    }, label: {
+                        ZStack(alignment: .center) {
+                            Image("BgButtonCreateRoom")
+                                .resizable()
+                            
+                            
+                            Text("SKIP TURN".localized())
+                                .font(.title)
+                                .foregroundColor(.white)
+                                .padding(.bottom, 10)
+                        }
+                    })
+                    .frame(minWidth: 75, idealWidth: 155, maxWidth: 225, minHeight: 75, idealHeight: 125, maxHeight: 155, alignment: .center)
+                }
+
             }
             //        .padding([.leading, .trailing], 20)
         }
@@ -205,8 +203,8 @@ struct PlayingView: View {
         
         var body: some View {
             Button(action: {
-                //MODIFICAR ESTADO DO JOGADOR E REALIZAR O BROADCAST
-//                readyToSing.toggle()
+                delegate.voiceChat!.isActive = true
+                readyToSing.toggle()
             }, label: {
                 ZStack (alignment: Alignment(horizontal: .center, vertical: .center)) {
                     if !previewIsOver {

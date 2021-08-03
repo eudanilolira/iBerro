@@ -14,6 +14,8 @@ struct PlayingView: View {
     @State private var readyToSing: Bool = false
     @State var previewIsOver: Bool = false
     @State private var timeRemaining = 5
+    @Binding var currentScreen: String
+    @Environment(\.presentationMode) var presentation
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -33,12 +35,20 @@ struct PlayingView: View {
                         Spacer()
                         InitialTimer(timeRemaining: $timeRemaining)
                     } else {
-                        if previewIsOver == true && timeRemainingToSing > 0 {
+                        if previewIsOver == true {
                             
                             SingTimer(timeRemainingToSing: $timeRemainingToSing)
                                 .onReceive(timerToSing) { time in
                                     if self.timeRemainingToSing > 0 {
                                         self.timeRemainingToSing -= 1
+                                    } else {
+                                        if game.model.localPlayer().status == .singing {
+                                            currentScreen = "voting"
+                                        } else {
+                                            currentScreen = "evaluating"
+                                        }
+                                        
+                                        presentation.wrappedValue.dismiss()
                                     }
                                 }
                                 
@@ -51,11 +61,7 @@ struct PlayingView: View {
                             } else {
                                 if !previewIsOver {
                                     Spacer()
-                                    
                                     MusicPlayer(filter: $game.model.room.musicGenre, previewIsOver: $previewIsOver)
-                                    
-                                } else {
-                                    Text("Cabou de cantar")
                                 }
                             }
                             

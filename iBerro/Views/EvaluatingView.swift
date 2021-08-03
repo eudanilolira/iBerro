@@ -10,19 +10,20 @@ import SwiftUI
 
 struct EvaluatingView: View {
     
-    var gameCenterDelegate: SceneDelegate?
-    
-    @State var player: Player
-    @State var players: [Player]
-    
+
+    @ObservedObject var game: GameViewModel
     @State private var timeRemaining = 10
+    @Binding var currentScreen: String
+    
+    var player: Player
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    init(player: Player) {
-        self.player = player
-        
-        // players fake pra testar o grid!
-        players = [player,player,player,player,player,player]
+    init(game: GameViewModel, currentScreen: Binding<String>) {
+        self.game = game
+        self._currentScreen = currentScreen
+        player = game.model.players.first(where: { player in
+            player.status == .singing
+        })!
     }
     
     var body: some View {
@@ -57,7 +58,7 @@ struct EvaluatingView: View {
                     .padding()
                     .padding(.bottom)
                 
-                PlayersView(players: $players)
+                PlayersView(players: $game.model.players)
                     .frame(minWidth: 300, idealWidth: 450, maxWidth: 600, minHeight: 300, idealHeight: 400, maxHeight: 450, alignment: .center)
                     .padding()
                 

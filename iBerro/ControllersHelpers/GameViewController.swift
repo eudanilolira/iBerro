@@ -17,7 +17,7 @@ class GameViewController: UIViewController, GKMatchDelegate {
         }
     }
     
-    var gameView: UIHostingController<PlayingView>?
+    var gameView: UIHostingController<PreMatchView>?
     var button = UIButton()
     var gameViewModel: GameViewModel?
     var voiceChat: GKVoiceChat?
@@ -67,7 +67,7 @@ class GameViewController: UIViewController, GKMatchDelegate {
     private func setupGameView() {
         guard let gameModel = gameViewModel else {return }
         
-        let gameUIView = PlayingView(matchDelegate: self, game: gameModel)
+        let gameUIView = PreMatchView(matchDelegate: self, game: gameModel, currentScreen: "playing")
         gameView = UIHostingController(rootView: gameUIView)
         
         //Getting player ready for game

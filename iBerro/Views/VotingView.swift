@@ -10,17 +10,23 @@ import Foundation
 
 struct VotingView: View {
     
-    //    @ObservedObject var gameViewModel: GameViewModel
-    var gameCenterDelegate: SceneDelegate?
-    @State var player: Player
-    @State var players: [Player]
+    var delegate: GameViewController?
+    @ObservedObject var game: GameViewModel
+    @State private var timeRemaining = 10
+    @Binding var currentScreen: String
     
-    init(player: Player) {
-        self.player = player
-        
-        // players fake pra testar o grid!
-        players = [player,player,player,player,player,player]
+    var player: Player
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    init(game: GameViewModel, currentScreen: Binding<String>) {
+        self.game = game
+        self._currentScreen = currentScreen
+        player = game.model.players.first(where: { player in
+            player.status == .singing
+        })!
     }
+    
+    
     
     var body: some View {
         
@@ -57,8 +63,8 @@ struct VotingView: View {
                 .padding([.top,.leading])
                 Spacer(minLength: 60)
                 
-                PlayersView(players: $players)
-                .padding(.bottom, 100)
+                PlayersView(players: $game.model.players)
+                    .padding(.bottom, 100)
                 
                 Text("\("4") pessoas já votaram!")
                     .font(.system(size: 40))

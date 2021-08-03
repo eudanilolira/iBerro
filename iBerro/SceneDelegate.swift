@@ -20,7 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, GameCenterHelperDelegat
                     isHost: false,
                     photo: ImageWrapper(photo: photo)
                 )
-                var contentView = MenuView(player: player)
+//                var contentView = MenuView(player: player)
+                var contentView = ResultView(player: player)
                 contentView.gameCenterDelegate = self
                 self.window!.rootViewController = UIHostingController(rootView: contentView)
             }

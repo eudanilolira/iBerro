@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ResultView: View {
-    var gameCenterDelegate: SceneDelegate?
-    @State var player: Player
+    @ObservedObject var game: GameViewModel
+    @Binding var currentScreen: String
+    
     @State private var orientation = UIDeviceOrientation.unknown
     
     @Environment(\.horizontalSizeClass) var horizontalSize
@@ -57,7 +58,7 @@ struct ResultView: View {
                 } .padding(.top)
                 Spacer()
                 
-                ResultWinnerView(player: player)
+                ResultWinnerView(player: game.model.localPlayer())
                     .padding()
                 
                 HStack{

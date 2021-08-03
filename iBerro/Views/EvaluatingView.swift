@@ -9,8 +9,6 @@ import Foundation
 import SwiftUI
 
 struct EvaluatingView: View {
-    
-
     @ObservedObject var game: GameViewModel
     @State private var timeRemaining = 10
     @Binding var currentScreen: String

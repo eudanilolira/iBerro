@@ -15,16 +15,18 @@ struct PreMatchView: View {
     
     var body: some View {
         switch currentScreen {
-            case "loading":
-                LoadingView()
-            case "playing":
-                PlayingView(matchDelegate: matchDelegate, game: game, currentScreen: $currentScreen)
-            case "voting":
-                VotingView(game: game, currentScreen: $currentScreen)
-            case "evaluating":
-                EvaluatingView(game: game, currentScreen: $currentScreen)
-            default:
-                LoadingView()
+        case "loading":
+            LoadingView()
+        case "playing":
+            PlayingView(matchDelegate: matchDelegate, game: game, currentScreen: $currentScreen)
+        case "voting":
+            VotingView(game: game, currentScreen: $currentScreen)
+        case "evaluating":
+            EvaluatingView(game: game, currentScreen: $currentScreen)
+        case "result":
+            ResultView(game: game, currentScreen: $currentScreen)
+        default:
+            LoadingView()
         }
     }
 }

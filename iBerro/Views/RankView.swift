@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct RankView: View {
+    @ObservedObject var game: GameViewModel
+    @Binding var currentScreen: String
+    
     var body: some View {
-        
         ZStack {
             Image("BgMenu")
                 .resizable()

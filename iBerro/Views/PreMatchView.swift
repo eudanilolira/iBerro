@@ -23,6 +23,8 @@ struct PreMatchView: View {
             VotingView(game: game, currentScreen: $currentScreen)
         case "evaluating":
             EvaluatingView(game: game, currentScreen: $currentScreen)
+        case "rank":
+            RankView(game: game, currentScreen: $currentScreen)
         case "result":
             ResultView(game: game, currentScreen: $currentScreen)
         default:

@@ -9,19 +9,25 @@ import Foundation
 import SwiftUI
 
 struct EvaluatingView: View {
+    var matchDelegate: GameViewController
+    
     @ObservedObject var game: GameViewModel
     @State private var timeRemaining = 10
     @Binding var currentScreen: String
     
+    var localPlayerIndex: Int?
     var player: Player
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    init(game: GameViewModel, currentScreen: Binding<String>) {
+    init(matchDelegate: GameViewController, game: GameViewModel, currentScreen: Binding<String>) {
+        self.matchDelegate = matchDelegate
         self.game = game
         self._currentScreen = currentScreen
         player = game.model.players.first(where: { player in
             player.status == .singing
         })!
+        
+        self.localPlayerIndex = game.model.players.firstIndex(of: game.model.localPlayer())
     }
     
     var body: some View {
@@ -61,7 +67,7 @@ struct EvaluatingView: View {
                     .padding()
                 
                 // trocar para o display.name do jogador da vez
-                Text("Eae, \("Cláudia A+ Top") cantou certo?")
+                Text("Eae, \(self.player.displayName) cantou certo?")
                     .font(.system(size: 40))
                     .foregroundColor(.white)
                     .fontWeight(.bold)
@@ -73,7 +79,8 @@ struct EvaluatingView: View {
                 HStack {
                     Button(action: {
                         //Ir pra próxima tela (ranking)
-                        print("Votou")
+                        self.voteAction(vote: false)
+                        
                     }, label: {
                         ZStack{
                             Image("BgButtonWrong")
@@ -86,10 +93,9 @@ struct EvaluatingView: View {
                         }
                     })
                     
-                    
                     Button(action: {
-                        //Ir pra próxima tela (ranking)
-                        print("Votou")
+                        self.voteAction(vote: true)
+                        
                     }, label: {
                         ZStack{
                             Image("BgButtonRight")
@@ -106,6 +112,14 @@ struct EvaluatingView: View {
                 
             }
             
-        }
+        }.onChange(of: game.model.players, perform: { value in
+            print("Mudou o array players!")
+        })
+    }
+    
+    func voteAction(vote: Bool) {
+        self.game.model.players[localPlayerIndex!].vote = vote
+        self.game.model.players[localPlayerIndex!].status = .voted
+        self.matchDelegate.sendData()
     }
 }

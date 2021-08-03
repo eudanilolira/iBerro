@@ -17,6 +17,7 @@ struct Player: Codable, Comparable, Identifiable {
     var isHost: Bool
     var photo: ImageWrapper
     var invited: Bool = false
+    var vote: Bool = false
     
     static func < (lhs: Player, rhs: Player) -> Bool {
         lhs.score < rhs.score
@@ -35,7 +36,7 @@ struct Player: Codable, Comparable, Identifiable {
 enum PlayerStatus: String, Codable {
     case singing
     case watching
-    case evaluating
+    case voted
     case waiting
     case ready
 }

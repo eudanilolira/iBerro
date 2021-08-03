@@ -47,7 +47,7 @@ struct PlayingView: View {
                                         } else {
                                             currentScreen = "evaluating"
                                         }
-                                        
+                                        matchDelegate.voiceChat!.isActive = false
                                         presentation.wrappedValue.dismiss()
                                     }
                                 }

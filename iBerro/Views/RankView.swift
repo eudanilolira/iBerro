@@ -101,9 +101,3 @@ struct RankView: View {
         }.ignoresSafeArea()
     }
 }
-
-struct RankView_Previews: PreviewProvider {
-    static var previews: some View {
-        RankView()
-    }
-}

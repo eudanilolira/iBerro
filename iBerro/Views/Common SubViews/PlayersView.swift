@@ -17,7 +17,7 @@ struct PlayersView: View {
    var body: some View {
     UIGrid(showInviteButton: $showInviteButton, showInviteModal: $showInviteModal, columns: 3, list: players) { player in
         
-        if (player.status == .watching) {
+        if (player.status == .watching || player.status == .voted) {
             VStack{
                 Image(uiImage: UIImage(data: player.photo.image) ?? UIImage(systemName: "person.crop.circle")!)
                     .resizable()

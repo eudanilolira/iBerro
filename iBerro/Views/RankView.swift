@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct RankView: View {
+    
+    var delegate: GameViewController?
+    var ranking: [Player]
+    
     @ObservedObject var game: GameViewModel
     @Binding var currentScreen: String
+    @State var singingIndex: Int = 0
+    @Environment(\.presentationMode) var presentation
+    
+    init(game: GameViewModel, currentScreen: Binding<String>, delegate: GameViewController) {
+        self.game = game
+        self._currentScreen = currentScreen
+        self.delegate = delegate
+        self.ranking = game.model.ranking()
+        self.delegate!.voiceChat!.isActive = true
+    }
     
     var body: some View {
         ZStack {
@@ -38,9 +52,9 @@ struct RankView: View {
                 .padding(.horizontal, 45)
                 .padding(.vertical, 5.0)
                 
-                ForEach(0...3, id: \.self) { index in
+                ForEach(ranking) { player in
                     HStack{
-                        Image("Group 3")
+                        Image(uiImage: UIImage(data: player.photo.image)!)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .clipShape(Circle())
@@ -54,13 +68,13 @@ struct RankView: View {
                                 alignment: .top)
                         VStack{
                             
-                            Text("NOME DE FULANO")
+                            Text(player.displayName)
                                 .font(.system(size: 20))
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.leading).frame(width: 200, height: 30, alignment: .leading)
                             
-                            Text("60 Pts")
+                            Text("\(player.score) pts")
                                 .font(.system(size: 18))
                                 .foregroundColor(.pink)
                                 .fontWeight(.bold)
@@ -70,7 +84,7 @@ struct RankView: View {
                         
                         Spacer()
                         
-                        Text("\(index + 1)º")
+                        Text("\(ranking.firstIndex(of: player)! + 1)º")
                             .font(.system(size: 35))
                             .foregroundColor(.green)
                             
@@ -82,7 +96,12 @@ struct RankView: View {
                 
                 Spacer()
                 
-                Button(action: {print("Está pronto")}, label: {
+                Button(action: {
+                    setSingIndex()
+                    let playerIndex = game.model.players.firstIndex(of: game.model.localPlayer())!
+                    game.model.players[playerIndex].status = .waiting
+                    delegate!.sendData()
+                }, label: {
                     ZStack{
                         Image("BgButtonSignIn")
                             .resizable()
@@ -99,5 +118,35 @@ struct RankView: View {
             }.padding()
             .padding(.top)
         }.ignoresSafeArea()
+        
+        .onChange(of: game.model.players.filter({ player in
+            player.status == .waiting
+        }), perform: { waitingPlayers in
+            if waitingPlayers.count == game.model.players.count {
+                if waitingPlayers[singingIndex] == game.model.localPlayer() {
+                    game.model.players[singingIndex].status = .singing
+                } else {
+                    let index = game.model.players.firstIndex(of: game.model.localPlayer())!
+                    game.model.players[index].status = .watching
+                }
+                
+                delegate!.sendData()
+                currentScreen = "playing"
+                presentation.wrappedValue.dismiss()
+            }
+        })
+    }
+    
+    func setSingIndex() {
+        let singingPlayer = game.model.players.first(where: {
+            player in player.status == .singing
+        })!
+        singingIndex = game.model.players.firstIndex(of: singingPlayer)!
+        
+        if singingIndex == game.model.players.count - 1 {
+            singingIndex = 0
+        } else {
+            singingIndex += 1
+        }
     }
 }

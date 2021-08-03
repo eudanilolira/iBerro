@@ -28,7 +28,7 @@ struct PlayingView: View {
             Background()
             
             VStack(alignment: .center, spacing: 10) {
-                Head(player: game.model.players[0])
+                Head(player: game.model.players[0]) //MUDAR PARA SER O PLAYER QUE ESTÁ CANTANDO E NÃO O PRIMEIRO
                     .padding(.top, 20)
                 
                     if timeRemaining > 0{

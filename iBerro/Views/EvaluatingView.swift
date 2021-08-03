@@ -14,14 +14,20 @@ struct EvaluatingView: View {
     @ObservedObject var game: GameViewModel
     @State private var timeRemaining = 10
     @Binding var currentScreen: String
+    @Environment(\.presentationMode) var presentation
+    
+    @State var votedPlayersCount: Int = 0
+    var playersCount: Int
     
     var localPlayerIndex: Int?
     var player: Player
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     init(matchDelegate: GameViewController, game: GameViewModel, currentScreen: Binding<String>) {
         self.matchDelegate = matchDelegate
         self.game = game
+        self.playersCount = game.model.players.count - 1
         self._currentScreen = currentScreen
         player = game.model.players.first(where: { player in
             player.status == .singing
@@ -54,7 +60,7 @@ struct EvaluatingView: View {
                     // Aqui vai entrar a navegação, e o voto do jogador não foi computado
                 }
                 
-                Text("2/5 votaram")
+                Text("\(votedPlayersCount)/\(playersCount) votaram")
                     .font(.system(size: 24))
                     .foregroundColor(.white)
                     .fontWeight(.regular)
@@ -112,7 +118,16 @@ struct EvaluatingView: View {
                 
             }
             
-        }.onChange(of: game.model.players, perform: { value in
+        }.onChange(of: game.model.players.filter({ player in
+            player.status == .voted
+        }), perform: { votedPlayers in
+            votedPlayersCount = votedPlayers.count
+            
+            if votedPlayers.count == game.model.players.count - 1 {
+                currentScreen = "rank"
+                presentation.wrappedValue.dismiss()
+            }
+            
             print("Mudou o array players!")
         })
     }

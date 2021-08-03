@@ -20,11 +20,11 @@ struct PreMatchView: View {
         case "playing":
             PlayingView(matchDelegate: matchDelegate, game: game, currentScreen: $currentScreen)
         case "voting":
-            VotingView(game: game, currentScreen: $currentScreen)
+            VotingView(game: game, currentScreen: $currentScreen, delegate: matchDelegate)
         case "evaluating":
-            EvaluatingView(game: game, currentScreen: $currentScreen)
+            EvaluatingView(matchDelegate: matchDelegate, game: game, currentScreen: $currentScreen)
         case "rank":
-            RankView(game: game, currentScreen: $currentScreen)
+            RankView(game: game, currentScreen: $currentScreen, delegate: matchDelegate)
         case "result":
             ResultView(game: game, currentScreen: $currentScreen)
         default:

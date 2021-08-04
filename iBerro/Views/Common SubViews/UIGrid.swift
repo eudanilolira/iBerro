@@ -37,7 +37,16 @@ struct UIGrid<Content: View, A: Identifiable >: View {
                                 VStack {
                                     Image("Convidar")
                                         .resizable()
-                                        .frame(width: 150, height: 150)
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipShape(Circle())
+                                        .frame(
+                                            minWidth: 50,
+                                            idealWidth: 80,
+                                            maxWidth: 100,
+                                            minHeight: 50,
+                                            idealHeight: 80,
+                                            maxHeight: 100,
+                                            alignment: .bottom)
                                     
                                     Text("Invite friend".localized())
                                         .font(.system(size: 24))

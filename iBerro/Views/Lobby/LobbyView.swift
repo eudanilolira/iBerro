@@ -29,48 +29,55 @@ struct LobbyView: View {
             
             VStack{
                 HStack{
-                    Button(action: {print("sair")}, label: {
+                    Button(action: {
+                        delegate!.leaveViewController()
+                    }, label: {
                         ZStack(alignment: .center){
                             Image("BgButtonLeave")
                                 .resizable()
                             
                             
                             Text("LEAVE".localized())
-                                .font(.title)
+                                .font(Font.custom("Pexico", size: 36))
                                 .foregroundColor(.white)
                                 .padding(.bottom, 10)
                         }
-                    }) .frame(width: 200, height: 120)
+                    }) .frame(width: 300, height: 160)
                     
                     Spacer()
                 }
                 ZStack{
                     Image("BgSelectionBox")
                         .resizable()
+                        .frame(minWidth: 550, idealWidth: 550, maxWidth: 825, minHeight: 300, idealHeight: 400, maxHeight: 450, alignment: .center)
                     
                     VStack{
                         Text("Music Genre".localized())
-                            .font(.title)
+                            .font(Font.custom("Pexico", size: 36))
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                         
                         CheckboxView(type: .musicGender, list: ["Rock", "Pop", "Samba"], selected: $musicGenre)
+                            .padding(.bottom)
+                        
+                        
                         
                         Text("High Score".localized())
-                            .font(.title)
+                            .font(Font.custom("Pexico", size: 35))
                             .foregroundColor(.white)
                             .fontWeight(.bold)
+                            .padding(.top)
                         
                         CheckboxView(type: .maxScore, list: ["100", "200", "300", "400"], selected: $highScore)
                     }
-                } .frame(width: 550, height: 300)
+                } .frame(minWidth: 550, idealWidth: 550, maxWidth: 825, minHeight: 300, idealHeight: 400, maxHeight: 450, alignment: .center)
                 
                 UIGrid(showInviteButton: self.$showInviteButton, showInviteModal: self.$showInviteModal, columns: 3, list: self.lobbyViewModel.invitedPlayers) { player in
                     VStack {
                         RoundProfileView(profile: player.photo, name: player.displayName)
                     }
                     
-                } .frame(width: 700, height: 200, alignment: .center)
+                } .frame(width: 700, height: 400, alignment: .center)
                 
                 Spacer()
                 
@@ -84,13 +91,13 @@ struct LobbyView: View {
                             .resizable()
                         
                         Text("Start Game".localized())
-                            .font(.title)
+                            .font(Font.custom("Pexico", size: 36))
                             .foregroundColor(.white)
-                            .padding(.bottom, 10)
+                            .padding(.bottom, 15)
                     }
                 })
 //                .disabled(true)
-                .frame(width: 290, height: 135, alignment: .center)
+                .frame(width: 390, height: 190, alignment: .center)
             }
             
             if (showInviteModal) {
@@ -100,7 +107,7 @@ struct LobbyView: View {
                         .opacity(0.4)
                 })
 
-                InvitePlayersModalView(viewModel: self.lobbyViewModel, delegate: self.delegate, showInviteModal: self.$showInviteModal, showInviteButton: self.$showInviteButton)
+                InvitePlayersModalView(viewModel: self.lobbyViewModel, delegate: self.delegate, showInviteModal: self.$showInviteModal, players: self.$lobbyViewModel.players, showInviteButton: self.$showInviteButton)
                     .frame(width: 600, height: 740, alignment: .center)
             }
             

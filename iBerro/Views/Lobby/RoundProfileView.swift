@@ -18,11 +18,11 @@ struct RoundProfileView: View {
             .clipShape(Circle())
             .frame(
                 minWidth: 50,
-                idealWidth: 100,
-                maxWidth: 150,
+                idealWidth: 80,
+                maxWidth: 100,
                 minHeight: 50,
-                idealHeight: 100,
-                maxHeight: 150,
+                idealHeight: 80,
+                maxHeight: 100,
                 alignment: .bottom)
         
         Text(name)
@@ -31,6 +31,7 @@ struct RoundProfileView: View {
             .fontWeight(.regular)
             .multilineTextAlignment(.center)
             .padding([.leading,.trailing])
+
     }
 }
 

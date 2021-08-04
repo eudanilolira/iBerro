@@ -58,6 +58,12 @@ class LobbyViewController: GKMatchmakerViewController {
         })
     }
     
+    func leaveViewController() {
+        lobbyView?.dismiss(animated: false, completion: {
+            print("Teste")
+        })
+    }
+
     private func setupLobbyView() {
         self.lobbyVM = LobbyViewModel(matchRequest: self.matchRequest)
         
@@ -67,6 +73,7 @@ class LobbyViewController: GKMatchmakerViewController {
         
         self.addChild(lobbyView!)
         self.view.addSubview(lobbyView!.view)
+        
 
         if let gameUIHosting = lobbyView {
             gameUIHosting.view.translatesAutoresizingMaskIntoConstraints = false

@@ -32,7 +32,7 @@ struct ResultView: View {
                             
                             
                             Text("LEAVE".localized())
-                                .font(.title)
+                                .font(Font.custom("Pexico", size: 36))
                                 .foregroundColor(.white)
                                 .padding(.bottom, 10)
                         }

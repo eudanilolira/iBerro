@@ -19,10 +19,10 @@ struct CheckboxView: View {
                     HStack{
                         Image(selected == list[index] ? "BgCheckboxSelected" : "BgCheckbox")
                             .resizable()
-                            .frame(width: 24, height: 24, alignment: .trailing)
+                            .frame(width: 32, height: 32, alignment: .trailing)
                         
                         Text(list[index])
-                            .font(.title2)
+                            .font(Font.custom("Pexico", size: 24))
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                     }

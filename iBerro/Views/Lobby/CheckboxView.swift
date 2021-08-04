@@ -13,16 +13,16 @@ struct CheckboxView: View {
     @Binding var selected: String
     
     var body: some View {
-        HStack(spacing: 60){
+        HStack(spacing: 40){
             ForEach(0..<list.count, content: { index in
                 Button(action: {self.selected = list[index]}, label: {
                     HStack{
                         Image(selected == list[index] ? "BgCheckboxSelected" : "BgCheckbox")
                             .resizable()
-                            .frame(width: 60, height: 60, alignment: .trailing)
+                            .frame(width: 24, height: 24, alignment: .trailing)
                         
                         Text(list[index])
-                            .font(.title)
+                            .font(.title2)
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                     }

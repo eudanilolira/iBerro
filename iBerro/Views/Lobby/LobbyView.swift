@@ -17,6 +17,8 @@ struct LobbyView: View {
     @State var musicGenre: String = ""
     @State var highScore: String = ""
     
+    @Environment(\.horizontalSizeClass) var horizontalSize
+    @Environment(\.verticalSizeClass) var verticalSize
     
     var body: some View {
         
@@ -27,18 +29,18 @@ struct LobbyView: View {
             
             VStack{
                 HStack{
-                    Button(action: {}, label: {
+                    Button(action: {print("sair")}, label: {
                         ZStack(alignment: .center){
-                            Image("BgButtonSignOut")
+                            Image("BgButtonLeave")
                                 .resizable()
-                            Text("Leave")
+                            
+                            
+                            Text("LEAVE".localized())
                                 .font(.title)
                                 .foregroundColor(.white)
-                                .fontWeight(.bold)
-                                .multilineTextAlignment(.center)
-                                .padding(.bottom)
+                                .padding(.bottom, 10)
                         }
-                    }).frame(width: 290, height: 145.5, alignment: .center)
+                    }) .frame(width: 200, height: 120)
                     
                     Spacer()
                 }
@@ -48,27 +50,27 @@ struct LobbyView: View {
                     
                     VStack{
                         Text("Music Genre".localized())
-                            .font(.largeTitle)
+                            .font(.title)
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                         
                         CheckboxView(type: .musicGender, list: ["Rock", "Pop", "Samba"], selected: $musicGenre)
                         
                         Text("High Score".localized())
-                            .font(.largeTitle)
+                            .font(.title)
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                         
                         CheckboxView(type: .maxScore, list: ["100", "200", "300", "400"], selected: $highScore)
                     }
-                }
+                } .frame(width: 550, height: 300)
                 
                 UIGrid(showInviteButton: self.$showInviteButton, showInviteModal: self.$showInviteModal, columns: 3, list: self.lobbyViewModel.invitedPlayers) { player in
                     VStack {
                         RoundProfileView(profile: player.photo, name: player.displayName)
                     }
                     
-                }
+                } .frame(width: 700, height: 200, alignment: .center)
                 
                 Spacer()
                 
@@ -84,11 +86,11 @@ struct LobbyView: View {
                         Text("Start Game".localized())
                             .font(.title)
                             .foregroundColor(.white)
-                            .padding(.bottom, 25)
+                            .padding(.bottom, 10)
                     }
                 })
 //                .disabled(true)
-                .frame(width: 290, height: 145.5, alignment: .center)
+                .frame(width: 290, height: 135, alignment: .center)
             }
             
             if (showInviteModal) {

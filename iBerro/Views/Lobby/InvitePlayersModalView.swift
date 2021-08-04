@@ -19,7 +19,7 @@ struct InvitePlayersModalView: View {
             
             VStack {
                 Text("Select your friends".localized())
-                    .font(.largeTitle)
+                    .font(.title)
                     .foregroundColor(.white)
                     .fontWeight(.bold)
                     .padding()
@@ -37,7 +37,7 @@ struct InvitePlayersModalView: View {
                             }, label: {
                                 Image(player.invited ? "BgCheckboxSelected" : "BgCheckbox")
                                     .resizable()
-                                    .frame(width: 60, height: 60, alignment: .trailing)     
+                                    .frame(width: 32, height: 32, alignment: .trailing)
                             })
                             
                         }.padding(.horizontal)
@@ -60,10 +60,10 @@ struct InvitePlayersModalView: View {
                         Text("Invite".localized())
                             .font(.title)
                             .foregroundColor(.white)
-                            .padding(.bottom, 25)
+                            .padding(.bottom, 12)
                     }
                 })
-                .frame(width: 290, height: 145.5, alignment: .center)
+                .frame(width: 290, height: 130, alignment: .center)
             }
         }
     }

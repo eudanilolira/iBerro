@@ -127,8 +127,6 @@ struct EvaluatingView: View {
                 currentScreen = "rank"
                 presentation.wrappedValue.dismiss()
             }
-            
-            print("Mudou o array players!")
         })
     }
     

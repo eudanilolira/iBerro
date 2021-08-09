@@ -58,10 +58,8 @@ class LobbyViewController: GKMatchmakerViewController {
         })
     }
     
-    func leaveViewController() {
-        lobbyView?.dismiss(animated: false, completion: {
-            print("Teste")
-        })
+    func cancelMatch() {
+        self.dismiss(animated: true, completion: nil)
     }
 
     private func setupLobbyView() {

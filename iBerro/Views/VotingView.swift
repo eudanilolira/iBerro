@@ -87,15 +87,14 @@ struct VotingView: View {
         if votedPlayers.count == game.model.players.count - 1 {
             let singCorrect = votedPlayers.filter({ player in player.vote}).count
             
-            calculateScore(correctVotes: singCorrect)
-            currentScreen = "rank"
+            let score = calculateScore(correctVotes: singCorrect)
+            currentScreen = score >= game.model.room.maxScore ? "result": "rank"
             presentation.wrappedValue.dismiss()
         }
-        print("Mudou o array players!")
     })
     }
     
-    func calculateScore(correctVotes: Int) {
+    func calculateScore(correctVotes: Int) -> Int {
         var score = correctVotes * 10
         
         if correctVotes == votedPlayersCount {
@@ -104,7 +103,10 @@ struct VotingView: View {
         
         let index = game.model.playerIndex(from: player.displayName)
         game.model.players[index].score += score
+        self.game.setRanking()
         delegate!.sendData()
+        
+        return score
     }
     
 }

@@ -30,7 +30,7 @@ struct LobbyView: View {
             VStack{
                 HStack{
                     Button(action: {
-                        delegate!.leaveViewController()
+                        delegate!.cancelMatch()
                     }, label: {
                         ZStack(alignment: .center){
                             Image("BgButtonLeave")
@@ -68,7 +68,7 @@ struct LobbyView: View {
                             .fontWeight(.bold)
                             .padding(.top)
                         
-                        CheckboxView(type: .maxScore, list: ["100", "200", "300", "400"], selected: $highScore)
+                        CheckboxView(type: .maxScore, list: ["20", "200", "300", "400"], selected: $highScore)
                     }
                 } .frame(minWidth: 550, idealWidth: 550, maxWidth: 825, minHeight: 300, idealHeight: 400, maxHeight: 450, alignment: .center)
                 

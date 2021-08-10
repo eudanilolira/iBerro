@@ -126,27 +126,7 @@ struct PlayingView: View {
                     .padding([.trailing])
                     .allowsTightening(true)
                     .lineLimit(3)
-                
-//                if player.status == .singing {
-//                    Button(action: {
-//                        print("sair")
-//                    }, label: {
-//                        ZStack(alignment: .center) {
-//                            Image("BgButtonCreateRoom")
-//                                .resizable()
-//
-//
-//                            Text("SKIP TURN".localized())
-//                                .font(.title)
-//                                .foregroundColor(.white)
-//                                .padding(.bottom, 10)
-//                        }
-//                    })
-//                    .frame(minWidth: 75, idealWidth: 155, maxWidth: 225, minHeight: 75, idealHeight: 125, maxHeight: 155, alignment: .center)
-//                }
-
             }
-            //        .padding([.leading, .trailing], 20)
         }
     }
     

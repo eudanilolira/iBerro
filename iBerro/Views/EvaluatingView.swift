@@ -49,7 +49,7 @@ struct EvaluatingView: View {
                 if timeRemaining > 0 {
                     
                     Text("\(timeRemaining)")
-                        .font(.system(size: 40))
+                        .font(Font.custom("Pexico", size: 40))
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
@@ -61,7 +61,7 @@ struct EvaluatingView: View {
                 }
                 
                 Text("\(votedPlayersCount)/\(playersCount) votaram")
-                    .font(.system(size: 24))
+                    .font(Font.custom("Pexico", size: 24))
                     .foregroundColor(.white)
                     .fontWeight(.regular)
                     .multilineTextAlignment(.center)
@@ -72,9 +72,9 @@ struct EvaluatingView: View {
                     .frame(minWidth: 300, idealWidth: 450, maxWidth: 600, minHeight: 300, idealHeight: 400, maxHeight: 450, alignment: .center)
                     .padding()
                 
-                // trocar para o display.name do jogador da vez
-                Text("Eae, \(self.player.displayName) cantou certo?")
-                    .font(.system(size: 40))
+
+                Text("Did ".localized() + self.player.displayName + " get the lyrics right?".localized())
+                    .font(Font.custom("Pexico", size: 40))
                     .foregroundColor(.white)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
@@ -84,7 +84,6 @@ struct EvaluatingView: View {
                 
                 HStack {
                     Button(action: {
-                        //Ir pra próxima tela (ranking)
                         self.voteAction(vote: false)
                         
                     }, label: {
@@ -93,7 +92,7 @@ struct EvaluatingView: View {
                                 .resizable()
                             
                             Text("WRONG".localized())
-                                .font(.title)
+                                .font(Font.custom("Pexico", size: 36))
                                 .foregroundColor(.white)
                                 .padding(.bottom, 25)
                         }
@@ -108,7 +107,7 @@ struct EvaluatingView: View {
                                 .resizable()
                             
                             Text("RIGHT".localized())
-                                .font(.title)
+                                .font(Font.custom("Pexico", size: 36))
                                 .foregroundColor(.white)
                                 .padding(.bottom, 25)
                         }

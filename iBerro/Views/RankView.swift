@@ -32,7 +32,7 @@ struct RankView: View {
                 HStack{
                     
                     Text("RANKING".localized())
-                        .font(.system(size: 40))
+                        .font(Font.custom("Pexico", size: 40))
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
@@ -41,8 +41,8 @@ struct RankView: View {
                     Spacer()
                     
                     //Colocar o número da rodada e fazer a internacionalização
-                    Text("\(self.game.turn)th Turn")
-                        .font(.system(size: 25))
+                    Text(String(self.game.turn) + "th Turn".localized())
+                        .font(Font.custom("Pexico", size: 25))
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
@@ -68,13 +68,13 @@ struct RankView: View {
                         VStack{
                             
                             Text(player.displayName)
-                                .font(.system(size: 20))
+                                .font(Font.custom("Pexico", size: 20))
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.leading).frame(width: 200, height: 30, alignment: .leading)
                             
                             Text("\(player.score) pts")
-                                .font(.system(size: 18))
+                                .font(Font.custom("Pexico", size: 18))
                                 .foregroundColor(.pink)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.leading).frame(width: 200, height: 30, alignment: .leading)
@@ -84,7 +84,7 @@ struct RankView: View {
                         Spacer()
                         
                         Text("\(game.ranking.firstIndex(of: player)! + 1)º")
-                            .font(.system(size: 35))
+                            .font(Font.custom("Pexico", size: 35))
                             .foregroundColor(.green)
                             
                             .fontWeight(.bold)
@@ -105,7 +105,7 @@ struct RankView: View {
                             .resizable()
                         
                         Text("READY".localized())
-                            .font(.title)
+                            .font(Font.custom("Pexico", size: 36))
                             .foregroundColor(.white)
                             .padding(.bottom, 25)
                         
@@ -140,6 +140,7 @@ struct RankView: View {
                     game.model.players[index].status = .watching
                 }
                 
+                self.delegate!.voiceChat!.isActive = false
                 delegate!.sendData()
                 currentScreen = "playing"
                 presentation.wrappedValue.dismiss()

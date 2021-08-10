@@ -25,7 +25,7 @@ struct LoadingView: View {
                 .frame(minWidth: 40, idealWidth: 80, maxWidth: 100, minHeight: 60, idealHeight: 100, maxHeight: 120, alignment: .center)
                 
                 Text("Loading.....".localized())
-                    .font(.title)
+                    .font(Font.custom("Pexico", size: 36))
                     .foregroundColor(.white)
                 
                 

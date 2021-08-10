@@ -1,20 +1,47 @@
-/* 
+/*
   LanguageStrings.strings
   iBerro
 
   Created by Pedro Henrique Spínola de Assis on 05/07/21.
   
 */
-"Create Room" = "Criar Sala";
-"Enter Room" = "Entrar em sala";
-"SKIP TURN" = "PULAR VEZ";
-"BELT OUT" = "SOLTAR A VOZ";
-"FINISHED"= "TERMINEI";
-"'S TURN" = "É JOGADOR DA VEZ";
-"WRONG" = "ERROU";
-"RIGHT" = "ACERTOU";
+
+//MENU
+"Create Room" = "CRIAR SALA";
+
+//LOBBY
 "LEAVE" = "SAIR";
-"SHARE" = "COMPARTILHAR";
+"Start Game" = "COMEÇAR JOGO";
+"Music Genre" = "GÊNEROS MUSICAIS";
+"High Score" = "PONTUAÇÃO MÁXIMA";
+"Invite friend" = "Convidar amigo";
+
+//INVITE FRIENDS
+"Select your friends" = "Selecione seus amigos";
+"Invite" = "CONVIDAR";
+"Let's play together!" = "Vamo jogar juntos!";
+
+//PLAYING VIEW
 "Loading....." = "Carregando.....";
-"RANKING" = "CLASSIFICAÇÃO";
-"READY" = "PRONTO";
+"SKIP TURN" = "PULAR VEZ";
+"BELT OUT" = "Soltar Voz";
+"DONE" = "TERMINEI";
+"'S TURN" = "É JOGADOR DA VEZ";
+// "Pay attention! You must complete the song lyrics correctly!" = "Fique atento! Você terá que completar a música!" CRIAR LABEL
+// "Pay attention! You will judge whether the player completed the song correctly." = "Fique atento! Você irá avaliar se o jogador completou a música corretamente." CRIAR LABEL
+
+//VOTING
+// " players casted their votes!"= " jogadores já votaram!"; CONCATENAR STRING
+// " voted" = "votaram"; CONCATENAR STRING
+"Did " = "E ai, ";
+" get the lyrics right?" = " acertou a letra?";
+"NO" = "ERROU";
+"YES" = "ACERTOU";
+
+//RANKING
+// "round" = "rodada"; TROCAR TURN POR ROUND NO TEXTO
+// "next player" = "próximo jogador"; CRIAR
+// "PRONTO" = "READY";
+
+//RESULT
+"SHARE" = "COMPARTILHAR";

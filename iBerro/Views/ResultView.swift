@@ -32,7 +32,7 @@ struct ResultView: View {
                             
                             
                             Text("LEAVE".localized())
-                                .font(Font.custom("Pexico", size: 36))
+                                .font(Font.custom("Pexico", size: 30))
                                 .foregroundColor(.white)
                                 .padding(.bottom, 10)
                         }
@@ -43,13 +43,13 @@ struct ResultView: View {
                     VStack(alignment: .trailing, spacing: 5) {
                         
                         Text(Date(), style: .time)
-                            .font(.system(size: 20))
+                            .font(Font.custom("Pexico", size: 20))
                             .foregroundColor(.green)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.trailing)
                         
                         Text(Date(), style: .date)
-                            .font(.system(size: 20))
+                            .font(Font.custom("Pexico", size: 20))
                             .foregroundColor(.green)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.trailing)
@@ -58,20 +58,20 @@ struct ResultView: View {
                 } .padding(.top)
                 Spacer()
                 
-                ResultWinnerView(player: game.model.localPlayer())
+                ResultWinnerView(player: game.ranking[0])
                     .padding()
                 
                 HStack{
                     //ForEach(self.matchDelegate.match!.players, id: \.self) { player in
-                    ForEach(0...3, id: \.self) { index in
+                    ForEach(1...game.ranking.count-1, id: \.self) { index in
                         VStack{
                             
-                            Text("\(index+2)°")
+                            Text("\(index+1)°")
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.leading)
                             
-                            Image("Group 3")
+                            Image(uiImage: UIImage(data: game.ranking[index].photo.image)! )
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .clipShape(Circle())
@@ -84,7 +84,7 @@ struct ResultView: View {
                                     maxHeight: 100,
                                     alignment: .top)
                             
-                            Text("NOME DE FULANO")
+                            Text(game.ranking[index].displayName)
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
@@ -106,7 +106,7 @@ struct ResultView: View {
                             .resizable()
                         
                         Text("SHARE".localized())
-                            .font(.title)
+                            .font(Font.custom("Pexico", size: 30))
                             .foregroundColor(.white)
                             .padding(.bottom)
                     }

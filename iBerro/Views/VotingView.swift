@@ -55,7 +55,7 @@ struct VotingView: View {
                         .padding([.top,.leading])
                     
                     Text("\(player.displayName.uppercased())'s TURN".localized())
-                        .font(.system(size: 40))
+                        .font(Font.custom("Pexico", size: 40))
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
@@ -70,7 +70,7 @@ struct VotingView: View {
                     .padding(.bottom, 100)
                 
                 Text("\(votedPlayersCount) pessoas já votaram!")
-                    .font(.system(size: 40))
+                    .font(Font.custom("Pexico", size: 40))
                     .foregroundColor(.white)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)

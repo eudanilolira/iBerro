@@ -49,7 +49,7 @@ struct UIGrid<Content: View, A: Identifiable >: View {
                                             alignment: .bottom)
                                     
                                     Text("Invite friend".localized())
-                                        .font(.system(size: 24))
+                                        .font(Font.custom("Pexico", size: 24))
                                         .foregroundColor(.white)
                                         .fontWeight(.regular)
                                         .multilineTextAlignment(.center)

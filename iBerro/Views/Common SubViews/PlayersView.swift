@@ -33,7 +33,7 @@ struct PlayersView: View {
                         alignment: .bottom)
                 
                 Text("\(player.displayName.uppercased())".localized())
-                    .font(.system(size: 24))
+                    .font(Font.custom("Pexico", size: 24))
                     .foregroundColor(.white)
                     .fontWeight(.regular)
                     .multilineTextAlignment(.center)

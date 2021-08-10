@@ -27,8 +27,6 @@
 		0C6668642697B7F600254BC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6668612697B7F600254BC5 /* SceneDelegate.swift */; };
 		0C6668652697B7F600254BC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6668622697B7F600254BC5 /* AppDelegate.swift */; };
 		0C6668662697B7F600254BC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6668622697B7F600254BC5 /* AppDelegate.swift */; };
-		0C6668692697B81A00254BC5 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6668672697B81A00254BC5 /* GameView.swift */; };
-		0C66686A2697B81A00254BC5 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6668672697B81A00254BC5 /* GameView.swift */; };
 		0C66686F2697B82700254BC5 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66686E2697B82700254BC5 /* GameModel.swift */; };
 		0C6668702697B82700254BC5 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C66686E2697B82700254BC5 /* GameModel.swift */; };
 		0C6668732697B82C00254BC5 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6668722697B82C00254BC5 /* GameViewModel.swift */; };
@@ -102,7 +100,6 @@
 		0C5813C926A86AB30009EC7D /* RoundProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundProfileView.swift; sourceTree = "<group>"; };
 		0C6668612697B7F600254BC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0C6668622697B7F600254BC5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0C6668672697B81A00254BC5 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		0C66686E2697B82700254BC5 /* GameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		0C6668722697B82C00254BC5 /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		0C6668752697B84000254BC5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -333,7 +330,6 @@
 		B40338D826B1805900FC960C /* Temporary */ = {
 			isa = PBXGroup;
 			children = (
-				0C6668672697B81A00254BC5 /* GameView.swift */,
 			);
 			path = Temporary;
 			sourceTree = "<group>";
@@ -536,7 +532,6 @@
 				0C6668632697B7F600254BC5 /* SceneDelegate.swift in Sources */,
 				AC43964D26A055EA00A36C7B /* PlayingView.swift in Sources */,
 				0C66686F2697B82700254BC5 /* GameModel.swift in Sources */,
-				0C6668692697B81A00254BC5 /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,7 +546,6 @@
 				0CCF1237268DE429001175DB /* iBerroTests.swift in Sources */,
 				B4DF5CDD269DCDED005A88A7 /* SwiftyJSON.swift in Sources */,
 				0C25B0C0269867720003F768 /* Player.swift in Sources */,
-				0C66686A2697B81A00254BC5 /* GameView.swift in Sources */,
 				0C66687D2697B8E100254BC5 /* GameViewController.swift in Sources */,
 				0C66687A2697B8DD00254BC5 /* GameCenterHelper.swift in Sources */,
 				B4400CE1269F37AB00612998 /* MusicAPI.swift in Sources */,
@@ -722,7 +716,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"iBerro/Preview Content\"";
 				DEVELOPMENT_TEAM = KBDYNQ5FQB;
 				ENABLE_PREVIEWS = YES;
@@ -732,7 +726,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.academy.iBerro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -746,7 +740,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"iBerro/Preview Content\"";
 				DEVELOPMENT_TEAM = KBDYNQ5FQB;
 				ENABLE_PREVIEWS = YES;
@@ -756,7 +750,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.academy.iBerro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

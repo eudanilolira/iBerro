@@ -61,7 +61,7 @@ struct PlayingView: View {
                             } else {
                                 if !previewIsOver {
                                     Spacer()
-                                    MusicPlayer(filter: $game.model.room.musicGenre, previewIsOver: $previewIsOver)
+                                    MusicPlayer(game: game, previewIsOver: $previewIsOver)
                                 }
                             }
                             
@@ -77,6 +77,7 @@ struct PlayingView: View {
                 }
 
                 PlayersView(players: $game.model.players)
+                    .padding(.bottom, 60)
                     
                 }
                 .padding(.top, 20)
@@ -118,7 +119,7 @@ struct PlayingView: View {
                     .padding([.trailing])
                 
                 Text("\(player.displayName.uppercased())'s TURN".localized())
-                    .font(.system(size: 40))
+                    .font(Font.custom("Pexico", size: 40))
                     .foregroundColor(.white)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.leading)
@@ -126,23 +127,23 @@ struct PlayingView: View {
                     .allowsTightening(true)
                     .lineLimit(3)
                 
-                if player.status == .singing {
-                    Button(action: {
-                        print("sair")
-                    }, label: {
-                        ZStack(alignment: .center) {
-                            Image("BgButtonCreateRoom")
-                                .resizable()
-                            
-                            
-                            Text("SKIP TURN".localized())
-                                .font(.title)
-                                .foregroundColor(.white)
-                                .padding(.bottom, 10)
-                        }
-                    })
-                    .frame(minWidth: 75, idealWidth: 155, maxWidth: 225, minHeight: 75, idealHeight: 125, maxHeight: 155, alignment: .center)
-                }
+//                if player.status == .singing {
+//                    Button(action: {
+//                        print("sair")
+//                    }, label: {
+//                        ZStack(alignment: .center) {
+//                            Image("BgButtonCreateRoom")
+//                                .resizable()
+//
+//
+//                            Text("SKIP TURN".localized())
+//                                .font(.title)
+//                                .foregroundColor(.white)
+//                                .padding(.bottom, 10)
+//                        }
+//                    })
+//                    .frame(minWidth: 75, idealWidth: 155, maxWidth: 225, minHeight: 75, idealHeight: 125, maxHeight: 155, alignment: .center)
+//                }
 
             }
             //        .padding([.leading, .trailing], 20)
@@ -154,11 +155,10 @@ struct PlayingView: View {
         
         var body: some View {
             Text("\(timeRemaining)")
-                .font(.system(size: 70))
+                .font(Font.custom("Pexico", size: 70))
                 .foregroundColor(.white)
                 .fontWeight(.bold)
                 .multilineTextAlignment(.leading)
-                //            .padding()
                 .frame(width: 250, height: 350, alignment: .center)
         }
     }
@@ -169,7 +169,7 @@ struct PlayingView: View {
         var body: some View {
             HStack {
                 Text(String(format: "00:%02d", timeRemainingToSing))
-                    .font(.system(size: 40))
+                    .font(Font.custom("Pexico", size: 40))
                     .foregroundColor(.white)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.leading)
@@ -193,7 +193,7 @@ struct PlayingView: View {
                         .resizable()
                     
                     Text("FINISHED".localized())
-                        .font(.title)
+                        .font(Font.custom("Pexico", size: 36))
                         .foregroundColor(.white)
                         .padding(.bottom, 25)
                 }
@@ -218,7 +218,7 @@ struct PlayingView: View {
                             .resizable()
                         
                         Text("BELT OUT".localized())
-                            .font(.title)
+                            .font(Font.custom("Pexico", size: 36))
                             .foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.6)))
                             .padding(.bottom, 25)
                         
@@ -227,7 +227,7 @@ struct PlayingView: View {
                             .resizable()
                         
                         Text("BELT OUT".localized())
-                            .font(.title)
+                            .font(Font.custom("Pexico", size: 36))
                             .foregroundColor(.white)
                             .padding(.bottom, 25)
                     }

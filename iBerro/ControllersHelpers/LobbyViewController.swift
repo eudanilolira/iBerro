@@ -50,7 +50,6 @@ class LobbyViewController: GKMatchmakerViewController {
             GameCenterHelper.helper.musicGenre = musicGenre
             GameCenterHelper.helper.highScore = Int(highScore)!
         }
-        
         GKMatchmaker.shared().finishMatchmaking(for: GameCenterHelper.helper.match!)
         
         self.dismiss(animated: false, completion: {

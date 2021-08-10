@@ -27,7 +27,7 @@ class LobbyViewModel: ObservableObject {
                 displayName: playerLocal.displayName,
                 isHost: true,
                 photo: ImageWrapper (photo: image!),
-                invited: false
+                invited: true
             )
             
             self.players.append(player)
@@ -42,7 +42,7 @@ class LobbyViewModel: ObservableObject {
                 let player = players![i]
                 
                 player.loadPhoto(for: .normal, withCompletionHandler: { image, error in
-                    self.players.append(Player(id: i, displayName: player.displayName, isHost: false, photo: ImageWrapper (photo: image!)))
+                    self.players.append(Player(id: i+1, displayName: player.displayName, isHost: false, photo: ImageWrapper (photo: image!)))
                 })
                 
 
@@ -70,5 +70,6 @@ class LobbyViewModel: ObservableObject {
         
         self.invitedPlayers = invitedPlayers
         self.matchRequest.recipients = gkInvitedPlayers
+        self.matchRequest.maxPlayers = gkInvitedPlayers.count
     }
 }

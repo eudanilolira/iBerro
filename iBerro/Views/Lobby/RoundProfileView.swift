@@ -26,7 +26,7 @@ struct RoundProfileView: View {
                 alignment: .bottom)
         
         Text(name)
-            .font(.system(size: 24))
+            .font(Font.custom("Pexico", size: 24))
             .foregroundColor(.white)
             .fontWeight(.regular)
             .multilineTextAlignment(.center)

@@ -72,12 +72,44 @@ struct LobbyView: View {
                     }
                 } .frame(minWidth: 550, idealWidth: 550, maxWidth: 825, minHeight: 300, idealHeight: 400, maxHeight: 450, alignment: .center)
                 
-                UIGrid(showInviteButton: self.$showInviteButton, showInviteModal: self.$showInviteModal, columns: 3, list: self.lobbyViewModel.invitedPlayers) { player in
-                    VStack {
-                        RoundProfileView(profile: player.photo, name: player.displayName)
+                HStack {
+                    ForEach(self.lobbyViewModel.invitedPlayers) { player in
+                        VStack {
+                            RoundProfileView(profile: player.photo, name: player.displayName)
+                        }
                     }
                     
-                } .frame(width: 700, height: 400, alignment: .center)
+                    Button(action: {self.showInviteModal = true}, label: {
+                        VStack {
+                            Image("Convidar")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .clipShape(Circle())
+                                .frame(
+                                    minWidth: 50,
+                                    idealWidth: 80,
+                                    maxWidth: 100,
+                                    minHeight: 50,
+                                    idealHeight: 80,
+                                    maxHeight: 100,
+                                    alignment: .bottom)
+                            
+                            Text("Invite friend".localized())
+                                .font(Font.custom("Pexico", size: 24))
+                                .foregroundColor(.white)
+                                .fontWeight(.regular)
+                                .multilineTextAlignment(.center)
+                                .padding([.leading,.trailing])
+                        }
+                        
+                    })
+                    
+                }.frame(width: 700, height: 400, alignment: .center)
+                
+//                UIGrid(showInviteButton: self.$showInviteButton, showInviteModal: self.$showInviteModal, columns: 3, list: self.lobbyViewModel.invitedPlayers) { player in
+//
+//
+//                }
                 
                 Spacer()
                 
@@ -96,10 +128,10 @@ struct LobbyView: View {
                             .padding(.bottom, 15)
                     }
                 })
-//                .disabled(true)
+                    .disabled(musicGenre == "" || highScore == "" ? true : false)
                 .frame(width: 390, height: 190, alignment: .center)
             }
-            
+
             if (showInviteModal) {
                 Button(action: {self.showInviteModal = false}, label: {
                     Rectangle()
@@ -115,9 +147,3 @@ struct LobbyView: View {
         
     }
 }
-
-//struct LobbyView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LobbyView(lobbyViewModel: LobbyViewModel())
-//    }
-//}

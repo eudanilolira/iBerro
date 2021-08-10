@@ -25,7 +25,7 @@ final class GameCenterHelper: NSObject, GKLocalPlayerListener {
     
     private let minPlayers: Int = 2
     private let maxPlayers: Int = 2
-    private let inviteMessage = "Vamo dale!".localized()
+    private let inviteMessage = "Let's play together".localized()
     
     var currentVC: LobbyViewController?
     
@@ -88,10 +88,6 @@ extension GameCenterHelper: GKMatchmakerViewControllerDelegate {
         viewController?.matchmakerDelegate = self
         let rootViewController = UIApplication.shared.windows.first!.rootViewController
         rootViewController?.present(viewController!, animated: true, completion: nil)
-    }
-    
-    func player(_ player: GKPlayer, didRequestMatchWithRecipients recipientPlayers: [GKPlayer]) {
-        print(recipientPlayers)
     }
     
     func matchmakerViewControllerWasCancelled(_ viewController: GKMatchmakerViewController) {

@@ -39,7 +39,7 @@ struct MenuView: View {
                 ZStack {
                     
                     Text(player.displayName)
-                        .font(.title)
+                        .font(Font.custom("Pexico", size: 36))
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
@@ -48,21 +48,7 @@ struct MenuView: View {
                 }.frame(minWidth: 80, idealWidth: 200, maxWidth: 400, minHeight: 20, idealHeight: 50, maxHeight: 70, alignment: .center)
                 
                 Spacer()
-                    
-                    Button(action: {gameCenterDelegate!.criarPartida()}, label: {
-                        ZStack{
-                            
-                            Image("BgButtonSignIn")
-                                .resizable()
-                                .frame(minWidth: 100, idealWidth: 350, maxWidth: 450, minHeight: 100, idealHeight: 140, maxHeight: 180, alignment: .center)
-                            
-                                Text("Enter Room".localized())
-                                .font(.title)
-                                .foregroundColor(.white)
-                                .padding(.bottom, 25)
-                        }
-                    })
-                    
+                                        
                     Button(action: {gameCenterDelegate!.criarPartida()}, label: {
                         ZStack(alignment: .center){
                             Image("BgButtonCreateRoom")
@@ -70,7 +56,7 @@ struct MenuView: View {
                                 .frame(minWidth: 100, idealWidth: 350, maxWidth: 450, minHeight: 100, idealHeight: 140, maxHeight: 180, alignment: .center)
                             
                             Text("Create Room".localized())
-                                .font(.title)
+                                .font(Font.custom("Pexico", size: 36))
                                 .foregroundColor(.white)
                                 .padding(.bottom, 25)
                         }
@@ -79,8 +65,6 @@ struct MenuView: View {
                 
                 
             }.padding()
-//            .padding(.top)
-//            .padding(.bottom)
         }.ignoresSafeArea()
     }
 }

@@ -16,6 +16,8 @@ class GameViewModel: ObservableObject{
     @Published var ranking: [Player] = []
     @Published var singIndex: Int = 0
     @Published var turn: Int = 1
+    @Published var songs: [Song] = []
+    
     
     init(players: [Player], room: Room) {
         self.model = GameModel(players: players, room: room)

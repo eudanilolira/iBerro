@@ -8,13 +8,32 @@
 import Foundation
 import GameKit
 
-class GameViewModel: ObservableObject {
+class GameViewModel: ObservableObject{
+    
     @Published var model: GameModel
     @Published var speaking: GKPlayer?
     @Published var myState: String = ""
+    @Published var ranking: [Player] = []
+    @Published var singIndex: Int = 0
+    @Published var turn: Int = 1
+    @Published var songs: [Song] = []
+    
     
     init(players: [Player], room: Room) {
         self.model = GameModel(players: players, room: room)
+    }
+    
+    func nextSingIndex(){
+        if singIndex == model.players.count - 1 {
+            singIndex = 0
+            turn += 1
+        } else {
+            singIndex += 1
+        }
+    }
+    
+    func setRanking() {
+        self.ranking = self.model.ranking()
     }
     
     func chatState(player: GKPlayer, state: GKVoiceChat.PlayerState) {

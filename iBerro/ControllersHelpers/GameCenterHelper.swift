@@ -19,11 +19,15 @@ final class GameCenterHelper: NSObject, GKLocalPlayerListener {
     static let helper = GameCenterHelper()
     var match: GKMatch?
     
+    var isHost: Bool = false
+    var musicGenre: String = ""
+    var highScore: Int = 0
+    
     private let minPlayers: Int = 2
     private let maxPlayers: Int = 2
-    private let inviteMessage = "Vamo dale!".localized()
+    private let inviteMessage = "Let's play together".localized()
     
-    private var currentVC: LobbyViewController?
+    var currentVC: LobbyViewController?
     
     var isAuthenticated: Bool {
         return GKLocalPlayer.local.isAuthenticated
@@ -75,13 +79,10 @@ extension GameCenterHelper: GKMatchmakerViewControllerDelegate {
     func matchmakerViewController(_ viewController: GKMatchmakerViewController, didFind match: GKMatch) {
         GameCenterHelper.helper.match = match
         viewController.dismiss(animated: false)
-        print("Vou mudar de tela")
-        print(delegate)
         delegate?.presentGame(match: match)
     }
     
     func player(_ player: GKPlayer, didAccept invite: GKInvite) {
-        print("Vou mudar de telaaaaaaa")
         GameCenterHelper.helper.match = match
         let viewController = LobbyViewController(invite: invite)
         viewController?.matchmakerDelegate = self

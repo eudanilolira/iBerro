@@ -14,6 +14,11 @@ struct LobbyView: View {
     @ObservedObject var lobbyViewModel: LobbyViewModel
     @State var showInviteModal: Bool = false
     @State var showInviteButton: Bool = true
+    @State var musicGenre: String = ""
+    @State var highScore: String = ""
+    
+    @Environment(\.horizontalSizeClass) var horizontalSize
+    @Environment(\.verticalSizeClass) var verticalSize
     
     var body: some View {
         
@@ -24,68 +29,109 @@ struct LobbyView: View {
             
             VStack{
                 HStack{
-                    Button(action: {}, label: {
+                    Button(action: {
+                        delegate!.cancelMatch()
+                    }, label: {
                         ZStack(alignment: .center){
-                            Image("BgButtonSignOut")
+                            Image("BgButtonLeave")
                                 .resizable()
-                            Text("Leave")
-                                .font(.title)
+                            
+                            
+                            Text("LEAVE".localized())
+                                .font(Font.custom("Pexico", size: 36))
                                 .foregroundColor(.white)
-                                .fontWeight(.bold)
-                                .multilineTextAlignment(.center)
-                                .padding(.bottom)
+                                .padding(.bottom, 10)
                         }
-                    }).frame(width: 290, height: 145.5, alignment: .center)
+                    }) .frame(width: 300, height: 160)
                     
                     Spacer()
                 }
                 ZStack{
                     Image("BgSelectionBox")
                         .resizable()
-//                        .frame(minWidth: 0, idealWidth: 1048, maxWidth: .infinity, minHeight: 0, idealHeight: 700, maxHeight: .infinity, alignment: .center)
+                        .frame(minWidth: 550, idealWidth: 550, maxWidth: 825, minHeight: 300, idealHeight: 400, maxHeight: 450, alignment: .center)
                     
                     VStack{
                         Text("Music Genre".localized())
-                            .font(.largeTitle)
+                            .font(Font.custom("Pexico", size: 36))
                             .foregroundColor(.white)
                             .fontWeight(.bold)
-                            //.padding(.top)
                         
-                        CheckboxView(type: .musicGender, list: ["Rock", "Pop", "Samba"])
+                        CheckboxView(type: .musicGender, list: ["Rock", "Pop", "Samba"], selected: $musicGenre)
+                            .padding(.bottom)
+                        
+                        
                         
                         Text("High Score".localized())
-                            .font(.largeTitle)
+                            .font(Font.custom("Pexico", size: 35))
                             .foregroundColor(.white)
                             .fontWeight(.bold)
+                            .padding(.top)
                         
-                        CheckboxView(type: .maxScore, list: ["100", "200", "300", "400"])
+                        CheckboxView(type: .maxScore, list: ["20", "200", "300", "400"], selected: $highScore)
                     }
-                }
+                } .frame(minWidth: 550, idealWidth: 550, maxWidth: 825, minHeight: 300, idealHeight: 400, maxHeight: 450, alignment: .center)
                 
-                UIGrid(showInviteButton: self.$showInviteButton, showInviteModal: self.$showInviteModal, columns: 3, list: self.lobbyViewModel.invitedPlayers) { player in
-                    VStack {
-                        RoundProfileView(profile: player.photo, name: player.displayName)
+                HStack {
+                    ForEach(self.lobbyViewModel.invitedPlayers) { player in
+                        VStack {
+                            RoundProfileView(profile: player.photo, name: player.displayName)
+                        }
                     }
                     
-                }
+                    Button(action: {self.showInviteModal = true}, label: {
+                        VStack {
+                            Image("Convidar")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .clipShape(Circle())
+                                .frame(
+                                    minWidth: 50,
+                                    idealWidth: 80,
+                                    maxWidth: 100,
+                                    minHeight: 50,
+                                    idealHeight: 80,
+                                    maxHeight: 100,
+                                    alignment: .bottom)
+                            
+                            Text("Invite friend".localized())
+                                .font(Font.custom("Pexico", size: 24))
+                                .foregroundColor(.white)
+                                .fontWeight(.regular)
+                                .multilineTextAlignment(.center)
+                                .padding([.leading,.trailing])
+                        }
+                        
+                    })
+                    
+                }.frame(width: 700, height: 400, alignment: .center)
+                
+//                UIGrid(showInviteButton: self.$showInviteButton, showInviteModal: self.$showInviteModal, columns: 3, list: self.lobbyViewModel.invitedPlayers) { player in
+//
+//
+//                }
                 
                 Spacer()
                 
-                Button(action: {self.delegate!.startMatch()}, label: {
+                Button(action: {
+                        self.delegate!.startMatch(
+                            musicGenre: musicGenre,
+                            highScore: highScore
+                        )}, label: {
                     ZStack{
                         Image("BgButtonSignIn")
                             .resizable()
                         
                         Text("Start Game".localized())
-                            .font(.title)
+                            .font(Font.custom("Pexico", size: 36))
                             .foregroundColor(.white)
-                            .padding(.bottom, 25)
+                            .padding(.bottom, 15)
                     }
                 })
-//                .disabled(true)
-                .frame(width: 290, height: 145.5, alignment: .center)
+                    .disabled(musicGenre == "" || highScore == "" ? true : false)
+                .frame(width: 390, height: 190, alignment: .center)
             }
-            
+
             if (showInviteModal) {
                 Button(action: {self.showInviteModal = false}, label: {
                     Rectangle()
@@ -93,7 +139,7 @@ struct LobbyView: View {
                         .opacity(0.4)
                 })
 
-                InvitePlayersModalView(viewModel: self.lobbyViewModel, delegate: self.delegate, showInviteModal: self.$showInviteModal, showInviteButton: self.$showInviteButton)
+                InvitePlayersModalView(viewModel: self.lobbyViewModel, delegate: self.delegate, showInviteModal: self.$showInviteModal, players: self.$lobbyViewModel.players, showInviteButton: self.$showInviteButton)
                     .frame(width: 600, height: 740, alignment: .center)
             }
             
@@ -101,9 +147,3 @@ struct LobbyView: View {
         
     }
 }
-
-//struct LobbyView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LobbyView(lobbyViewModel: LobbyViewModel())
-//    }
-//}

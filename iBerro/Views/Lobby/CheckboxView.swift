@@ -10,19 +10,19 @@ import SwiftUI
 struct CheckboxView: View {
     @State var type: CheckBoxType
     @State var list: [String]
-    @State var selected: String = ""
+    @Binding var selected: String
     
     var body: some View {
-        HStack(spacing: 60){
+        HStack(spacing: 40){
             ForEach(0..<list.count, content: { index in
                 Button(action: {self.selected = list[index]}, label: {
                     HStack{
                         Image(selected == list[index] ? "BgCheckboxSelected" : "BgCheckbox")
                             .resizable()
-                            .frame(width: 60, height: 60, alignment: .trailing)
+                            .frame(width: 32, height: 32, alignment: .trailing)
                         
                         Text(list[index])
-                            .font(.title)
+                            .font(Font.custom("Pexico", size: 24))
                             .foregroundColor(.white)
                             .fontWeight(.bold)
                     }
@@ -36,9 +36,3 @@ enum CheckBoxType {
     case musicGender
     case maxScore
 }
-
-//struct CheckboxView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CheckboxView()
-//    }
-//}

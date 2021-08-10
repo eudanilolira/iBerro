@@ -12,7 +12,8 @@ import SwiftUI
 class LobbyViewController: GKMatchmakerViewController {
     var lobbyView: UIHostingController<LobbyView>?
     var lobbyVM: LobbyViewModel?
-
+    var isHost: Bool = false
+    
     override init?(invite: GKInvite) {
         super.init(invite: invite)
         self.setupLobbyView()
@@ -21,9 +22,9 @@ class LobbyViewController: GKMatchmakerViewController {
     override init?(matchRequest request: GKMatchRequest) {
         super.init(matchRequest: request)
         self.setupLobbyView()
+        self.isHost = true
         self.matchRequest.recipientResponseHandler = { (player, response) in
-            print(player.displayName)
-            print("Response")
+            print("\(player.displayName) - \(response)")
         }
     }
     
@@ -42,7 +43,13 @@ class LobbyViewController: GKMatchmakerViewController {
         })
     }
     
-    func startMatch() {
+    func startMatch(musicGenre: String, highScore: String) {
+        GameCenterHelper.helper.isHost = self.isHost
+        
+        if GameCenterHelper.helper.isHost {
+            GameCenterHelper.helper.musicGenre = musicGenre
+            GameCenterHelper.helper.highScore = Int(highScore)!
+        }
         GKMatchmaker.shared().finishMatchmaking(for: GameCenterHelper.helper.match!)
         
         self.dismiss(animated: false, completion: {
@@ -50,6 +57,10 @@ class LobbyViewController: GKMatchmakerViewController {
         })
     }
     
+    func cancelMatch() {
+        self.dismiss(animated: true, completion: nil)
+    }
+
     private func setupLobbyView() {
         self.lobbyVM = LobbyViewModel(matchRequest: self.matchRequest)
         
@@ -59,6 +70,7 @@ class LobbyViewController: GKMatchmakerViewController {
         
         self.addChild(lobbyView!)
         self.view.addSubview(lobbyView!.view)
+        
 
         if let gameUIHosting = lobbyView {
             gameUIHosting.view.translatesAutoresizingMaskIntoConstraints = false

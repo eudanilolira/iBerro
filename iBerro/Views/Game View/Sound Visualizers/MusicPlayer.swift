@@ -11,8 +11,8 @@ import StoreKit
 import AVFoundation
 
 struct MusicPlayer: View {
-    @State private var musicPlayer = MPMusicPlayerController.applicationMusicPlayer
-    @State private var filter: String = "mpb"
+    @State var game: GameViewModel
+
     @State private var songs = [Song]()
     @State private var player = AVPlayer()
     @State private var soundLevels = [CGFloat](repeating: 5, count: numberOfSamples)
@@ -29,12 +29,14 @@ struct MusicPlayer: View {
                 }
             }
         }
-        .onAppear() {
-            var songs = MusicAPI().searchMusic(filter)
-            if songs == [] {
-                songs = MusicAPI().searchMusic(filter)
+        .onAppear() {            
+            if game.songs == [] {
+                game.songs = MusicAPI().searchMusic(game.model.room.musicGenre, turn: game.turn, playersCount: game.model.players.count)
             }
-            playAudio(songs[0].previewURL)
+            
+            let song = game.songs.remove(at: 0)
+            playAudio(song.previewURL)
+            
         }
     }
     

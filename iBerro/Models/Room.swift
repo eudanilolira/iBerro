@@ -9,5 +9,5 @@ import Foundation
 
 struct Room: Codable {
     var maxScore: Int
-    
+    var musicGenre: String
 }

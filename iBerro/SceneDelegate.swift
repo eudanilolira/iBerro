@@ -11,7 +11,6 @@ import GameKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate, GameCenterHelperDelegate {
     func didChangeAuthStatus(isAuthenticated: Bool) {
-        print("Estou logado!")
         let localPlayer = GKLocalPlayer.local
         
         localPlayer.loadPhoto(for: .normal, withCompletionHandler: { (image, error) in
@@ -21,8 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, GameCenterHelperDelegat
                     isHost: false,
                     photo: ImageWrapper(photo: photo)
                 )
-//                var contentView = MenuView(player: player)
-                var contentView = PlayingView(player: player)
+                var contentView = MenuView(player: player)
                 contentView.gameCenterDelegate = self
                 self.window!.rootViewController = UIHostingController(rootView: contentView)
             }

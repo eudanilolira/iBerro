@@ -8,6 +8,9 @@ import SwiftUI
 import GameKit
 
 struct MenuView: View {
+    
+    @Environment(\.verticalSizeClass) var verticalSize
+    
     var gameCenterDelegate: SceneDelegate?
     @State var player: Player
     
@@ -19,26 +22,24 @@ struct MenuView: View {
             
             VStack {
                 
-                Image(uiImage: UIImage(data: player.photo.image) ?? UIImage(named: "Group 3")!)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(Circle())
-                    .frame(
-                        minWidth: 150,
-                        idealWidth: 200,
-                        maxWidth: 300,
-                        minHeight: 150,
-                        idealHeight: 200,
-                        maxHeight: 300,
-                        alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .padding(.top)
-                
-                Spacer().frame(minWidth: 50, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: 150, minHeight: 20, idealHeight: 40, maxHeight: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                
+                    Image(uiImage: UIImage(data: player.photo.image) ?? UIImage(named: "Group 3")!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(Circle())
+                        .frame(
+                            minWidth: 100,
+                            idealWidth: 200,
+                            maxWidth: 250,
+                            minHeight: 100,
+                            idealHeight: 200,
+                            maxHeight: 250,
+                            alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .padding(.top, 80)
+                    
                 ZStack {
                     
                     Text(player.displayName)
-                        .font(.title)
+                        .font(Font.custom("Pexico", size: 36))
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
@@ -46,36 +47,25 @@ struct MenuView: View {
                     
                 }.frame(minWidth: 80, idealWidth: 200, maxWidth: 400, minHeight: 20, idealHeight: 50, maxHeight: 70, alignment: .center)
                 
-                Spacer().frame(minWidth: 80, idealWidth: 150, maxWidth: 200, minHeight: 80, idealHeight: 200, maxHeight: 250, alignment: .center)
-                
-                Button(action: {gameCenterDelegate!.criarPartida()}, label: {
-                    ZStack{
-                        Image("BgButtonSignIn")
-                            .resizable()
-                        
-                        Text("Enter Room".localized())
-                            .font(.title)
-                            .foregroundColor(.white)
-                            .padding(.bottom, 25)
-                    }
-                })
-                
-                Button(action: {gameCenterDelegate!.criarPartida()}, label: {
-                    ZStack(alignment: .center){
-                        Image("BgButtonCreateRoom")
-                            .resizable()
-                        
-                        
-                        Text("Create Room".localized())
-                            .font(.title)
-                            .foregroundColor(.white)
-                            .padding(.bottom, 25)
-                    }
-                })
+                Spacer()
+                                        
+                    Button(action: {gameCenterDelegate!.criarPartida()}, label: {
+                        ZStack(alignment: .center){
+                            Image("BgButtonCreateRoom")
+                                .resizable()
+                                .frame(minWidth: 100, idealWidth: 350, maxWidth: 450, minHeight: 100, idealHeight: 140, maxHeight: 180, alignment: .center)
+                            
+                            Text("Create Room".localized())
+                                .font(Font.custom("Pexico", size: 36))
+                                .foregroundColor(.white)
+                                .padding(.bottom, 25)
+                        }
+                    })
+                    
                 
                 
             }.padding()
-        }
+        }.ignoresSafeArea()
     }
 }
 

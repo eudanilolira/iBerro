@@ -13,6 +13,7 @@ struct ResultWinnerView: View {
     @State var player: Player
     @State var rect: CGSize = .zero
     @State var generatedImage = UIImage(named: "Group 3")
+    @State var isDragging = false
     
     @Environment(\.horizontalSizeClass) var horizontalSize
     @Environment(\.verticalSizeClass) var verticalSize
@@ -75,38 +76,29 @@ struct ResultWinnerView: View {
                     } .frame(width: 400, height: 240)
                 }
             }
-            .onAppear {
-                DispatchQueue.main.async {
-                    convertViewToData(view: self.body, size: geometry.size) {
-                        guard let imageData = $0 else { return }
-                        generatedImage = UIImage(data: imageData)
-                    }
-                }
-            }
             .onDrag {
-                print(generatedImage!)
-                return NSItemProvider(object: generatedImage! as UIImage)
-                
+                let item = self.snapshot()
+                let provider = NSItemProvider(object: item)
+                return provider
             }
             
         } .frame(width: 600, height: 370, alignment: .center)
     }
 }
 
+extension View {
+    func snapshot() -> UIImage {
+        let controller = UIHostingController(rootView: self)
+        let view = controller.view
 
+        let targetSize = controller.view.intrinsicContentSize
+        view?.bounds = CGRect(origin: .zero, size: targetSize)
+        view?.backgroundColor = .clear
 
-func convertViewToData<V>(view: V, size: CGSize, completion: @escaping (Data?) -> Void) where V: View {
-    guard let rootVC = UIApplication.shared.windows.first?.rootViewController else {
-        completion(nil)
-        return
-    }
-    let imageVC = UIHostingController(rootView: view.edgesIgnoringSafeArea(.all))
-    imageVC.view.frame = CGRect(origin: .zero, size: size)
-    
-    DispatchQueue.main.async {
-        rootVC.view.insertSubview(imageVC.view, at: 0)
-        let uiImage = imageVC.view.asImage(size: size)
-        imageVC.view.removeFromSuperview()
-        completion(uiImage.pngData())
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+
+        return renderer.image { _ in
+            view?.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
+        }
     }
 }

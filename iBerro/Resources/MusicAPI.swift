@@ -9,7 +9,7 @@ import Foundation
 import StoreKit
 
 class MusicAPI {
-    let devToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6IjdMNzRUVEYzQTUifQ.eyJpc3MiOiJTWkRZVDlBMkQ4IiwiZXhwIjoxNjQxOTQ5MzY5LCJpYXQiOjE2MjYxODEzNjl9.HKCP6HSOnYl4hRc_cUD-18dnvWPNUFYqZtjfjxzxbiTaO1traFgv527oRDNWgNjhHFgB8iK8RI0kW3hE1oLG6g"
+    let devToken = "COLOCAR O DEVELOPER TOKEN AQUI"
     func getUserToken() -> String {
         var userToken: String = ""
         let lock = DispatchSemaphore(value: 0)

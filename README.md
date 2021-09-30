@@ -32,7 +32,7 @@
 
 * [Sobre o projeto](#sobre-o-projeto)
 * [Tecnologias utilizadas](#tecnologias-utilizadas)
-* [Gitflow](#git-flow)
+* [Gitflow](#gitflow)
 
 
 <!-- ABOUT THE PROJECT -->
@@ -41,7 +41,7 @@ O iBerro é um aplicativo desenvolvido para iPad onde o jogador canta com seus a
 
 | Esperando | Jogando | Ranking |
 |----------|----------|----------|
-| <img src="assets/esperando.png" alt="Sala de espera" width="280" height="406">  |  <img src="assets/jogando.png" alt="Jogando" width="280" height="406">  |  <img src="assets/ranking.png" alt="Tela de Ranking" width="280" height="406">  |
+| <img src="assets/esperando.png" alt="Sala de espera" width="180.5" height="406">  |  <img src="assets/jogando.png" alt="Jogando" width="180.5" height="406">  |  <img src="assets/ranking.png" alt="Tela de Ranking" width="180.5" height="406">  |
 
 
 ### Tecnologias utilizadas
